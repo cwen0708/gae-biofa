@@ -203,7 +203,9 @@ class DBTitle(DBBase):
     @staticmethod
     def get_by_name(page_name):
         record = db.GqlQuery("SELECT * FROM DBTitle WHERE jq_selector = :1", page_name).get()
-        return record
+        if record is None:
+            return ""
+        return record.image
 
 class DBPImg(DBBase):
     """ 頁面圖片 """
@@ -214,7 +216,9 @@ class DBPImg(DBBase):
     @staticmethod
     def get_by_name(page_name):
         record = db.GqlQuery("SELECT * FROM DBPImg WHERE jq_selector = :1", page_name).get()
-        return record
+        if record is None:
+            return ""
+        return record.image
 
 class DBFoothold(DBBase):
     """ 門市據點 """

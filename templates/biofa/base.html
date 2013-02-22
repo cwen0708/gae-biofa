@@ -37,7 +37,7 @@
 <!-- 本文區開始 -->
 <div id="container" class="wrap">
     <div class="side_menu">
-        <img src="{{ menu_title_image.image }}" alt="menu title" style="float:left;" />
+        <img src="{{ image_menu_title }}" alt="menu title" style="float:left;" />
         <div class="leftMenu">
             {% for item in sub_menu_list  %}
                 <div class="lineD"></div>
@@ -64,6 +64,8 @@
         </div>
 
 <!-- 內文區開始 -->
+
+<div><img src="{{ image_page_title }}" alt="" /></div>
 {% block content %}{% endblock %}
 <!--內文區結束 -->
 

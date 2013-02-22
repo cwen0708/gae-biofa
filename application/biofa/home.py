@@ -6,7 +6,7 @@ from google.appengine.ext import db
 
 class ProductHandler(HomeHandler):
     def init(self):
-        self.menu_title_image = DBPImg.get_by_name("#side_menu_title_product")
+        self.image_menu_title = DBPImg.get_by_name("#side_menu_title_product")
         data_source = db.GqlQuery("SELECT * FROM DBProductCategory WHERE is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc")
         self.sub_menu_list = data_source.fetch(999,0)
         for item in self.sub_menu_list:
@@ -20,7 +20,7 @@ class ProductHandler(HomeHandler):
 
 class MemberHandler(HomeHandler):
     def init(self):
-        self.menu_title_image = DBPImg.get_by_name("#side_menu_title_member")
+        self.image_menu_title = DBPImg.get_by_name("#side_menu_title_member")
         if self.session.has_key("is_login") is False:
             self.is_login = False
             self.session["is_login"] = False
@@ -29,15 +29,15 @@ class MemberHandler(HomeHandler):
 
 class NewsHandler(HomeHandler):
     def init(self):
-        self.menu_title_image = DBPImg.get_by_name("#side_menu_title_news")
+        self.image_menu_title = DBPImg.get_by_name("#side_menu_title_news")
 
 class FaqHandler(HomeHandler):
     def init(self):
-        self.menu_title_image = DBPImg.get_by_name("#side_menu_title_faq")
+        self.image_menu_title = DBPImg.get_by_name("#side_menu_title_faq")
 
 class PartnersHandler(HomeHandler):
     def init(self):
-        self.menu_title_image = DBPImg.get_by_name("#side_menu_title_partners")
+        self.image_menu_title = DBPImg.get_by_name("#side_menu_title_partners")
         data_source = db.GqlQuery("SELECT * FROM DBCountry WHERE is_enable = True and in_trash_can < 0.0  ORDER BY in_trash_can, sort desc")
         self.sub_menu_list = data_source.fetch(99,0)
         for item in self.sub_menu_list:
@@ -46,11 +46,11 @@ class PartnersHandler(HomeHandler):
 
 class RecruitHandler(HomeHandler):
     def init(self):
-        self.menu_title_image = DBPImg.get_by_name("#side_menu_title_recruit")
+        self.image_menu_title = DBPImg.get_by_name("#side_menu_title_recruit")
 
 class ContactHandler(HomeHandler):
     def init(self):
-        self.menu_title_image = DBPImg.get_by_name("#side_menu_title_contact")
+        self.image_menu_title = DBPImg.get_by_name("#side_menu_title_contact")
 
 class index(HomeHandler):
     def get(self, *args):
@@ -84,7 +84,7 @@ class us(HomeHandler):
     def get(self, *args):
         key = self.request.get('key') if  self.request.get('key') is not None else ''
         record = None
-        self.menu_title_image = DBPImg.get_by_name("#side_menu_title_about")
+        self.image_menu_title = DBPImg.get_by_name("#side_menu_title_about")
         self.page_title_image = DBTitle.get_by_name("#about_title")
         data_source = db.GqlQuery("SELECT * FROM DBAbout WHERE is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc")
         self.sub_menu_list = data_source.fetch(99,0)
