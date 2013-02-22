@@ -22,7 +22,7 @@
     {% for item in results %}
     <tr id="node_{{ item.sort }}" data-key="{{ item.str_key }}" {% if item.in_trash_can > 0 %} class="record_already_delete" {% endif %}>
         <td>{{ item.row_no }}</td>
-        <td>[{{ item.jq_selector }}] {{ item.title }}</td>
+        <td>{{ item.title }}</td>
         <td><button type="button" class="btn" data-lang="edit" data-page-url="/admin/ptitle/edit.html?key={{ item.str_key }}"></button></td>
         <td>
             <div class="btn-group" data-toggle="buttons-radio">

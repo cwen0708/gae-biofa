@@ -39,9 +39,20 @@
         {{ record.content }}
     </div>
     <div class="line"></div>
-    <div class="back" align="center"><a href="javascript:history.back(-1)" title=""><img src="img/back_out.gif" alt="" class="img_change" /></a></div>
+    <div class="back" align="center"><a href="javascript:history.back(-1)" title=""><img src="{{ image_product_back }}" alt="" class="img_change" /></a></div>
     <div class="clear"></div>
     <!-- TODO: 5.產品之詳細內容中的back圖示可否再大一點，不太明顯。, 讓他自已上傳 -->
+    <script type="text/javascript">
+        $(function(){
+            var cate = '{{ cate }}';
+            $(".leftMenu .treeThree a").each(function () {
+                if ($(this).attr("href").indexOf(cate) > 0)
+                {
+                    $(this).parent().addClass("menuActive");
+                }
+            });
+        });
+    </script>
 </div>
 
 {% endblock %}

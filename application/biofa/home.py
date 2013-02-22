@@ -402,19 +402,32 @@ class product_list(ProductHandler):
         cate2 = self.request.get('cate2') if  self.request.get('cate2') is not None else u''
         cate3 = self.request.get('cate3') if  self.request.get('cate3') is not None else u''
         data_source = db.GqlQuery("SELECT * FROM DBProduct WHERE is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc")
+
+        self.cate = ''
         if len(cate1) > 0:
             data_source = db.GqlQuery("SELECT * FROM DBProduct WHERE is_enable = True and in_trash_can < 0.0 and category1 = :1 ORDER BY in_trash_can, sort desc", cate1)
+            self.cate = cate1
         if len(cate2) > 0:
             data_source = db.GqlQuery("SELECT * FROM DBProduct WHERE is_enable = True and in_trash_can < 0.0 and category2 = :1 ORDER BY in_trash_can, sort desc", cate2)
+            self.cate = cate1
         if len(cate3) > 0:
             data_source = db.GqlQuery("SELECT * FROM DBProduct WHERE is_enable = True and in_trash_can < 0.0 and category3 = :1 ORDER BY in_trash_can, sort desc", cate3)
+            self.cate = cate1
         self.results = data_source.fetch(size,(page -1)*size)
         self.render("/product_list.html")
 
 class product_view(ProductHandler):
     def get(self, *args):
+        self.image_product_back = DBPImg.get_by_name("#image_product_back")
         self.image_page_title = DBTitle.get_by_name("#product_title")
         self.record = db.get(self.request.get('key'))
+        self.cate = ''
+        if len(self.record.category1) > 0:
+            self.cate = self.record.category1
+        if len(self.record.category2) > 0:
+            self.cate = self.record.category2
+        if len(self.record.category3) > 0:
+            self.cate = self.record.category3
         if self.record.images is not None:
             self.images = self.record.images.split(',')
         self.render("/product_view.html")

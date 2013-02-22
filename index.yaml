@@ -280,3 +280,11 @@ indexes:
   - name: sort
     direction: desc
 
+
+- kind: DBProductCategory
+  properties:
+  - name: level
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+

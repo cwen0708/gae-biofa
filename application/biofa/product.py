@@ -63,12 +63,12 @@ class product_list(AdministratorHandler):
 
 class product_create(AdministratorHandler):
     def get(self, *args):
-        data_source = db.GqlQuery("SELECT * FROM DBProductCategory WHERE is_enable = True and in_trash_can < 0.0 and level = :1 ORDER BY in_trash_can, sort desc", 1)
-        self.level_1_product = data_source.fetch(999,0)
-        data_source = db.GqlQuery("SELECT * FROM DBProductCategory WHERE is_enable = True and in_trash_can < 0.0 and level = :1 ORDER BY in_trash_can, sort desc", 2)
-        self.level_2_product = data_source.fetch(999,0)
-        data_source = db.GqlQuery("SELECT * FROM DBProductCategory WHERE is_enable = True and in_trash_can < 0.0 and level = :1 ORDER BY in_trash_can, sort desc", 3)
-        self.level_3_product = data_source.fetch(999,0)
+        data_source = db.GqlQuery("SELECT * FROM DBProductCategory WHERE in_trash_can < 0.0 and level = :1 ORDER BY in_trash_can, sort desc", 1)
+        self.level_1_product = data_source.fetch(999, 0)
+        data_source = db.GqlQuery("SELECT * FROM DBProductCategory WHERE in_trash_can < 0.0 and level = :1 ORDER BY in_trash_can, sort desc", 2)
+        self.level_2_product = data_source.fetch(999, 0)
+        data_source = db.GqlQuery("SELECT * FROM DBProductCategory WHERE in_trash_can < 0.0 and level = :1 ORDER BY in_trash_can, sort desc", 3)
+        self.level_3_product = data_source.fetch(999, 0)
         self.render("/admin/product/product_create.html")
 
     def post(self, *args):
@@ -106,11 +106,26 @@ class product_create(AdministratorHandler):
 class product_edit(AdministratorHandler):
     def get(self, *args):
         key = self.request.get('key') if  self.request.get('key') is not None else u''
+        data_source = db.GqlQuery("SELECT * FROM DBProductCategory WHERE in_trash_can < 0.0 and level = :1 ORDER BY in_trash_can, sort desc", 1)
+        self.level_1_product = data_source.fetch(999, 0)
+        data_source = db.GqlQuery("SELECT * FROM DBProductCategory WHERE in_trash_can < 0.0 and level = :1 ORDER BY in_trash_can, sort desc", 2)
+        self.level_2_product = data_source.fetch(999, 0)
+        data_source = db.GqlQuery("SELECT * FROM DBProductCategory WHERE in_trash_can < 0.0 and level = :1 ORDER BY in_trash_can, sort desc", 3)
+        self.level_3_product = data_source.fetch(999, 0)
         if len(key) > 0:
             self.record = db.get(key)
-            self.category_1 = db.get(self.record.category3)
-            self.category_2 = db.get(self.record.category2)
-            self.category_3 = db.get(self.record.category1)
+            try:
+                self.category_1 = db.get(self.record.category3)
+            except:
+                self.category_1 = ""
+            try:
+                self.category_2 = db.get(self.record.category2)
+            except:
+                self.category_2 = ""
+            try:
+                self.category_3 = db.get(self.record.category1)
+            except:
+                self.category_3 = ""
             self.images = self.record.images.split(",")
         self.render("/admin/product/product_edit.html")
 
