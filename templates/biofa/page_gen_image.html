@@ -1,0 +1,18 @@
+$(function () {
+    var jq_selector = [{% for item in db_img %}'{{ item.jq_selector }}',{% endfor %}{% for item in db_title %}'{{ item.jq_selector }}',{% endfor %}{% for item in db_background %}'{{ item.jq_selector }}',{% endfor %}''];
+    var jq_images = [{% for item in db_img %}'{{ item.image }}',{% endfor %}{% for item in db_title %}'{{ item.image }}',{% endfor %}{% for item in db_background %}'{{ item.image }}',{% endfor %}''];
+    var is_enable = [{% for item in db_img %}'{{ item.is_enable }}',{% endfor %}{% for item in db_title %}'{{ item.is_enable }}',{% endfor %}{% for item in db_background %}'{{ item.is_enable }}',{% endfor %}''];
+    var is_intrashcan = [{% for item in db_img %}'{{ item.in_trash_can }}',{% endfor %}{% for item in db_title %}'{{ item.in_trash_can }}',{% endfor %}{% for item in db_background %}'{{ item.in_trash_can }}',{% endfor %}''];
+    var img_count = 0;
+    for(img_count = 0;img_count < jq_selector.length; img_count++) {
+        var $img = $(jq_selector[img_count]);
+        var attr = $img.attr('src');
+        if (is_enable[img_count] == 'True' && is_intrashcan[img_count] == '-1.0') {
+            if (typeof attr !== 'undefined' && attr !== false) {
+                $img.attr("src", jq_images[img_count]);
+            }else{
+                $img.css('background-image', 'url(' + jq_images[img_count] + ')');
+            }
+        }
+    }
+});

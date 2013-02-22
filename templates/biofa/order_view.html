@@ -1,0 +1,82 @@
+{% extends "base_member.html" %}
+{% block content %}
+<div><img src="img/order_title.gif" alt="" id="order_title" /></div>
+<div class="textBox recruit">
+	<div class="orderNum">訂單編號：<font color="#970000">3625143324234</font></div>
+    <table cellpadding="0" cellspacing="0" border="0" width="710" class="carTable">
+    	<tr>
+        	<th width="150">產品圖</th>
+            <th>產品名稱</th>
+            <th>產品編號</th>
+            <th>單價</th>
+            <th>數量</th>
+            <th>小計</th>
+        </tr>
+        {% for item in record.items %}
+            <tr>
+                <td align="center"><a href="product_view.html?key={{ item.product_key }}" title=""><img src="{{ item.product_image }}" alt="" class="carImg" /></a></td>
+                <td align="center" class="goodsName"><a href="product_view.html?key={{ item.product_key }}" title="">{{ item.product_name }}</a></td>
+                <td align="center">{{ item.product_no }}</td>
+                <td align="center">NT${{ item.amount }}</td>
+                <td align="center">{{ item.quantity }}</td>
+                <td align="center" class="price">NT${{ item.total }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <table cellpadding="0" cellspacing="0" border="0" width="710" class="carPrice orderPrice">
+    	<tr>
+        	<td>運費：<font color="#FF6600">NT$ {{ record.freight }}</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                訂單總計：<font color="#FF6600">NT$ {{ record.total }}</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                實際付款金額：<font color="#FF6600">NT$ {{ record.total_with_freight }}</font></td>
+        </tr>
+    </table>
+
+    <div><img src="img/carstep01_2.gif" alt="" /></div>
+    <table cellpadding="0" cellspacing="0" border="0" width="710" class="step02_3">
+    	<tr>
+            	<th align="left" width="70">訂購人姓名</th>
+                <td>{{ record.info.order_name }}</td>
+                <th align="left" width="70">聯絡電話</th>
+                <td>{{ record.info.order_telephone }}</td>
+                <th align="left" width="70">手機號碼</th>
+                <td>{{ record.info.order_mobile }}</td>
+            </tr>
+            <tr>
+            	<th align="left">E-Mail</th>
+                <td>{{ record.info.order_email }}</td>
+                <th align="left">聯絡地址</th>
+                <td colspan="3">{{ record.info.order_address }}</td>
+            </tr>
+    </table>
+    <div><img src="img/carstep02_2.gif" alt="" /></div>
+    <table cellpadding="0" cellspacing="0" border="0" width="710" class="step02_3">
+    	<tr>
+            	<th align="left" width="70">收件人姓名</th>
+                <td>{{ record.info.addressee_name }}</td>
+                <th align="left" width="70">聯絡電話</th>
+                <td>{{ record.info.addressee_telephone }}</td>
+                <th align="left" width="70">手機號碼</th>
+                <td>{{ record.info.addressee_mobile }}</td>
+            </tr>
+            <tr>
+            	<th align="left">E-Mail</th>
+                <td>{{ record.info.addressee_email }}</td>
+                <th align="left">聯絡地址</th>
+                <td colspan="3">{{ record.info.addressee_address }}</td>
+            </tr>
+    </table>
+    <div><img src="img/carstep03_2.gif" alt="" /></div>
+    <table cellpadding="0" cellspacing="0" border="0" width="710" class="step02_4">
+    	<tr>
+            	<th align="left" width="70">付款方式</th>
+                <td>{{ record.info.send_type }}</td>
+                <th align="left" width="70">運費</th>
+                <td>NT$ {{ record.freight }}</td>
+                <th align="left" width="70">發票資訊</th>
+                <td>{% if order.info.invoice_type == 2 %}二聯式發票{% else %}三聯式發票{% endif %}</td>
+            </tr>
+    </table>
+    <div class="back" align="center"><a href="javascript:history.back(-1)" title=""><img src="img/back_out.gif" alt="" class="img_change" /></a></div>
+
+</div>
+{% endblock %}

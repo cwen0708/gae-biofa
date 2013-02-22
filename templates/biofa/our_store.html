@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<img src="img/our_store_title.png" alt="加盟專區" id="our_store_title" />
+    <link rel="stylesheet" type="text/css" href="/templates/biofa/js/jquery-jvectormap-1.1.1.css" />
+    <script src="/templates/biofa/js/jquery-jvectormap-1.1.1.min.js" type="text/javascript"></script>
+    <script src="/templates/biofa/js/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
+    <script>
+    jQuery(function(){
+        var c_data = {        {% for item in country_list %}
+            "{{ item.code }}":1,  {% endfor %}
+            "zz": 0
+        }
+        $('#map1').vectorMap({
+            map: 'world_mill_en',
+            backgroundColor: 'transparent',
+            regionStyle: {
+                initial: {
+                    fill: '#cccccc'
+                }
+            },
+            focusOn: {
+                x: 0.8,
+                y: 0.4,
+                scale: 2
+            },
+            onRegionClick: function(event, code) {
+                if (c_data[code] == '1') {
+                    window.location = '/our_store_list.html?country=' + code;
+                }
+            },
+            series: {
+                regions: [{
+                    scale: ['#C8EEFF', '#0071A4'],
+                    normalizeFunction: 'polynomial',
+                    values: c_data
+                }]
+            }
+
+        });
+
+    })
+    </script>
+    <div id="map1" style="width: 780px; height: 580px"></div>
+{% endblock %}

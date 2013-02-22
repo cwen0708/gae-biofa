@@ -1,0 +1,71 @@
+<script>
+    gs.menu.load('/admin/data.html','/admin/jobs/list.html');
+</script>
+<h3 class="page-title">jobs_edit_record</h3>
+
+<form>
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="control-group">
+                <label class="control-label" for="field_title" data-lang="field_title"></label>
+                <div class="controls">
+                    <input type="text" id="field_title" placeholder="" name="title" class="span12" value="{{ record.title }}" />
+                </div>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="control-group">
+                <label class="control-label" for="field_demand_people" data-lang="field_demand_people"></label>
+                <div class="controls">
+                    <input type="text" id="field_demand_people" placeholder="" name="demand_people" class="span12" value="{{ record.demand_people }}" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="control-group">
+                <label class="control-label" for="field_job_department" data-lang="field_job_department"></label>
+                <div class="controls">
+                    <input type="text" id="field_job_department" placeholder="" name="job_department" class="span12" value="{{ record.job_department }}" />
+                </div>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="control-group">
+                <label class="control-label" for="field_job_location" data-lang="field_job_location"></label>
+                <div class="controls">
+                    <input type="text" id="field_job_location" placeholder="" name="job_location" class="span12" value="{{ record.job_location }}" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="control-group">
+                <label class="control-label" for="field_job_link_url" data-lang="field_job_link_url"></label>
+                <div class="controls">
+                    <input type="text" id="field_job_link_url" placeholder="" name="link_url" class="span12" value="{{ record.link_url }}" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span6">
+            <label class="control-label" for="field_job_conditions" data-lang="field_job_conditions"></label>
+            <textarea name="job_conditions" id="field_job_conditions" class="span12" rows="5">{{ record.job_conditions }}</textarea>
+        </div>
+        <div class="span6">
+            <label class="control-label" for="field_work_content" data-lang="field_work_content"></label>
+            <textarea name="work_content" id="field_work_content" class="span12" rows="5">{{ record.work_content }}</textarea>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <div class="span9"></div>
+        <button type="submit" class="btn btn-danger btn-large span3" data-lang="field_submit"></button>
+    </div>
+</form>
+

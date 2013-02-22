@@ -1,0 +1,63 @@
+<script>
+    gs.menu.load('/admin/interactive.html','/admin/member/list.html');
+</script>
+<h3 class="page-title">contact_view_record</h3>
+
+<form>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="control-group">
+                <label class="control-label" data-lang="field_title"></label>
+                <div class="controls">
+                    {{ record.title }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="control-group">
+                <label class="control-label" data-lang="field_contact_name"></label>
+                <div class="controls">
+                    {{ record.name }}
+                </div>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="control-group">
+                <label class="control-label" data-lang="field_contact_address"></label>
+                <div class="controls">
+                    {{ record.address }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="control-group">
+                <label class="control-label" data-lang="field_contact_telephone"></label>
+                <div class="controls">
+                    {{ record.telephone }}
+                </div>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="control-group">
+                <label class="control-label" data-lang="field_contact_email"></label>
+                <div class="controls">
+                    {{ record.email }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12">
+            <label class="control-label" for="field_contact_remark" data-lang="field_contact_remark"></label>
+            <textarea name="remark" id="field_contact_remark" class="span12" rows="5">{{ record.remark }}</textarea>
+        </div>
+    </div>
+</form>
+

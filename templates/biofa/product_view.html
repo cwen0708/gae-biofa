@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<img src="img/product_title.png" alt="商品專區" id="product_title" />
+
+<div class="product_detail">
+    <div class="info">
+        <table border="0" style="width:100%">
+            <tr>
+                <td class="title" colspan="2">{{ record.title }}</td>
+            </tr>
+            <tr>
+                <td colspan="2"><hr class="line" /></td>
+            </tr>
+        </table>
+        {{ record.use_method }}
+        <table border="0" style="width:100%">
+            <tr>
+                <td colspan="2"><hr class="line" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;padding:6px;">
+                    {% if record.is_allowed_to_buy %}
+                    <a style="cursor: pointer;" id="add-to-cart" data-item="{{ record.str_key }}"><img src="img/icon_shoppingcart_add.png" alt="加入購物車" /></a>
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="image">
+        <img src="img/product_load.png" alt="產品圖" id="product_image" width="390" />
+    </div>
+    <!-- TODO: 4.商品購物車訂購按鈕之前有提及，可在後台切換成：加入購物車或是加入諮   詢，以及修改其圖示：加入購物車或是加入諮詢。-->
+    <ul id="mycarousel" class="jcarousel-skin-tango goodsSImg">
+        {% for item in images %}
+        <li><img src="{{ item }}" width="98" alt="" /></li>
+        {% endfor %}
+    </ul>
+
+    <img src="img/product_subtitle.png" alt="商品介紹" />
+    <div style="width: 715px;padding-left: 25px;">
+        {{ record.content }}
+    </div>
+    <div class="line"></div>
+    <div class="back" align="center"><a href="javascript:history.back(-1)" title=""><img src="img/back_out.gif" alt="" class="img_change" /></a></div>
+    <div class="clear"></div>
+    <!-- TODO: 5.產品之詳細內容中的back圖示可否再大一點，不太明顯。, 讓他自已上傳 -->
+</div>
+
+{% endblock %}

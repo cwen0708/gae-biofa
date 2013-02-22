@@ -1,0 +1,48 @@
+cron:
+- description: delete record
+  url: /admin/record/cron_1.html
+  schedule: every sun, mon, tue, wed, thu, fri, sat of month 18:00
+
+- description: delete record
+  url: /admin/record/cron_2.html
+  schedule: every sun, mon, tue, wed, thu, fri, sat of month 18:05
+
+- description: delete record
+  url: /admin/record/cron_3.html
+  schedule: every sun, mon, tue, wed, thu, fri, sat of month 18:10
+
+- description: delete record
+  url: /admin/record/cron_4.html
+  schedule: every sun, mon, tue, wed, thu, fri, sat of month 18:15
+
+- description: delete record
+  url: /admin/record/cron_5.html
+  schedule: every sun, mon, tue, wed, thu, fri, sat of month 18:20
+
+- description: delete record
+  url: /admin/record/cron_6.html
+  schedule: every sun, mon, tue, wed, thu, fri, sat of month 18:25
+
+- description: delete record
+  url: /admin/record/cron_1.html
+  schedule: every sun, mon, tue, wed, thu, fri, sat of month 06:00
+
+- description: delete record
+  url: /admin/record/cron_2.html
+  schedule: every sun, mon, tue, wed, thu, fri, sat of month 06:05
+
+- description: delete record
+  url: /admin/record/cron_3.html
+  schedule: every sun, mon, tue, wed, thu, fri, sat of month 06:10
+
+- description: delete record
+  url: /admin/record/cron_4.html
+  schedule: every sun, mon, tue, wed, thu, fri, sat of month 06:15
+
+- description: delete record
+  url: /admin/record/cron_5.html
+  schedule: every sun, mon, tue, wed, thu, fri, sat of month 06:20
+
+- description: delete record
+  url: /admin/record/cron_6.html
+  schedule: every sun, mon, tue, wed, thu, fri, sat of month 06:25

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+<img src="img/our_store_title.png" alt="加盟專區" id="our_store_title" />
+    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+        google.load('visualization', '1', {'packages': ['geomap']});
+        google.setOnLoadCallback(drawMap);
+
+        function drawMap() {
+            var list_i =0;
+            var list = [['Country', 'Popularity']];
+            var continent = [
+                {
+                    name:"非洲",
+                    country:["DZ","EG","EH","LY","MA","SD","TN","BF","BJ","CI","CV","GH","GM","GN","GW","LR","ML","MR","NE","NG","SH","SL","SN","TG","AO","CD","ZR","CF","CG","CM","GA","GQ","ST","TD","BI","DJ","ER","ET","KE","KM","MG","MU","MW","MZ","RE","RW","SS","SC","SO","TZ","UG","YT","ZM","ZW","BW","LS","NA","SZ","ZA"]
+                },
+                {
+                    name:"歐洲",
+                    country:["GG","JE","AX","DK","EE","FI","FO","GB","IE","IM","IS","LT","LV","NO","SE","SJ","AT","BE","CH","DE","DD","FR","FX","LI","LU","MC","NL","BG","BY","CZ","HU","MD","PL","RO","RU","SU","SK","UA","AD","AL","BA","ES","GI","GR","HR","IT","ME","MK","MT","CS","RS","PT","SI","SM","VA","YU"]
+                },
+                {
+                    name:"美洲",
+                    country:["AG","AI","AN","AW","BB","BL","BS","CU","DM","DO","GD","GP","HT","JM","KN","KY","LC","MF","MQ","MS","PR","TC","TT","VC","VG","VI","BZ","CR","GT","HN","MX","NI","PA","SV","AR","BO","BR","CL","CO","EC","FK","GF","GY","PE","PY","SR","UY","VE"]
+                },
+                {
+                    name:"亞洲",
+                    country:["TM","TJ","KG","KZ","UZ","CN","HK","JP","KP","KR","MN","MO","TW","AF","BD","BT","IN","IR","LK","MV","NP","PK","BN","ID","KH","LA","MM","BU","MY","PH","SG","TH","TL","TP","VN","AE","AM","AZ","BH","CY","GE","IL","IQ","JO","KW","LB","OM","PS","QA","SA","NT","SY","TR","YE","YD"]
+                },
+                {
+                    name:"澳洲",
+                    country:["AU","NF","NZ","FJ","NC","PG","SB","VU","FM","GU","KI","MH","MP","NR","PW","AS","CK","NU","PF","PN","TK","TO","TV","WF","WS"]
+                }
+
+            ]
+            for(var i=0;i<continent.length;i++)
+            {
+                for(var j=0;j<continent[i].country.length;j++)
+                {
+                    list_i++;
+                    list[list_i] = [continent[i].country[j],i*100 ];
+                }
+            }
+            var data = google.visualization.arrayToDataTable(list);
+            var options = {
+                region: '030',   //Eastern Asia 030
+                displayMode: 'regions',
+                colorAxis: {colors: ['6464FF','64B764', 'FF6464', '666666', '0666a9']},
+                legend:'none',
+                tooltip:{trigger:'none'},
+
+                width: 728
+            };
+            var geochart = new google.visualization.GeoChart(document.getElementById('map_canvas'));
+            geochart.draw(data, options);
+
+            google.visualization.events.addListener(geochart, 'regionClick',
+                function(event) {
+
+                    for(var i=0;i<continent.length;i++)
+                    {
+                        for(var j=0;j<continent[i].country.length;j++)
+                        {
+                            if (event.region == continent[i].country[j])
+                            {
+                                alert(continent[i].name);
+                            }
+                        }
+                    }
+                    if (event.region == "CN" || event.region == "JP" || event.region == "TW")
+                    {
+                        location.href = "our_store_list.html";
+                    }
+                }
+            );
+        };
+
+    </script>
+    <div id='map_canvas' style="width:728;overflow:hidden; margin: 10px 10px 30px 10px;border: solid 0px #ddd;"></div>
+{% endblock %}

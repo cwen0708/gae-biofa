@@ -1,0 +1,77 @@
+<script>
+    gs.menu.load('/admin/sell.html','/admin/order/list.html');
+</script>
+
+<h3 class="page-title">商品列表</h3>
+<table class="table table-hover data-list">
+    <tbody>
+    <tr>
+        <th width="150">產品圖</th>
+        <th>產品名稱</th>
+        <th>產品編號</th>
+        <th>單價</th>
+        <th>數量</th>
+        <th>小計</th>
+    </tr>
+    {% for item in order.items %}
+        <tr>
+            <td align="center"><img src="{{ item.product_image }}" alt="" class="carImg" /></td>
+            <td align="center" class="goodsName">{{ item.product_name }}</td>
+            <td align="center">{{ item.product_no }}</td>
+            <td align="center">NT${{ item.amount }}</td>
+            <td align="center">{{ item.quantity }}</td>
+            <td align="center" class="price">NT${{ item.total }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+
+<table class="table table-hover data-list">
+
+    <tr>
+        <th align="left" width="70" style="width: 70px;">訂購人姓名</th>
+        <td>{{ order.info.order_name }}</td>
+        <th align="left" width="70" style="width: 70px;">聯絡電話</th>
+        <td>{{ order.info.order_telephone }}</td>
+        <th align="left" width="70" style="width: 70px;">手機號碼</th>
+        <td>{{ order.info.order_mobile }}</td>
+    </tr>
+    <tr>
+        <th align="left">E-Mail</th>
+        <td>{{ order.info.order_email }}</td>
+        <th align="left">聯絡地址</th>
+        <td colspan="3">{{ order.info.order_address }}</td>
+    </tr>
+    <tr>
+        <th align="left" width="70">訂購人姓名</th>
+        <td>{{ order.info.addressee_name }}</td>
+        <th align="left" width="70">聯絡電話</th>
+        <td>{{ order.info.addressee_telephone }}</td>
+        <th align="left" width="70">手機號碼</th>
+        <td>{{ order.info.addressee_mobile }}</td>
+    </tr>
+    <tr>
+        <th align="left">E-Mail</th>
+        <td>{{ order.info.addressee_email }}</td>
+        <th align="left">聯絡地址</th>
+        <td colspan="3" style="width:270px;">{{ order.info.addressee_address }}</td>
+    </tr>
+    <tr>
+        <th align="left" width="70">付款方式</th>
+        <td>{{ order.info.send_type }}</td>
+        <th align="left" width="70">發票資訊</th>
+        <td colspan="3">{% if order.info.invoice_type == 2 %}二聯式發票{% else %}三聯式發票{% endif %}</td>
+    </tr>
+    <tr>
+        <th align="left" width="70">統編</th>
+        <td>{{ order.info.invoice_number }}</td>
+        <th align="left" width="70">抬頭</th>
+        <td colspan="3">{{ order.info.invoice_title }}</td>
+    </tr>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" width="710" class="total">
+    <tr>
+        <td>訂單總金額 <font color="#FF6600">(NT$ {{ order.total }})</font> + 運費 <font color="#FF6600">(NT$ {{ order.freight }})</font> ＝ <span><font color="#FF6600">NT$ {{ order.total_with_freight }}</font></span></td>
+    </tr>
+</table>

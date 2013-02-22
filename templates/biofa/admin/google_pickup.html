@@ -1,0 +1,208 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <style type="text/css">
+        body{
+            padding: 0px;
+            margin: 0px;
+            background: #DFDFDF;
+        }
+        .wrap{
+            width:984px;
+            margin: 170px auto;
+            border: solid 1px #cccccc;
+            min-height: 500px;
+            background: #FFFFFF;
+            position: relative;
+        }
+        .nav{
+            background: #F1F4F5;
+            background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F1F4F5), to(#E3E5E6));
+            background: -webkit-linear-gradient(top, #F1F4F5, #E3E5E6);
+            background: -moz-linear-gradient(top, #F1F4F5, #E3E5E6);
+            background: -ms-linear-gradient(top, #F1F4F5, #E3E5E6);
+            background: -o-linear-gradient(top, #F1F4F5, #E3E5E6);
+            -webkit-box-shadow: 0px 1px 2px #999;
+            -moz-box-shadow: 0px 1px 2px #999;
+            box-shadow: 0px 1px 2px #999;
+            margin: 0 0 0 -7px;
+            padding: 0;
+            width: 998px;
+            height: 33px;
+            display: block;
+            position: relative;
+        }
+        .nav li{
+            float: left;
+            list-style-type: none;
+        }
+        .nav li a{
+            margin: 0;
+            padding: 1px 20px 0;
+            display: block;
+            color: #555;
+            font-size: 13px;
+            line-height: 33px;
+        }
+        .nav li a:hover{
+            background: #888888;
+            color: #FFFFFF;
+        }
+        .nav::before
+        {
+            -webkit-transform: rotate(-135deg);
+            -moz-transform: rotate(-135deg);
+            -o-transform: rotate(-135deg);
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 2px;
+            border: 5px solid;
+            border-color: #888888 transparent transparent transparent;
+        }
+        .nav::after
+        {
+            -webkit-transform: rotate(135deg);
+            -moz-transform: rotate(135deg);
+            -o-transform: rotate(135deg);
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            right: 2px;
+            border: 5px solid;
+            border-color: #888888 transparent transparent transparent;
+        }
+        .user{
+            margin: -100px 0px 0px 0px;
+            position: absolute;
+            right: -1px;
+            top: 0px;
+            width: 370px;
+            height: 180px;;
+            border: solid 1px #cccccc;
+            background: #FFFFFF;
+        }
+        .user::after
+        {
+            -webkit-transform: rotate(-125deg);
+            -moz-transform: rotate(-125deg);
+            -o-transform: rotate(-125deg);
+            content: "";
+            position: absolute;
+            top: -27px;
+            right: -40px;
+            border: 27px solid;
+            border-color: #DDDDDD transparent transparent transparent;
+        }
+        .pagetitle{
+            margin: -31px 0px 0px 0px;
+            position: absolute;
+            left: -1px;
+            top: 0px;
+            width: 270px;
+            height: 60px;;
+            border: solid 1px #cccccc;
+            background: #FFFFFF;
+            border-bottom-width:0px;
+            border-right-width:0px;
+            padding: 10px;
+            color: #666666;
+            font-size: 17px;
+        }
+        .pagetitle::after
+        {
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            content: "";
+            position: absolute;
+            top: 12px;
+            right: -26px;
+            border: 26px solid;
+            border-color: #FFFFFF transparent transparent transparent;
+        }
+    </style>
+
+    <script src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+        // Google Picker API for the Google Docs import
+        function newPicker() {
+            google.load('picker', '1', { "callback": createPicker, 'language': 'zh-TW' });
+        }
+
+        // Create and render a Picker object for selecting documents
+        function createPicker() {
+            var picker = new google.picker.PickerBuilder().
+                addViewGroup(
+                    new google.picker.ViewGroup(google.picker.ViewId.DOCS).
+                        addView(google.picker.ViewId.DOCUMENTS).
+                        addView(google.picker.ViewId.FOLDERS).
+                        addView(google.picker.ViewId.IMAGE_SEARCH).
+                        addView(google.picker.ViewId.FORMS).
+                        addView(google.picker.ViewId.PRESENTATIONS).
+                        addView(google.picker.ViewId.RECENTLY_PICKED).
+                        addView(google.picker.ViewId.SPREADSHEETS).
+                        addView(google.picker.ViewId.VIDEO_SEARCH).
+                        addView(google.picker.ViewId.WEBCAM).
+                        addView(google.picker.ViewId.YOUTUBE).
+                        addView(google.picker.ViewId.DOCS_VIDEOS).
+                        addView(google.picker.ViewId.MAPS).
+                        addView(google.picker.ViewId.PDFS).
+                        addView(google.picker.ViewId.DOCS_IMAGES)
+                        ).
+                addViewGroup(
+                    new google.picker.ViewGroup(google.picker.ViewId.PHOTOS).
+                            addView(google.picker.ViewId.PHOTO_ALBUMS).
+                            addView(google.picker.ViewId.PHOTOS).
+                        addView(google.picker.ViewId.PHOTO_UPLOAD)).
+                setCallback(pickerCallback).
+                build();
+            picker.setVisible(true);
+        }
+
+        // A simple callback implementation.
+        function pickerCallback(data) {
+
+            var url = 'nothing';
+            if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
+                var doc = data[google.picker.Response.DOCUMENTS][0];
+                var thumbnail = doc[google.picker.Document.THUMBNAILS][3];
+                url = thumbnail[google.picker.Thumbnail.URL];
+            }
+            var message = "You picked: " + url + "<br />";
+            document.getElementById('result').innerHTML = message;
+
+            if (url.indexOf("http://youtube.com/?v=") >=0 ){
+                url = url.replace("http://youtube.com/?v=","http://www.youtube.com/embed/");
+            }
+            $("#if").attr("src", url);
+
+        }
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <div class="pagetitle">
+        <a href="javascript:newPicker()" style="font-weight: bold">載入文件</a>
+    </div>
+    <div class="user">
+        123
+        456
+    </div>
+    <br />
+    <br />
+    <br />
+    <ul class="nav">
+        <li><div id="result"></div></li>
+    </ul>
+    <iframe src="" id="if" style="width: 984px;border:solid 0px; height:800px;"></iframe>
+    <br />
+    <br />
+<img src="https://picasaweb.google.com/108719923775574154123/20132807" />
+</div>
+</body>
+</html>

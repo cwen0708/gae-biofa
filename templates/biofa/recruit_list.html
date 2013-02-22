@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div><img src="img/recruit_title.gif" alt="" id="recruit_title" /></div>
+<div class="textBox recruit">
+    {% for item in results %}
+	<div class="recruitList">
+    	<table cellpadding="0" cellspacing="0" border="0" width="710" class="recruitTitle">
+        	<tr>
+            	<th width="436" align="left">{{ item.title }}</th>
+                <td width="139" align="center">需求人數：{{ item.demand_people }}人</td>
+                <td width="135" align="center">發佈日：{{ item.date_of_public_f }}</td>
+            </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" width="710" class="recruitCon">
+        	<tr>
+            	<th width="81" align="left" valign="top">部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;門：</th>
+                <td width="419">{{ item.job_department }}</td>
+                <td width="210" rowspan="4" align="center">
+                    {% if item.link_url != '' %}
+                    <a href="{{ item.link_url }}" title="" target="_blank"><img src="img/104_out.gif" alt="" class="img_change" /></a>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+            	<th align="left" valign="top">工作地點：</th>
+                <td>{{ item.job_location }}</td>
+            </tr>
+            <tr>
+            	<th align="left" valign="top">職位條件：</th>
+                <td>{{ item.job_conditions }}</td>
+            </tr>
+            <tr>
+            	<th align="left" valign="top">工作內容：</th>
+                <td>{{ item.work_content }}</td>
+            </tr>
+        </table>
+        <div align="center" class="recruitBtn"><a href="recruit_view.html?key={{ item.str_key }}" title=""><img src="img/recruit_out.gif" alt="" class="img_change" /></a></div>
+        <div class="clear"></div>
+    </div>
+    <div class="lineD"></div>
+    {% endfor %}
+</div>
+<!-- page -->
+<div class="pager" align="center"><a href="#" title="上一頁"><img src="img/prev_out.gif" alt="上一頁" class="img_change prev" align="absmiddle" /></a><span class="current">1</span>‧<a href="#" title="2">2</a>‧<a href="#" title="3">3</a><a href="#" title="4">4</a>‧<a href="#" title="5">5</a><a href="#" title="下一頁"><img src="img/next_out.gif" alt="下一頁" class="img_change next" align="absmiddle" /></a></div>
+<!-- page end -->
+{% endblock %}

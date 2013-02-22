@@ -1,0 +1,51 @@
+<script>
+    gs.menu.load('/admin/sell.html',"/admin/product/category_list.html");
+</script>
+<div class="list-top-bar span3 ">
+    <button type="button" class="btn btn-danger btn-large" data-lang="productcategory_create_record" data-page-url="/admin/product/category_create.html"></button>
+</div>
+
+<div class="pagination pagination-small pagination-right span9 padding15" data-page-all="{{ page_all }}" data-page-now="{{ page_now }}"></div>
+
+<table class="table table-hover data-list">
+    <thead>
+    <tr>
+        <th style="width:18px">　</th>
+        <th style="width:18px">　</th>
+        <th data-lang="title"></th>
+        <th style="width:115px"><br /></th>
+        <th style="width:60px"><br /></th>
+        <th style="width:100px"><br /></th>
+        <th style="width:60px"><br /></th>
+    </tr>
+    </thead>
+    <tbody class="sort">
+    {% for item in results %}
+    <tr id="node_{{ item.sort }}" data-key="{{ item.str_key }}" {% if item.in_trash_can > 0 %} class="record_already_delete" {% endif %}>
+        {% if item.level == 1 %}
+            <td colspan="3">{{ item.title }}</td>
+        {% endif %}
+        {% if item.level == 2 %}
+            <td style="background: #efefef;">　</td>
+            <td colspan="2">{{ item.title }}</td>
+        {% endif %}
+        {% if item.level == 3 %}
+            <td style="background: #efefef;">　</td>
+            <td style="background: #efefef;">　</td>
+            <td colspan="1">{{ item.title }}</td>
+        {% endif %}
+        <td>
+            <button type="button" class="btn" data-lang="view_sub_product" data-page-url="/admin/product/product_list.html?key={{ item.str_key }}"></button>
+        </td>
+        <td><button type="button" class="btn" data-lang="edit" data-page-url="/admin/product/category_edit.html?key={{ item.str_key }}"></button></td>
+        <td>
+            <div class="btn-group" data-toggle="buttons-radio">
+                <button class="btn btn-set-enable {% if item.is_enable == True %} active{% endif %}" data-lang="show" data-json-url="/admin/record/enable.json?key={{ item.str_key }}"></button>
+                <button class="btn btn-set-disable {% if item.is_enable == False %} active{% endif %}" data-lang="hide" data-json-url="/admin/record/disable.json?key={{ item.str_key }}"></button>
+            </div>
+        </td>
+        <td><button type="button" class="btn" data-lang="delete" data-json-url="/admin/record/delete.json?key={{ item.str_key }}"></button></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,42 @@
+<script type="text/javascript" src="/templates/biofa/assets/code-editor/ace.js" ></script>
+<script type="text/javascript" src="/templates/biofa/assets/code-editor/worker-css.js" ></script>
+<script type="text/javascript" src="/templates/biofa/assets/code-editor/mode-css.js" ></script>
+<script type="text/javascript" src="/templates/biofa/assets/code-editor/theme-chrome.js" ></script>
+<style type="text/css" media="screen">
+    #editor {
+        padding: 0;
+        display: block;
+        min-height: 500px;
+    }
+    .ace_editor{
+        position: relative;
+    }
+
+
+</style>
+
+<script>
+    gs.menu.load('/admin/theme.html','/admin/sitep/edit.html?name=css');
+    var editor = ace.edit("editor");
+    var txt = $('#inputContent'); //.hide();
+    editor.setTheme("ace/theme/chrome");
+    editor.getSession().setMode("ace/mode/css");
+    editor.getSession().setValue(txt.val());
+    editor.getSession().on('change', function(){
+        txt.val(editor.getSession().getValue());
+    });
+</script>
+
+<form>
+
+<input type="hidden" name="key" value="{{ record.str_key }}" />
+<pre id="editor">{{ record.content }}</pre>
+<div style="clear: both;"></div>
+<div style="display: none;">
+    <textarea name="content" id="inputContent" class="span12 ">{{ record.content }}</textarea>
+</div>
+<div class="form-actions">
+    <div class="span9"></div>
+    <button type="submit" class="btn btn-danger btn-large span3" id="send" data-lang="field_submit"></button>
+</div>
+</form>

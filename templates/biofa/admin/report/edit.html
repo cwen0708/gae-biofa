@@ -1,0 +1,26 @@
+<script>
+    gs.menu.load('/admin/setting.html','/admin/report/list.html');
+</script>
+<h3 class="page-title">report_create_record</h3>
+
+<form>
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="control-group">
+                <label class="control-label" for="field_title" data-lang="field_title"></label>
+                <div class="controls">
+                    <input type="text" id="field_title" placeholder="" value="{{ record.title }}" name="title" class="span12" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <label class="control-label" for="inputContent" data-lang="field_content"></label>
+    <textarea name="content" id="inputContent" class="span12 editor">{{ record.content }}</textarea>
+
+    <div class="form-actions">
+        <div class="span9"></div>
+        <button type="submit" class="btn btn-danger btn-large span3" data-lang="field_submit"></button>
+    </div>
+</form>
+

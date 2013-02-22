@@ -1,0 +1,37 @@
+<script>
+    gs.menu.load('/admin/sell.html',"/admin/product/category_list.html?size=1000");
+</script>
+<h3 class="page-title">productcategory_create_record</h3>
+
+<form>
+    <div class="row-fluid">
+        <div class="span8">
+            <div class="control-group">
+                <label class="control-label" for="field_productcategory_title" data-lang="field_productcategory_title"></label>
+                <div class="controls">
+                    <input type="text" id="field_productcategory_title" placeholder="" name="title" class="span12" />
+                </div>
+            </div>
+        </div>
+        <div class="span4">
+            <div class="control-group">
+                <label class="control-label" for="inputNewsType" data-lang="field_product_level"></label>
+                <div class="controls">
+                    <select id="inputNewsType" class="span12" name="level">
+                        <option value="1">第 1 層目錄</option>
+                        <option value="2">第 2 層目錄</option>
+                        <option value="3">第 3 層目錄</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" name="category" value="root" />
+
+    <div class="form-actions">
+        <div class="span9"></div>
+        <button type="submit" class="btn btn-danger btn-large span3" data-lang="field_submit"></button>
+    </div>
+</form>
+

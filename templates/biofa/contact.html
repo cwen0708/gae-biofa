@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block content %}
+    <div><img src="img/recruit_title.gif" alt="" id="contact_title" /></div>
+    <form>
+        <div class="textBox recruit">
+            <table cellpadding="0" cellspacing="0" border="0" width="680" class="contactText" align="center">
+                <tr>
+                    <td class="contactInfo"><font color="#970000">金祿生技股份有限公司</font><br/>
+                        台中市南區大慶街二段49之20號<br/>
+                        電話：(04)2263-8569<br/>
+                        傳真：(04)2263-2215
+                    </td>
+                    <td align="right">
+                        <iframe width="450" height="125" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=zh-TW&amp;geocode=+&amp;q=%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%8D%97%E5%8D%80%E5%A4%A7%E6%85%B6%E8%A1%97%E4%BA%8C%E6%AE%B549%E4%B9%8B20%E8%99%9F&amp;ie=UTF8&amp;hq=&amp;hnear=402%E5%8F%B0%E7%81%A3%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%8D%97%E5%8D%80%E5%A4%A7%E6%85%B6%E8%A1%97%E4%BA%8C%E6%AE%B549%E8%99%9F&amp;t=m&amp;ll=24.117928,120.648937&amp;spn=0.009792,0.038538&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+                    </td>
+                </tr>
+            </table>
+            <div class="lineD"></div>
+                <div style="text-align: center;width: 100%; line-height: 250px; display: none;" id="thx">謝謝您，我們將會儘快處理你的問題。</div>
+                <div id="form_area">
+                    <div class="contactFormText">
+                        ※ 請確實填寫聯絡表單資料，我們將會盡快為您作回覆。 欄位中有 " <font color="#CC9900">*</font> "
+                        部分為必填欄位，請務必確實填寫資料。
+                    </div>
+                    <table cellpadding="0" cellspacing="0" border="0" width="710" class="contactForm">
+                        <tr>
+                            <th width="80" align="left"><font color="#CC9900">*</font>標題</th>
+                            <td width="630">
+                                <input type="text" name="title" value="" class="input w295"/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <span class="error" id="error_title"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th align="left"><font color="#CC9900">*</font>聯絡姓名</th>
+                            <td><input type="text" name="name" value="" class="input w295"/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <span class="error" id="error_name"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th align="left"><font color="#CC9900">*</font>聯絡電話</th>
+                            <td><input type="text" name="telephone" value="" class="input w200"/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <span class="error" id="error_telephone"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th align="left"><font color="#CC9900">*</font>聯絡信箱</th>
+                            <td><input type="text" name="email" value="" class="input w295"/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <span class="error" id="error_email"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th align="left">&nbsp;&nbsp;聯絡地址</th>
+                            <td>
+                                <input id="address" name="address" value="台中市南區" class="twaddress" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th align="left" valign="top"><font color="#CC9900">*</font>諮詢內容</th>
+                            <td>
+                                <textarea rows="8" name="content" class="input w500"></textarea>
+                                <span class="error" id="error_content"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th align="left"><font color="#CC9900">*</font>驗證碼</th>
+                            <td>
+                                <input type="text" name="code" value="" class="input w80" />
+                                &nbsp;&nbsp;&nbsp;
+                                <span id="error_code" class="error"></span>&nbsp;&nbsp;
+                                <a heef="#" id="change_v_code" style="cursor: pointer;">更換驗證碼</a>
+                                <iframe src="" style="border: 0px; width:142px; height:25px;" scrolling="no" id="v_code_iframe"></iframe>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="lineD"></div>
+                    <div class="btn" align="center">
+                        <button type="reset" style="padding: 0px;border: 0px;background: white;cursor: pointer;"><img src="img/reset_out.gif" class="img_change" /></button>
+                        <button type="button" style="padding: 0px;border: 0px;background: white;cursor: pointer;" id="submit"><img  src="img/submit_out.gif" class="img_change"/></button>
+                    </div>
+
+                </div>
+            </div>
+    </form>
+    <script type="text/javascript">
+        $(function(){
+            $("#submit").click(function(){
+                $(".error").html("").prev().removeClass("on_error");
+                json("/contact.json",$("form").serialize(),function(data){
+                    for(prop in data)
+                    {
+                        if (data[prop] != ""){
+                            $("#error_" + prop ).html(data[prop]).prev().addClass("on_error");
+                        }
+                    }
+                    if (data.info.toString() == "done")
+                    {
+                        $("#form_area").slideUp();
+                        $("#thx").slideDown();
+                    }
+                },function(data){
+                })
+            });
+        });
+    </script>
+{% endblock %}
+
+
+https://accounts.google.com/AccountChooser?service=lso&continue=https%3A%2F%2Faccounts.google.com%2Fo%2Fopenid2%2Fauth%3Fzt%3DChRfVTVyYTNOcWctZVJwRlRnUjBBeBIfa3BOanA0VWNOQllTZ3JLWG50UUFheDJnZ2NJb2VRSQ%25E2%2588%2599APsBz4gAAAAAUQtfhxSO4v5G_AukoXqgW5Fe0o3wncjS%26from_login%3D1%26hl%3Dzh-TW%26as%3D69e32298e647df1c&btmpl=authsub&hl=zh_TW
+https://accounts.google.com/o/openid2/auth?zt=ChRfVTVyYTNOcWctZVJwRlRnUjBBeBIfa3BOanA0VWNOQllTZ3JLWG50UUFheDJnZ2NJb2VRSQ%E2%88%99APsBz4gAAAAAUQtfhxSO4v5G_AukoXqgW5Fe0o3wncjS&from_login=1&hl=zh-TW&as=69e32298e647df1c&pli=1&authuser=0

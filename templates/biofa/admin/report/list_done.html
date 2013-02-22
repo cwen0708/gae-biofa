@@ -1,0 +1,30 @@
+<script>
+    gs.menu.load('/admin/setting.html',"/admin/report/list_done.html");
+</script>
+<div class="list-top-bar span5 ">
+    <br/><br/>
+    <!-- <button type="button" class="btn btn-large reload_menu_file" data-lang="apply"></button> -->
+</div>
+
+<div class="pagination pagination-small pagination-right span7 padding15" data-page-all="{{ page_all }}" data-page-now="{{ page_now }}"></div>
+
+<table class="table table-hover data-list">
+    <thead>
+    <tr>
+        <th style="width:30px">#</th>
+        <th data-lang="title"></th>
+        <th style="width:60px"><br /></th>
+        <th style="width:140px"><br /></th>
+    </tr>
+    </thead>
+    <tbody class="sort">
+    {% for item in results %}
+    <tr id="node_{{ item.sort }}" data-key="{{ item.str_key }}" {% if item.in_trash_can > 0 %} class="record_already_delete" {% endif %}>
+        <td>{{ item.row_no }}</td>
+        <td>{{ item.title }}</td>
+        <td><button type="button" class="btn" data-lang="edit" data-page-url="/admin/report/edit.html?key={{ item.str_key }}"></button></td>
+        <td><button type="button" class="btn" data-lang="report_transform_2" data-json-url="/admin/report/restore.json?key={{ item.str_key }}"></button></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,91 @@
+{% extends "base_member.html" %}
+{% block content %}
+<div><img src="img/login_title.gif" alt="" id="login_title" /></div>
+{% if is_login %}
+    <div class="textBox recruit">
+        <div class="text">親愛的 <font color="#990707">{{ user_name }}</font> 會員，歡迎您的登入。我們提供您以下的服務。</div>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" class="service">
+            <tr>
+                <td width="20"><img src="img/icon03.gif" alt="" /></td>
+                <td><a href="cart01.html" title="">購物車</a></td>
+                <td width="20"><img src="img/icon03.gif" alt="" /></td>
+                <td><a href="order.html" title="">訂單查詢</a></td>
+                <td width="20"><img src="img/icon03.gif" alt="" /></td>
+                <td><a href="newsletter.html" title="">訂閱電子報</a></td>
+                <td width="20"><img src="img/icon03.gif" alt="" /></td>
+                <td><a href="info.html" title="">修改會員資料</a></td>
+            </tr>
+        </table>
+        <div class="line"></div>
+        <div class="btn" align="center"><input type="image" src="img/logoutbtn_out.gif" class="img_change" /></div>
+    </div>
+{% else %}
+    <div class="textBox recruit">
+        <form>
+        <div class="loginBox">
+            <div>
+                {{ text.content }}
+            </div>
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td width="30"><img src="img/icon03.gif" alt="" /></td>
+                    <th align="left" width="60">會員帳號</th>
+                    <td><input type="text" value="" name="account" class="input w295" /></td>
+                </tr>
+                <tr>
+                    <td><img src="img/icon03.gif" alt="" /></td>
+                    <th align="left">會員密碼</th>
+                    <td><input type="password" name="password" value="" class="input w295" /></td>
+                </tr>
+                <tr>
+                    <td><img src="img/icon03.gif" alt="" /></td>
+                    <th align="left">驗證碼</th>
+                    <td>
+                        <input type="text" name="code" value="" class="input w80" />
+                        &nbsp;&nbsp;&nbsp;
+                        <span id="error_code" class="error"></span>&nbsp;&nbsp;
+                        <a heef="#" id="change_v_code" style="cursor: pointer;">更換驗證碼</a>
+                        <iframe src="" style="border: 0px; width:142px; height:25px;" scrolling="no" id="v_code_iframe"></iframe>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="memberBtn">
+            <a href="join.html" title=""><img src="img/joinbtn_out.gif" alt="" class="img_change"  /></a>
+            <a href="password.html" title=""><img src="img/passwordbtn_out.gif" alt="" class="img_change"  /></a>
+        </div>
+        <div class="clear"></div>
+        <div class="line"></div>
+        <div class="btn" align="center">
+            <button type="reset" style="padding: 0px;border: 0px;background: white;cursor: pointer;"><img src="img/reset_out.gif" class="img_change" /></button>
+            <button type="button" style="padding: 0px;border: 0px;background: white;cursor: pointer;" id="submit"><img  src="img/submit_out.gif" class="img_change"/></button>
+        </div>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        $(function(){
+            $("#submit").click(function(){
+                json("/login.json",$("form").serialize(),function(data){
+                    for(prop in data)
+                    {
+                        if (data[prop] != ""){
+                            $("#error_" + prop ).html(data[prop]).prev().addClass("on_error");
+                        }else{
+                            $("#error_" + prop ).html("").prev().removeClass("on_error");
+                        }
+                    }
+                    if (data.info.toString() == "done")
+                    {
+                        location.reload()
+                    }else{
+                        alert(data.info);
+                    }
+
+                },function(data){
+                })
+            });
+        });
+    </script>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,31 @@
+<script>
+    gs.menu.load('/admin/data.html','/admin/country/list.html');
+</script>
+<h3 class="page-title">country_edit_record</h3>
+
+<form>
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="control-group">
+                <label class="control-label" for="field_country_title" data-lang="field_country_title"></label>
+                <div class="controls">
+                    <input type="text" id="field_country_title" placeholder="" name="title" value="{{ record.title }}" class="span12" />
+                </div>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="control-group">
+                <label class="control-label" for="field_country_code" data-lang="field_country_code"></label>
+                <div class="controls">
+                    <input type="text" id="field_country_code" placeholder="" name="code" value="{{ record.code }}" class="span12" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <div class="span9"></div>
+        <button type="submit" class="btn btn-danger btn-large span3" data-lang="field_submit"></button>
+    </div>
+</form>
+

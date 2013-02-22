@@ -1,0 +1,282 @@
+indexes:
+- kind: DBNews
+  properties:
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+- kind: DBNews
+  properties:
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+- kind: DBAbout
+  properties:
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBJobs
+  properties:
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBAbout
+  properties:
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBFoothold
+  properties:
+  - name: category
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBCountry
+  properties:
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBBanner
+  properties:
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBProductCategory
+  properties:
+  - name: is_enable
+  - name: level
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBProduct
+  properties:
+  - name: category
+  - name: sort
+    direction: desc
+
+
+- kind: DBProductCategory
+  properties:
+  - name: category
+  - name: sort
+    direction: desc
+
+
+- kind: DBProductCategory
+  properties:
+  - name: level
+  - name: sort
+    direction: desc
+
+
+- kind: DBProduct
+  properties:
+  - name: category1
+  - name: sort
+    direction: desc
+
+
+- kind: DBProduct
+  properties:
+  - name: category1
+  - name: is_enable
+  - name: sort
+    direction: desc
+
+
+- kind: DBProduct
+  properties:
+  - name: category1
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBProduct
+  properties:
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBProduct
+  properties:
+  - name: category2
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBProduct
+  properties:
+  - name: category3
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBPartners
+  properties:
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBBackground
+  properties:
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBPImg
+  properties:
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBPage
+  properties:
+  - name: can_delete
+  - name: sort
+    direction: desc
+
+
+- kind: DBFreight
+  properties:
+  - name: is_enable
+  - name: start
+
+
+- kind: DBOrder
+  properties:
+  - name: status
+  - name: sort
+    direction: desc
+
+
+- kind: DBTitle
+  properties:
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBTitle
+  properties:
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+- kind: DBProduct
+  properties:
+  - name: category3
+  - name: sort
+    direction: desc
+- kind: DBFaq
+  properties:
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBNewsletter
+  properties:
+  - name: is_enable
+  - name: sort
+    direction: desc
+
+
+- kind: DBMenu
+  properties:
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBLink
+  properties:
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBProduct
+  properties:
+  - name: category2
+  - name: sort
+    direction: desc
+
+
+- kind: DBProductCategory
+  properties:
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBReport
+  properties:
+  - name: status
+  - name: sort
+    direction: desc
+
+
+- kind: DBNewsCategory
+  properties:
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBNews
+  properties:
+  - name: category
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBFaqCategory
+  properties:
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+

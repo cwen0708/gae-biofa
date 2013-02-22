@@ -1,0 +1,87 @@
+{% extends "base_member.html" %}
+{% block content %}
+<div><img src="" alt="" id="order_title" /></div>
+{% if is_login %}
+    <div class="textBox recruit">
+        <table cellpadding="0" cellspacing="0" border="0" width="710" class="orderTable">
+            <tr>
+                <th width="150">訂單編號</th>
+                <th>訂單日期</th>
+                <th>訂單金額</th>
+                <th>訂單狀態</th>
+                <th>付款通知</th>
+            </tr>
+            {% for item in order_list %}
+            <tr>
+                <td align="center" class="goodsName"><a href="order_view.html?key={{ item.str_key }}" title="">{{ item.number }}</a></td>
+                <td align="center" class="goodsName">{{ item.create_date }}</td>
+                <td align="center">NT$ {{ item.total }}</td>
+                <td align="center">
+                    {{ item.status }} -
+                    {% if item.status == 1 %}未確認{% endif %}
+                    {% if item.status == 2 %}已確認{% endif %}
+                    {% if item.status == 3 %}已出貨{% endif %}
+                    {% if item.status == 4 %}缺貨，補貨中{% endif %}
+                    {% if item.status == 5 %}{% endif %}
+                    {% if item.status == 6 %}{% endif %}
+                </td>
+                <td align="center" class="price"><a title="" class="writePayInfo" data-order-id="{{ item.number }}" data-need-pay="{{ item.total }}"><img src="img/pay_out.gif" alt="" class="img_change" /></a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <!-- page -->
+        <div class="pager" align="center"><a title="上一頁"><img src="img/prev_out.gif" alt="上一頁" class="img_change prev" align="absmiddle" /></a><span class="current">1</span>‧<a title="2">2</a>‧<a title="3">3</a><a title="4">4</a>‧<a title="5">5</a><a title="下一頁"><img src="img/next_out.gif" alt="下一頁" class="img_change next" align="absmiddle" /></a></div>
+        <!-- page end -->
+
+        <div style="display: none;">
+            <div id="formSendPayInfo">
+                <table class="formSendPayInfo">
+                    <tr>
+                        <td>訂單編號</td>
+                        <td><span id="order_id"></span></td>
+                    </tr>
+                    <tr><td colspan="2"><hr class="line" /></td></tr>
+                    <tr>
+                        <td>需付款金額</td>
+                        <td>$ <span class="needPay"></span></td>
+                    </tr>
+                    <tr><td colspan="2"><hr class="line" /></td></tr>
+                    <tr>
+                        <td>實際付款金額</td>
+                        <td class="realPay"></td>
+                    </tr>
+                    <tr><td colspan="2"><hr class="line" /></td></tr>
+                    <tr>
+                        <td>付款日期</td>
+                        <td>民國
+                            <select>
+                                <option>101</option>
+                            </select> 年
+                            <select>
+                                <option>01</option>
+                            </select> 月
+                            <select>
+                                <option>01</option>
+                            </select> 日
+                        </td>
+                    </tr>
+                    <tr><td colspan="2"><hr class="line" /></td></tr>
+                    <tr>
+                        <td>帳號後五碼</td>
+                        <td></td>
+                    </tr>
+                    <tr><td colspan="2"><hr class="line" /></td></tr>
+                    <tr><td colspan="2" style="text-align: center;">
+                        <a href="#" style="margin:0 5px;">
+                            <img src="/templates/biofa/img/reset_out.gif" class="img_change" />
+                        </a>
+                        <a href="#" style="margin:0 5px;">
+                            <img src="/templates/biofa/img/submit_over.gif" class="img_change" />
+                        </a>
+                    </td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}

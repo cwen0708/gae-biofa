@@ -1,0 +1,94 @@
+{% extends "base_member.html" %}
+{% block content %}
+<div><img src="img/info_title.gif" alt="" id="info_title" /></div>
+<div class="textBox recruit">
+	<div class="text02">※ 歡迎加入 <font color="#990707">BioFa+</font> 會員，您可以在此修改您的密碼與會員資料!如不修改請空白。</div>
+    <div><img src="img/infostep01.gif" alt="" /></div>
+    <table cellpadding="0" cellspacing="0" border="0" width="680" class="joinStop">
+    	<tr>
+        	<td width="20"><img src="img/icon03.gif" alt="" /></td>
+            <th width="90" align="left">會員帳號</th>
+            <td width="570"><font color="#990707">BioFa</font></td>
+        </tr>
+        <tr>
+        	<td><img src="img/icon03.gif" alt="" /></td>
+            <th align="left">會員密碼</th>
+            <td><input type="password" value="" class="input w150" /></td>
+        </tr>
+        <tr>
+        	<td><img src="img/icon03.gif" alt="" /></td>
+            <th align="left">密碼確認</th>
+            <td><input type="password" value="" class="input w150" />&nbsp;&nbsp;&nbsp;&nbsp;請再輸入一次密碼</td>
+        </tr>
+    </table>
+    <div class="line"></div>
+    <div><img src="img/infostep02.gif" alt="" /></div>
+    <table cellpadding="0" cellspacing="0" border="0" width="680" class="joinStop">
+    	<tr>
+        	<td width="20"><img src="img/icon03.gif" alt="" /></td>
+            <th width="90" align="left">姓名&nbsp;&nbsp;<font color="#CC9900">*</font></th>
+            <td width="570"><input type="text" value="" class="input w150" />&nbsp;&nbsp;&nbsp;&nbsp;請填寫真實姓名，本購物網站不會作為其它用途。</td>
+        </tr>
+        <tr>
+        	<td><img src="img/icon03.gif" alt="" /></td>
+            <th align="left">性別&nbsp;&nbsp;<font color="#CC9900">*</font></th>
+            <td><input type="radio" name="radio" id="radio" value="radio" />
+  <label for="radio">&nbsp;&nbsp;先生</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="radio2" id="radio2" value="radio2" />
+  <label for="radio2">&nbsp;&nbsp;小姐</label></td>
+        </tr>
+        <tr>
+        	<td><img src="img/icon03.gif" alt="" /></td>
+            <th align="left">生日&nbsp;&nbsp;<font color="#CC9900">*</font></th>
+            <td>
+            	<select>
+                	<option>1987</option>
+                </select>
+                &nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;
+                <select>
+                	<option>01</option>
+                </select>
+                &nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;
+                <select>
+                	<option>01</option>
+                </select>
+                &nbsp;日&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+        </tr>
+        <tr>
+        	<td><img src="img/icon03.gif" alt="" /></td>
+            <th align="left">聯絡電話&nbsp;&nbsp;<font color="#CC9900">*</font></th>
+            <td><input type="text" value="" class="input w200" /></td>
+        </tr>
+        <tr>
+        	<td><img src="img/icon03.gif" alt="" /></td>
+            <th align="left">手機&nbsp;&nbsp;<font color="#CC9900">*</font></th>
+            <td><input type="text" value="" class="input w200" /></td>
+        </tr>
+        <tr>
+        	<td><img src="img/icon03.gif" alt="" /></td>
+            <th align="left">電子郵件&nbsp;&nbsp;<font color="#CC9900">*</font></th>
+            <td><input type="text" value="" class="input w300" /></td>
+        </tr>
+        <tr>
+        	<td><img src="img/icon03.gif" alt="" /></td>
+            <th align="left">通訊地址&nbsp;&nbsp;<font color="#CC9900">*</font></th>
+            <td><select>
+                	<option>請選擇</option>
+                </select>
+                &nbsp;&nbsp;&nbsp;&nbsp;郵遞區號&nbsp;
+                <select>
+                	<option>請選擇</option>
+                </select>
+            	<input type="text" value="" class="input w500" />
+            </td>
+        </tr>
+        <tr>
+        	<td valign="top"><img src="img/icon03.gif" alt="" /></td>
+            <th align="left" valign="top">備註</th>
+            <td><textarea rows="5" class="input w500"></textarea></td>
+        </tr>
+    </table>
+    <div class="line"></div>
+    <div class="btn02" align="center"><input type="image" src="img/reset_out.gif" class="img_change" /><input type="image" src="img/submit_out.gif" class="img_change" /></div>
+</div>
+{% endblock %}

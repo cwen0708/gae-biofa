@@ -1,0 +1,160 @@
+{% extends "base_member.html" %}
+{% block content %}
+<div><img src="img/login_title.gif" alt="" id="login_title" /></div>
+
+
+    <div class="textBox recruit">
+        <form>
+        <div class="text02">※ 歡迎加入 <font color="#990707">BioFa+</font> 會員，您可以在此獲取更多我們的相關資訊！ 欄位中有 "  <font color="#CC9900">*</font>  " 部分為必填欄位，請務必確實填寫資料。</div>
+        <div><img src="img/joinstep01.gif" alt="" /></div>
+        <table cellpadding="0" cellspacing="0" border="0" width="680" class="joinStop">
+            <tr>
+                <td width="20"><img src="img/icon03.gif" alt="" /></td>
+                <th width="90" align="left">會員帳號</th>
+                <td width="570">
+                    <input type="text" name="account" value="" class="input w150" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="error" id="error_account"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/icon03.gif" alt="" /></td>
+                <th align="left">會員密碼</th>
+                <td>
+                    <input type="password" name="password" value="" class="input w150" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="error" id="error_password"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/icon03.gif" alt="" /></td>
+                <th align="left">密碼確認</th>
+                <td>
+                    <input type="password" name="password2" value="" class="input w150" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="error" id="error_password2"></span>
+                </td>
+            </tr>
+        </table>
+        <div class="line"></div>
+        <div><img src="img/joinstep02.gif" alt="" /></div>
+        <table cellpadding="0" cellspacing="0" border="0" width="680" class="joinStop">
+            <tr>
+                <td width="20"><img src="img/icon03.gif" alt="" /></td>
+                <th width="90" align="left">姓名&nbsp;&nbsp;<font color="#CC9900">*</font></th>
+                <td width="570">
+                    <input type="text" name="name" value="" class="input w150" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="error" id="error_name"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/icon03.gif" alt="" /></td>
+                <th align="left">性別&nbsp;&nbsp;<font color="#CC9900">*</font></th>
+                <td>
+                    <div style="width:160px; height:22px; display: inline-block; line-height: 22px;">
+                        <input type="radio" name="sex" id="radio1" value="male" />
+                        <label for="radio1">&nbsp;&nbsp;先生</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="sex" id="radio2" value="female" />
+                        <label for="radio2">&nbsp;&nbsp;小姐</label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="error" id="error_sex"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/icon03.gif" alt="" /></td>
+                <th align="left">生日&nbsp;&nbsp;<font color="#CC9900">*</font></th>
+                <td>
+                    <div style="width:160px; height:22px; display: inline-block; line-height: 22px;">
+                    <input class="birthday" name="birthday" type="text" value="1911-1-1"/>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="error" id="error_birthday"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/icon03.gif" alt="" /></td>
+                <th align="left">聯絡電話&nbsp;&nbsp;<font color="#CC9900">*</font></th>
+                <td>
+                    <input type="text" name="telephone" value="" class="input w150" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="error" id="error_telephone"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/icon03.gif" alt="" /></td>
+                <th align="left">手機&nbsp;&nbsp;<font color="#CC9900">*</font></th>
+                <td>
+                    <input type="text" name="mobile" value="" class="input w150" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="error" id="error_mobile"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/icon03.gif" alt="" /></td>
+                <th align="left">電子郵件&nbsp;&nbsp;<font color="#CC9900">*</font></th>
+                <td>
+                    <input type="text" name="email" value="" class="input w150" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="error" id="error_email"></span>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="img/icon03.gif" alt="" /></td>
+                <th align="left">通訊地址&nbsp;&nbsp;<font color="#CC9900">*</font></th>
+                <td>
+                    <input id="address" value="台中市南區" name="address" class="twaddress" />
+                </td>
+            </tr>
+            <tr>
+                <td valign="top"><img src="img/icon03.gif" alt="" /></td>
+                <th align="left" valign="top">備註</th>
+                <td><textarea rows="5" class="input w500"></textarea></td>
+            </tr>
+        </table>
+        <div class="line"></div>
+        <div><img src="img/joinstep03.gif" alt="" /></div>
+        <div class="clause">
+            {{ record.content }}
+
+        </div>
+        <div class="check">
+            <input type="checkbox" name="checkbox" id="checkbox" />
+            <label for="checkbox">我已閱讀並同意條約規範</label>
+        </div>
+        </form>
+        <div class="line"></div>
+        <div class="btn02" align="center">
+            <button type="reset" style="padding: 0px;border: 0px;background: white;cursor: pointer;"><img src="img/reset_out.gif" class="img_change" /></button>
+            <button type="button" style="padding: 0px;border: 0px;background: white;cursor: pointer;" id="submit"><img  src="img/submit_out.gif" class="img_change"/></button>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    $(function(){
+        $("#submit").click(function(){
+            if($("#checkbox").attr("checked"))
+            {
+                $(".error").html("").prev().removeClass("on_error");
+                json("/join.json",$("form").serialize(),function(data){
+                    for(prop in data)
+                    {
+                        if (data[prop] != ""){
+                            $("#error_" + prop ).html(data[prop]).prev().addClass("on_error");
+                        }
+                    }
+                    if (data.info.toString() == "done")
+                    {
+                        alert("歡迎加入 biofa");
+                    }
+                },function(data){
+                })
+            }else{
+                alert("您必須先同意條約規範");
+            }
+        });
+    });
+</script>
+{% endblock %}

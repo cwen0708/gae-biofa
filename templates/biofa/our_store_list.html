@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<img src="img/our_store_title.png" alt="加盟專區" id="our_store_title" />
+
+<div class="product_list">
+    {% for item in results %}
+    <table border="0">
+        <tr>
+            <td class="image" rowspan="3"><a href="our_store_view.html"><img src="{{ item.image }}" alt="商品縮圖" width="134" /></a></td>
+            <td class="title"><a href="our_store_view.html?key={{ item.str_key }}">{{ item.title }}<img src="img/icon_detail.png" alt="查看產品" /></a></td>
+        </tr>
+        <tr>
+            <td><hr class="line" /></td>
+        </tr>
+        <tr>
+            <td class="context">{{ item.desc }}</td>
+        </tr>
+    </table>
+    {% endfor %}
+
+    <!-- page -->
+    <div class="pager" align="center"><a href="#" title="上一頁"><img src="img/prev_out.gif" alt="上一頁" class="img_change prev" align="absmiddle" /></a><span class="current">1</span>‧<a href="#" title="2">2</a>‧<a href="#" title="3">3</a><a href="#" title="4">4</a>‧<a href="#" title="5">5</a><a href="#" title="下一頁"><img src="img/next_out.gif" alt="下一頁" class="img_change next" align="absmiddle" /></a></div>
+    <!-- page end -->
+
+</div>
+
+{% endblock %}

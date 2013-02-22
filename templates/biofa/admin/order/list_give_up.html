@@ -1,0 +1,32 @@
+<script>
+    gs.menu.load('/admin/sell.html',"/admin/order/list_new.html");
+</script>
+
+<div class="list-top-bar span3 ">
+    <br />
+    <br />
+</div>
+
+<div class="pagination pagination-small pagination-right span9 padding15" data-page-all="{{ page_all }}" data-page-now="{{ page_now }}"></div>
+
+<table class="table table-hover data-list">
+    <thead>
+    <tr>
+        <th style="width:30px">#</th>
+        <th data-lang="title"></th>
+        <th style="width:150px"><br /></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in results %}
+    <tr id="node_{{ item.sort }}" data-key="{{ item.str_key }}">
+        <td>{{ item.row_no }}</td>
+        <td>
+            {{ item.title }} <br />
+            訂單編號 {{ item.number }}
+        </td>
+        <td><button type="button" class="btn" data-lang="order_transform_3" data-json-url="/admin/order/restore.json?key={{ item.str_key }}"></button></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <%@ Page Title="" Language="C#" codepage=65001  validateRequest="false" %>
+    <%
+    String user = "";
+    if (string.IsNullOrEmpty(Request.Params["acc"]) == false)
+    {
+        user = Request.Params["acc"];
+    }
+    %>
+    <title></title>
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/colorbox/jquery.colorbox-min.js"></script>
+</head>
+<body>
+<div style="margin:0px;padding:40px 60px 0 60px; float:left; height:350px; width:530px; border:solid 0px #ddd;font-size:15px;background: url(images/pconbg.png) no-repeat;color:#000;line-height:20px;">
+    <div id="page_1">
+        <div id="fortune_info"></div>
+        <div id="get_or_not"><h3 style="color:#640000;">求籤賀禮</h3>
+            <span id="gift_info">正在進行抽獎中...請稍候...</span><span id="gift" style="color:#f30;"></span>
+        </div>
+        <div><h3 style="color:#640000;">Facebook 分享，二次求籤獲好禮</h3>
+            <span id="gift_info_2">請稍候...</span><span id="gift_2" style="color:#f30;"></span>
+            <div id="do_fb" style="display:none;">
+                以 Facebook 分享活動內容，立即享有二次求籤機會。<button id="fb_detail">......</button>
+            </div>
+        </div>
+    </div>
+    <div id="page_2" style="display:none">
+        <div><h3 style="color:#640000;">Facebook 分享，二次求籤獲好禮　<a href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent(location.href)) ));" style="color:#06f;">立即分享</a></h3>
+            分享訊息的網址 : <input type="text" id="fb_shared_url" />
+
+            <button id="send">再抽一次</button>
+            <button id="close">取消</button><br />
+            點擊分享訊息的時間來取得該訊息的網址，<br />
+            然後將網址貼至此處，如下圖<br />
+            <img src="images/fb.png" style="margin:3px;" />
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    // 用 ajax 取得頁面GET
+    function ajax_get(c, a, e, d) { $.ajax({ url: c, type: "GET", data: a, async: !0, success: function (b) { e(b) }, error: function (b, c, a) { void 0 == d ? show_error_in_center(a.message) : d(b.responseText) } }) };
+
+    var __fbAppId = '412469598841098';
+    function login() {
+        FB.login(function(response) {
+            if (response.authResponse) {
+                init();
+            }
+        }, { scope: 'email,publish_stream,user_about_me,user_likes,user_birthday,user_status' });
+    }
+
+    //發佈訊息到塗鴉牆
+    function postToWall(id) {
+        var args = {
+            method: 'feed',
+            name: '今周粉絲迎財神 賀年開春求運來',
+            message: '今周刊粉絲立即利用FB登入，點擊求籤開運GO!籤籤報你財富運勢，日日得獎回饋粉絲',
+            link: 'http://www.businesstoday.com.tw/es/fortune2013/',
+            picture: 'http://www.businesstoday.com.tw/es/fortune2013/images/200x200.jpg',
+            caption: '今周粉絲迎財神 賀年開春求運來',
+            description: '今周刊粉絲立即利用FB登入，點擊求籤開運GO!籤籤報你財富運勢，日日得獎回饋粉絲'
+        };
+        FB.api('/' + id + '/feed', 'post', args, onPostToWallCompleted);
+        $("#gift_info_2").text("發佈中...");
+    }
+
+    function onPostToWallCompleted(response) {
+        if (!response || response.error) {
+            $("#gift_info_2").text("發佈中發生錯誤了"+ response.error.message);
+        } else {
+
+            $("#page_2").slideUp();
+            $("#page_1").slideDown();
+            $("#gift_info_2").text("正在進行抽獎中...請稍候...");
+            $("#do_fb").hide();
+            $("#gift_info_2").show();
+            $("#gift_2").show();
+            postid = response.id;
+            fortune_2();
+        }
+    }
+
+    var fortune_info = [
+        '2013年易與人有錢財方面的糾葛，財運發展波折多，年中之後可能有大的購買預算，如果盤算不好會容易有較大的財政虧損，年初及下半年可能有換工作創收的機會，但錢包裏能用的閒錢不多，任何花錢的意圖都得有長遠的打算，不要貪圖當下的享樂而忘記好好理財。',
+        '2013上半年花錢有幾筆大的開支，可能是盤算過後的消費，也有一些臨時想要去消費、跟隨大家腳步消費的情況，衝動消費免不了時候吃苦頭。下半年的財路走向封閉，固有的收支模式使財勢無法順利上升，如果想在工作上拓展財路，可能會面臨費力多、收益少的情況，薪資問題始終影響你的生活方式。',
+        '2013上、下半年用錢都不少，其中，又以下半年為開銷多的重點時期，會不時用消費來彌補情感上的缺失，應竭力克制欲望，可以交予家人、長輩管理的財務可以儘量交出。今年投資理財不能盲目相信經驗、傳言，必須秉承具體問題具體分析！下半年可能有人請你一起做投資的項目，也許還有換崗調薪的可能——要有眼力去識別真正能提升財運的事。',
+        '2013年理財的重點是：保持儲蓄的習慣，適當地獎勵自己。上半年會有不得已的人情投資，在金錢上不能有太強的企圖心，投資方面要小心資訊不明確的專案，錯誤的財政決定往往是在感情的驅使下進行的。下半年在個人護理上捨得花錢，家裏家外用在學習、教育上的經費增加，在年底的時候應該對整體生活消費進行評估，來年的收支問題可能要提前預測估算。',
+        '2013年頻密的人際往來是財運的調節器，你接受的幫助，可能常用物質作為回報，但從創業績增收的角度來看，得到占更大的百分比。1月到3月，以及9月至年末，固定開銷可能會依靠減少其他支出來配合，有些花錢的地方比較難預料，屬於突發事件也許是專程交了學費，也有可能是撐場面。上半年如果花得較狠，下半年財政難關會出現，屆時不要試圖利用偏財運來翻身。',
+        '2013年財運維持在一個相對穩定的值上，不大可能有意外的收穫，除非冒險選擇換工作、增加投資之類的。上半年較容易與人有錢財的糾葛，應當避免債務（向人借錢或借錢給別人），關係較好的人容易從你這裏得到好處，也會主動為身邊人買東西，這些花銷你不會太計較；下半年在吃這件事上有些不一樣，至少花的錢會不一樣，被人請吃飯後會回請人吃回來。',
+        '2013年的財運禁不住動盪環境，變動即是風險，跳槽、換新居、去進修等等都是花錢的誘因。上半年為錢的各種去向傷腦筋，時不時會滿足自己突發奇想的購買欲望；下半年，財運會隨著生活狀態的變化而變化，勢必有不必要的破財行為，多數外出都是有花錢的目的，價格不菲的生活、辦公用品都可能在下半年購置，要小心你的荷包！',
+        '2013年在花錢理由、事由上，不要找到太多！進入到上半年，特別是在經歷過傷神的事件之後，向來對自己不錯的天蠍會不浪費任何機會犒勞自己，買東西只求越多越好，卻會在某些交際上變得謹慎；下半年，長遠且持續的花銷成為主力，勉強進行的投資行為最好能先停一停。年底應該注意盯緊收益的問題，有時間限制的帳單必須按時追繳，不然很可能成為空頭支票。',
+        '2013年，上半年花得多，下半年財政便要緊縮。上半年為人來往為事消弭障礙花錢，還會專門出門去花錢，可能會購買比較高端的消費品；下半年，個人事務的花費是最可能發生的財政憂慮，收入也許要重新計算！2013年在投資方面需要專業的理財指導，並且不能脫離本人的財務基礎，購房置業上容易因一念之差就錯過價格最適合的。',
+        '可能在去年改變了職業或是做出了重大的購買決定，因此在2013年，財政上的漏洞必須好好清理一番！上半年三五不時花些細碎的小錢，但真正讓你破財的是有關人情、有關身體健康及居所方面的開銷，可能會想換種生活方式，也可能是想將家裏裝潢一下；下半年在出行方面有費錢明顯的感覺，沒事就別去商圈溜達了，容易碰到讓你購物欲望的商品。',
+        '2013年的荷包存不住錢，基本上有點存款就會出現花錢的事情；你會在某些較大的開銷上患得患失，感到賺得不多或者根本就是賠了。上半年為各種原因打點人際關係的費用要自己承擔大部分，偏財運也不容易有；下半年是平復財運的關鍵，漸漸會有抓緊錢包的意識，平時能省則省，在生活中也有些苛刻，可能有人說你不肯為自己花錢對自己太狠心！',
+        '2013年在財務上的問題還是由生活習慣決定，但你習慣的某種消費模式（如固定吃某樣食物）卻會發生改變，會不得不採取花更多錢的方式來滿足自己。上半年容易購物透支，可能會有比較多的場合要出席，因此裝點“門面”的費用也增長了；下半年以享樂消費為主，會吃好吃的，有些是別人買單，有些則需要自己買單。投資方面，跟緊市場多有不錯的收益。'
+    ];
+    var site = '<%= Session["site"] %>';
+    var acc = '<%= Request.Params["acc"] %>';
+    var name = '<%= Request.Params["name"] %>';
+    var identity = '<%= Request.Params["identity_form"] %>';
+
+    var uid = '';
+    var accessToken = '';
+    var postid = '';
+    $(function () {
+        var char_count = 0;
+        var email = "<%= user %>";
+        for (var i = 0;i < email.length; i++) {
+            char_count += email.charCodeAt(i);
+        }
+        var email_12 = char_count % 12;
+        $("#fortune_info").html('<h3 style="color:#640000;">財運分析</h3>' + fortune_info[email_12]);
+        $("#fb_detail").click(function(){
+            debugger;
+            postToWall("me");
+        });
+        $("#close").click(function(){
+            $("#page_2").slideUp();
+            $("#page_1").slideDown();
+        });
+        fortune_1();
+        fortune_2();
+        $("#send").click(function(){
+            var link = $("#fb_shared_url").val();
+            if (link.indexOf("www.facebook.com") > 0 && link.indexOf("/posts/") > 0) {
+                $("#page_2").slideUp();
+                $("#page_1").slideDown();
+                $("#gift_info_2").text("正在進行抽獎中...請稍候...").show();
+                $("#do_fb").hide();
+                $("#gift_2").show();
+            }else{
+                alert("請輸入正確的 Facebook 分享網址");
+            }
+        });
+    });
+
+    function fortune_1(){
+        if (acc == "")
+        {
+            $("#gift_info").text("acc is null  ");
+            return;
+        }
+        ajax_get("fortune.aspx","site=" + site + "&acc=" + acc + "&name=" + name + "&identity=" + identity + "",function(data){
+            if (data != null && data != "未中獎")
+            {
+                $("#gift_info").text("恭喜您已獲得 ");
+                $("#gift").text(data);
+            }else{
+                $("#gift_info").text("很抱歉您尚未中獎");
+                $("#gift").text();
+            }
+        },function(data){
+        });
+    }
+    function fortune_2(){
+        if (acc == "")
+        {
+            $("#gift_info_2").text("acc is null  ");
+            $("#do_fb").show();
+            $("#gift_info_2").hide();
+            $("#gift_2").hide();
+            return;
+        }
+        if (uid == "")
+        {
+            $("#do_fb").show();
+            $("#gift_info_2").hide();
+            $("#gift_2").hide();
+            return;
+        }
+        if (postid == "")
+        {
+            $("#do_fb").show();
+            $("#gift_info_2").hide();
+            $("#gift_2").hide();
+            return;
+        }
+        ajax_get("fortune_2.aspx","fb_link=" + uid + "&site=" + site + "&acc=" + acc + "&name=" + name + "&identity=" + identity + "",function(data){
+            if (data != null && data != "未中獎" && data != "FBINFO")
+            {
+                $("#gift_info_2").text("恭喜您已獲得 ");
+                $("#gift_2").text(data);
+            }else{
+                if (data == "FBINFO")
+                {
+                    $("#do_fb").show();
+                    $("#gift_info_2").hide();
+                    $("#gift_2").hide();
+                }
+            }
+            if (data == "未中獎")
+            {
+                $("#gift_info_2").text("很抱歉您尚未中獎");
+                $("#gift_2").text();
+            }
+        },function(data){
+        });
+    }
+
+    window.fbAsyncInit = function() {
+        FB.init({ appId: __fbAppId, status: true, cookie: true, xfbml: true, oauth: true });
+
+        //檢查登入狀態
+        FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+                //已登入且和app連結
+                uid = response.authResponse.accessToken;
+                accessToken = response.authResponse.accessToken;
+
+            } else if (response.status === 'not_authorized') {
+                //已登入但未與app連結
+
+                login();
+            } else {
+                //未登入
+                document.getElementById('login_status').innerHTML = '<a href="javascript:login();">Login</a>';
+            }
+        });
+    };
+    $(window).load(function() {
+        (function() {
+            var e = document.createElement('script'); e.async = true;
+            e.src = document.location.protocol + '//connect.facebook.net/zh_TW/all.js';
+            document.getElementById('fb-root').appendChild(e);
+        } ());
+    });
+</script>
+</body>
+</html>

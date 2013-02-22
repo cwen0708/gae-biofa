@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<img src="img/product_title.png" alt="商品專區" id="product_title" />
+
+<div class="product_list">
+    {% for item in results %}
+    <table border="0" style="width:100%">
+        <tr>
+            <td class="image" rowspan="3"><a href="{{ item.image }}" class="colorbox"><img src="{{ item.image }}" alt="商品縮圖" width="150" /></a></td>
+            <td class="title"><a href="product_view.html?key={{ item.str_key }}">{{ item.title }}<img src="img/icon_detail.png" alt="查看產品" /></a></td>
+            <td class="price">${{ item.price }}</td>
+        </tr>
+        <tr>
+            <td colspan="2"><hr class="line" /></td>
+        </tr>
+        <tr>
+            <td class="context" colspan="2">{{ item.efficacy }}</td>
+        </tr>
+    </table>
+    {% endfor %}
+    <!-- page -->
+    <div class="pager" align="center"><a href="#" title="上一頁"><img src="img/prev_out.gif" alt="上一頁" class="img_change prev" align="absmiddle" /></a><span class="current">1</span>‧<a href="#" title="2">2</a>‧<a href="#" title="3">3</a><a href="#" title="4">4</a>‧<a href="#" title="5">5</a><a href="#" title="下一頁"><img src="img/next_out.gif" alt="下一頁" class="img_change next" align="absmiddle" /></a></div>
+    <!-- page end -->
+
+</div>
+{% endblock %}

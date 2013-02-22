@@ -1,0 +1,75 @@
+{% extends "base_member.html" %}
+{% block content %}
+<div><img src="img/newsletter_title.gif" alt="" id="newsletter_title" /></div>
+<div class="textBox recruit" style="height:240px; overflow:hidden;">
+    <div style="text-align: center;width: 100%; line-height: 250px; display: none;" id="thx-msg-1">謝謝您，您已成功 訂閱 電子報。</div>
+    <div style="text-align: center;width: 100%; line-height: 250px; display: none;" id="thx-msg-2">謝謝您，您已成功 取消訂閱 電子報。</div>
+	<div class="text03">訂閱 <font color="#990707">BioFa+</font> 電子報，可得知更多最新優惠唷!</div>
+    <form>
+		<table cellpadding="0" cellspacing="0" border="0" align="center" class="newsletter">
+        	<tr>
+            	<td width="30"><img src="img/icon03.gif" alt="" /></td>
+                <th align="left" width="60">電子信箱</th>
+                <td><input type="text" name="email" value="{{ user_email }}" class="input w300" />
+                    <span class="error" id="error_email"></span></td>
+            </tr>
+            <tr>
+            	<td><img src="img/icon03.gif" alt="" /></td>
+                <th align="left">驗證碼</th>
+                <td>
+                    <input type="text" name="code" value="" class="input w80" />
+                    &nbsp;&nbsp;&nbsp;
+                    <span id="error_code" class="error"></span>&nbsp;&nbsp;
+                    <a heef="#" id="change_v_code" style="cursor: pointer;">更換驗證碼</a>
+                    <iframe src="" style="border: 0px; width:142px; height:25px;" scrolling="no" id="v_code_iframe"></iframe>
+
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" name="action" id="newsletter_action" />
+        </form>
+    <div class="line"></div>
+    <div class="btn" align="center">
+        <button type="button" style="padding: 0px;border: 0px;background: white;cursor: pointer;" id="submit"><img src="img/sub_out.gif" class="img_change" /></button>
+        <button type="button" style="padding: 0px;border: 0px;background: white;cursor: pointer;" id="reset"><img  src="img/resub_out.gif" class="img_change"/></button>
+    </div>
+</div>
+    <script type="text/javascript">
+        $(function(){
+            $("#submit").click(function(){
+                $("#newsletter_action").val("subscription");
+                $(".error").html("").prev().removeClass("on_error");
+                json("/newsletter.json",$("form").serialize(),function(data){
+                    for(prop in data)
+                    {
+                        if (data[prop] != ""){
+                            $("#error_" + prop ).html(data[prop]).prev().addClass("on_error");
+                        }
+                    }
+                    if (data.info.toString() == "done")
+                    {
+                        $("#thx-msg-1").slideDown();
+                    }
+                },function(data){
+                });
+            });
+            $("#reset").click(function(){
+                $("#newsletter_action").val("unsubscription");
+                $(".error").html("").prev().removeClass("on_error");
+                json("/newsletter.json",$("form").serialize(),function(data){
+                    for(prop in data)
+                    {
+                        if (data[prop] != ""){
+                            $("#error_" + prop ).html(data[prop]).prev().addClass("on_error");
+                        }
+                    }
+                    if (data.info.toString() == "done")
+                    {
+                        $("#thx-msg-2").slideDown();
+                    }
+                },function(data){
+                });
+            });
+        });
+    </script>
+{% endblock %}

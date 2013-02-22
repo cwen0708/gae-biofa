@@ -1,0 +1,91 @@
+{% extends "base_member.html" %}
+{% block content %}
+<div><img src="img/car_title.gif" alt="" id="car_title" /></div>
+<form>
+<div class="textBox recruit">
+	<div><img src="img/disstep02.gif" alt="" /></div>
+    <div class="carStepBox">
+    	<div><img src="img/carstep01.gif" alt="" /></div>
+        <table cellpadding="0" cellspacing="0" border="0" width="680" class="step02">
+        	<tr>
+            	<th align="left">訂購人姓名</th>
+                <td><input type="text" name="order_name" value="" class="input w125" /></td>
+                <th align="left">聯絡電話</th>
+                <td><input type="text" name="order_telephone" value="" class="input w125" /></td>
+                <th align="left">手機號碼</th>
+                <td><input type="text" name="order_mobile" value="" class="input w125" /></td>
+            </tr>
+            <tr>
+            	<th align="left">E-Mail</th>
+                <td><input type="text" name="order_email" value="" class="input w125" /></td>
+                <th align="left">聯絡地址</th>
+                <td colspan="3">
+                    <input value="台中市南區" name="order_address" class="twaddress" />
+                </td>
+            </tr>
+        </table>
+        <!-- TODO: 3.付款資訊(填寫相關資料)，當中的抬頭部份空白欄位錯位，跑到三聯式發票下。  以及第2步驟中之「Step2 填寫收件人」圖示消失了。-->
+        
+        <div class="addStep"><input type="checkbox" id="go_checkbox" />
+        <label for="go_checkbox">同訂購人資料</label></div>
+        <table cellpadding="0" cellspacing="0" border="0" width="680" class="step02">
+        	<tr>
+            	<th align="left">收件人姓名</th>
+                <td><input type="text" name="addressee_name" value="" class="input w125" /></td>
+                <th align="left">聯絡電話</th>
+                <td><input type="text" name="addressee_telephone" value="" class="input w125" /></td>
+                <th align="left">手機號碼</th>
+                <td><input type="text" name="addressee_mobile" value="" class="input w125" /></td>
+            </tr>
+            <tr>
+            	<th align="left">E-Mail</th>
+                <td><input type="text" name="addressee_email" value="" class="input w125" /></td>
+                <th align="left">聯絡地址</th>
+                <td colspan="3">
+                    <input value="台中市南區" name="addressee_address" class="twaddress" />
+                </td>
+            </tr>
+        </table>
+        
+        <div><img src="img/carstep03.gif" alt="" /></div>
+        <table cellpadding="0" cellspacing="0" border="0" width="680" class="step02">
+        	<tr>
+            	<th width="69" align="left">付款方式</th>
+                <td width="611">
+                	<select name="send_type">
+                    	<option>ATM轉帳&nbsp;&nbsp;&nbsp;&nbsp;配送方式：貨運</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        
+        <div><img src="img/carstep04.gif" alt="" /></div>
+        <table cellpadding="0" cellspacing="0" border="0" width="680" class="step02">
+        	<tr>
+            	<td width="210">
+                    <input type="radio" name="invoice_type" id="invoice_type_2" value="2" checked="checked" />
+                    <label for="invoice_type_2">二聯式發票</label>
+                </td>
+  				<td width="470">
+                      <input type="radio" name="invoice_type" id="invoice_type_3" value="3" />
+                      <label for="invoice_type_3">三聯式發票</label>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      統編：&nbsp;<input type="text" name="invoice_number" value="" class="input w125" />&nbsp;&nbsp;
+                      抬頭：&nbsp;<input type="text" name="invoice_title" value="" class="input w125" />
+                </td>
+            </tr>
+        </table>
+        <div><img src="img/carstep05.gif" alt="" /></div>
+        <table cellpadding="0" cellspacing="0" border="0" width="680" class="step02_2">
+        	<tr>
+            	<td><textarea rows="8" class="input w655" name="remark"></textarea></td>
+            </tr>
+        </table>
+    </div>
+    <div class="btn03">
+        <a href="cart01.html" title=""><img src="img/carback_out.gif" alt="" class="img_change"  /></a>
+        <a id="go_step_3" title=""><img src="img/nextstep_out.gif" alt="" class="img_change"  /></a>
+    </div>
+</div>
+</form>
+{% endblock %}

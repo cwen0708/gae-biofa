@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="google-site-verification" content="EzIG77-a7Ggr-tQOd6rjY_3RQR_PusK4adNutSDA-5U" />
+    <link rel="stylesheet" type="text/css" href="/templates/biofa/css/colorbox.css" />
+    <link rel="stylesheet" type="text/css" href="/templates/biofa/css/skins/tango/skin.css" />
+    <link rel="stylesheet" type="text/css" href="/templates/biofa/assets/kindeditor-4.1.4/themes/default/default.css" />
+    <link rel="stylesheet" type="text/css" href="site_style.css" />
+    <script src="/templates/biofa/js/jquery-1.8.2.min.js"></script>
+    <script src="/templates/biofa/js/slides.min.jquery.js"></script>
+    <script src="/templates/biofa/js/jquery.colorbox.js"></script>
+    <script src="/templates/biofa/js/jquery.jcarousel.min.js"></script>
+    <script src="/templates/biofa/js/jquery.twaddress.js"></script>
+    <script src="/templates/biofa/js/jquery-date-select.js"></script>
+    <script src="/templates/biofa/js/common.js"></script>
+    <script type="text/javascript">{{ page_js.content }}</script>
+</head>
+<body>
+
+<!-- 頁首區開始 -->
+<div id="header" class="wrap">
+    <div class="shopping_cart">
+        <a href="cart01.html">{{ cart_count }}</a>
+    </div>
+    <div class="user_menu">
+        <a href="/">首頁</a><span></span>
+        <a href="newsletter.html">訂閱電子報</a><span></span>
+        <a href="login.html">會員登入</a><span></span>
+        <a href="page_sitemap.html">網站地圖</a>
+    </div>
+    <div class="clear"></div>
+    <div class="logo">
+        <a href="/"><img src="{{ logo.image }}" alt="logo" id="logo_img" /></a>
+    </div>
+    <div class="main_menu">
+        {% for item in menu_list %}<a href="{{ item.url }}"><img src="{{ item.image }}" alt="{{ item.title }}"/></a>{% endfor %}
+    </div>
+</div>
+<!-- 頁首區結束 -->
+
+
+<!-- 本文區開始 -->
+<div id="container" class="wrap">
+    <div class="side_show">
+        <div id="slides">
+            <div class="slides_container" style="text-align: center;">
+                {% for item in banner_list %}
+                    <div><img src="{{ item.image }}" style="width: 1000px;"></div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="hot_news">
+        <div class="social_menu">
+            {{ menu_index.content }}
+        </div>
+        <div class="title"><a href="news_list.html"><img src="{{ hot_news.image }}" alt="Hot News" id="hot_news" /></a></div>
+        <ul>
+            {% for item in news_list %}
+            <li><a href="news_view.html?key={{ item.str_key }}"><span>{{ item.create_date_f }}</span><p>{{ item.title }}</p></a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="split">
+        <img src="img/split_index.png" alt="分隔線" />
+    </div>
+    <div class="new_product">
+        {% for item in link_list %}
+        <div class="item"><a href="{{ item.url }}"><img src="{{ item.image }}" width="170" height="100"><span>{{ item.title }}</span></a></div>
+        {% endfor %}
+    </div>
+    <div class="clear"></div>
+    <div id="index_sideshow">
+        <ul id="mycarousel" class="jcarousel-skin-tango index_image">
+            {% for item in partners_list %}
+                <li class="index_img" data-href="{{ item.site_url }}">
+                    <div><a href="{{ item.site_url }}" title=""><img src="{{ item.image }}" width="160" alt="{{ item.title }}" data-url="{{ item.site_url }}" /></a></div>
+                    <div class="linkName"><a href="{{ item.site_url }}" title="">{{ item.title }}</a></div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<!-- 本文區結束 -->
+
+<div class="clear"></div>
+<!-- 頁尾區開始 -->
+<div id="footer">
+    <div class="wrap">
+        {{ footer_1.content }}
+    </div>
+    <div class="clear"></div>
+</div>
+<div id="site_info">
+    <div class="wrap">
+        {{ footer_2.content }}
+    </div>
+</div>
+<!-- 頁尾區結束 -->
+</body>
+</html>

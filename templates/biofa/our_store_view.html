@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div><img src="img/our_store_title.png" alt="加盟專區" id="our_store_title" /></div>
+
+<div class="product_detail">
+	<div class="storeImg">
+        <img src="{{ record.image }}" alt="產品圖" width="455" />
+    </div>
+    <div class="storeInfo">
+        <table border="0" cellpadding="0" cellspacing="0" width="237">
+            <tr>
+                <th align="left" colspan="2">{{ record.title }}</th>
+            </tr>
+            <tr>
+                <td class="label">服務地址:</td>
+                <td>{{ record.address }}</td>
+            </tr>
+            <tr>
+                <td class="label">服務電話:</td>
+                <td>{{ record.telephone }}</td>
+            </tr>
+            <tr>
+                <td class="label" valign="top">營業時間: </td>
+                <td>{{ record.time }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="clear"></div>
+    <div style="margin:20px; width:728px; border: solid 1px #fff; ">
+
+    {{ record.content }}
+    </div>
+    <div class="line"></div>
+    <div class="back" align="center"><a href="javascript:history.back(-1)" title=""><img src="img/back_out.gif" alt="" class="img_change" /></a></div>
+    <div class="clear"></div>
+</div>
+
+{% endblock %}

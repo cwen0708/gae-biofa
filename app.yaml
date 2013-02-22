@@ -1,0 +1,72 @@
+application: biofa-1
+version: 3
+runtime: python27
+api_version: 1
+threadsafe: false
+
+builtins:
+- appstats: on
+- deferred: on
+- remote_api: on
+
+inbound_services:
+- warmup
+
+admin_console:
+  pages:
+  - name: News List
+    url: /news/list.html
+
+error_handlers:
+- file: templates/system/default_error.html
+
+- error_code: over_quota
+  file: templates/system/over_quota.html
+
+- error_code: dos_api_denial
+  file: templates/system/dos_api_denial.html
+
+- error_code: timeout
+  file: templates/system/timeout.html
+
+handlers:
+
+- url: /(favicon\.ico|robots.txt)
+  static_files: templates/common/static/\1
+  upload: templates/common/static/(.*)
+
+- url: /templates/(.*)/(img|image|images|css|style|js|script|javascript|swf|flash|kindeditor|fancybox|assets)/(.*)
+  static_files: templates/\1/\2/\3
+  upload: templates/(.*)/(img|image|images|css|style|js|script|javascript|swf|flash|kindeditor|fancybox|assets)/(.*)
+
+- url: /common
+  static_dir: templates/common
+
+- url: /_static
+  static_dir: templates/common/static
+
+- url: /stats.*
+  script: $PYTHON_LIB/google/appengine/ext/appstats/ui.py
+
+- url: /.*
+  script: libs/gaesite/main.py
+
+libraries:
+- name: jinja2
+  version: "2.6"
+
+- name: webapp2
+  version: "latest"
+
+- name: PIL
+  version: "1.1.7"
+
+pagespeed:
+  enabled_rewriters:
+  - MinifyCss
+  - ProxyCss
+  - ProxyImages
+  - ProxyJs
+  - ConvertMetaTags
+  - InlineCss
+  - ImageStripColorProfile

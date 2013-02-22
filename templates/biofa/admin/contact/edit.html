@@ -1,0 +1,96 @@
+<script>
+    gs.menu.load('/admin/data.html','/admin/member/list.html');
+    $(function(){
+        $("#field_member_sex").val('{{ record.sex }}');
+    });
+</script>
+<h3 class="page-title">member_edit_record</h3>
+
+<form>
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="control-group">
+                <label class="control-label" for="field_member_account" data-lang="field_member_account"></label>
+                <div class="controls">
+                    <input type="text" id="field_member_account" placeholder="" name="account" value="{{ record.account }}" class="span12" />
+                </div>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="control-group">
+                <label class="control-label" for="field_member_password" data-lang="field_member_password"></label>
+                <div class="controls">
+                    <input type="text" id="field_member_password" placeholder="" name="password" value="{{ record.password }}" class="span12" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="control-group">
+                <label class="control-label" for="field_member_name" data-lang="field_member_name"></label>
+                <div class="controls">
+                    <input type="text" id="field_member_name" placeholder="" name="name" value="{{ record.name }}" class="span12" />
+                </div>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="control-group">
+                <label class="control-label" for="field_member_sex" data-lang="field_member_sex"></label>
+                <div class="controls">
+                    <select id="field_member_sex" name="sex" class="span12">
+                        <option value="male">男</option>
+                        <option value="female">女</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="control-group">
+                <label class="control-label" for="field_member_telephone" data-lang="field_member_telephone"></label>
+                <div class="controls">
+                    <input type="text" id="field_member_telephone" placeholder="" name="telephone" value="{{ record.telephone }}" class="span12" />
+                </div>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="control-group">
+                <label class="control-label" for="field_member_mobile" data-lang="field_member_mobile"></label>
+                <div class="controls">
+                    <input type="text" id="field_member_mobile" placeholder="" name="mobile" value="{{ record.mobile }}" class="span12" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="control-group">
+                <label class="control-label" for="field_member_address" data-lang="field_member_address"></label>
+                <div class="controls">
+                    <input type="text" id="field_member_address" placeholder="" name="address" value="{{ record.address }}" class="span12" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="field_member_birthday" data-lang="field_member_birthday"></label>
+                <div class="controls">
+                    <input type="text" id="field_member_birthday" placeholder="" name="birthday" value="{{ birthday_f }}" class="span12" />
+                </div>
+            </div>
+        </div>
+        <div class="span6">
+            <label class="control-label" for="field_member_remark" data-lang="field_member_remark"></label>
+            <textarea name="remark" id="field_member_remark" class="span12" rows="5">{{ record.remark }}</textarea>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <div class="span9"></div>
+        <button type="submit" class="btn btn-danger btn-large span3" data-lang="field_submit"></button>
+    </div>
+</form>
+

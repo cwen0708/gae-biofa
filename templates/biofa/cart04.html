@@ -1,0 +1,31 @@
+{% extends "base_member.html" %}
+{% block content %}
+<div><img src="img/car_title.gif" alt="" id="car_title" /></div>
+<div class="textBox recruit">
+	<div><img src="img/disstep04.gif" alt="" /></div>
+    <div align="center" class="thank"><img src="img/thank.gif" alt="" /></div>
+    <table cellpadding="0" cellspacing="0" border="0" width="710" class="step02_3">
+    	<tr>
+        	<th align="left" width="80">訂單編號</th>
+            <td>{{ record.number }}</td>
+        </tr>
+        <tr>
+        	<th align="left" width="80">會員帳號</th>
+            <td>{{ record.member.account }}</td>
+        </tr>
+        <tr>
+        	<th align="left" width="80">付款方式</th>
+            <td>{{ record.info.send_type }}</td>
+        </tr>
+        <tr>
+        	<th align="left" width="80">購買人</th>
+            <td>{{ record.info.order_name }}</td>
+        </tr>
+        <tr>
+        	<th align="left" width="80">付款資訊</th>
+            <td>銀行代號：001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;帳號：00873034524&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;戶名：金錄科技</td>
+        </tr>
+    </table>
+    <div class="btn04"><a href="./" title=""><img src="img/home_out.gif" alt="" class="img_change"  /></a><a href="product_list.html" title=""><img src="img/shop_out.gif" alt="" class="img_change"  /></a></div>
+</div>
+{% endblock %}
