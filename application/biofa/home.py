@@ -82,6 +82,7 @@ class user_menu(MemberHandler):
 
 class us(HomeHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#about_title")
         key = self.request.get('key') if  self.request.get('key') is not None else ''
         record = None
         self.image_menu_title = DBPImg.get_by_name("#side_menu_title_about")
@@ -105,6 +106,7 @@ class us(HomeHandler):
 
 class news_list(NewsHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#news_title")
         data_source = db.GqlQuery("SELECT * FROM DBNewsCategory WHERE is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc")
         self.sub_menu_list = data_source.fetch(99,0)
         for item in self.sub_menu_list:
@@ -122,6 +124,7 @@ class news_list(NewsHandler):
 
 class news_view(NewsHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#news_title")
         data_source = db.GqlQuery("SELECT * FROM DBNewsCategory WHERE is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc")
         self.sub_menu_list = data_source.fetch(99,0)
         for item in self.sub_menu_list:
@@ -138,6 +141,7 @@ class news_view(NewsHandler):
 
 class recruit_list(RecruitHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#recruit_title")
         size = Pagination.get_int_param(self,"size",10)
         page = Pagination.get_int_param(self,"page",1)
 
@@ -149,6 +153,7 @@ class recruit_list(RecruitHandler):
 
 class recruit_view(RecruitHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#recruit_title")
         key = self.request.get('key') if  self.request.get('key') is not None else ''
         if key != '':
             record = db.get(key)
@@ -159,12 +164,14 @@ class recruit_view(RecruitHandler):
 
 class our_store(PartnersHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#our_store_title")
         data_source = db.GqlQuery("SELECT * FROM DBCountry WHERE is_enable = True and in_trash_can < 0.0  ORDER BY in_trash_can, sort desc")
         self.country_list = data_source.fetch(9999)
         self.render("/our_store.html")
 
 class our_store_list(PartnersHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#our_store_title")
         size = Pagination.get_int_param(self,"size",10)
         page = Pagination.get_int_param(self,"page",1)
         country = self.request.get('country') if  self.request.get('country') is not None else ''
@@ -177,6 +184,7 @@ class our_store_list(PartnersHandler):
 
 class our_store_view(PartnersHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#our_store_title")
         key = self.request.get('key') if  self.request.get('key') is not None else ''
         if key != '':
             record = db.get(key)
@@ -187,6 +195,7 @@ class our_store_view(PartnersHandler):
 
 class login(HomeHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#login_title")
         self.text = DBPage.gql("WHERE name = 'login_text'").get()
         self.render("/login.html")
 
@@ -222,6 +231,7 @@ class login_json(HomeHandler):
 
 class password(HomeHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#password_title")
         self.render("/password.html")
 
 class password_json(HomeHandler):
@@ -270,6 +280,7 @@ class logout_json(HomeHandler):
 
 class join(HomeHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#login_title")
         self.record = DBPage.gql("WHERE name = '%s' " % 'terms').get()
         self.render("/join.html")
 
@@ -337,6 +348,7 @@ class join_json(HomeHandler):
 
 class contact(ContactHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#contact_title")
         self.render("/contact.html")
 
 class contact_json(HomeHandler):
@@ -383,6 +395,7 @@ class contact_json(HomeHandler):
 
 class product_list(ProductHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#product_title")
         size = Pagination.get_int_param(self,"size",10)
         page = Pagination.get_int_param(self,"page",1)
         cate1 = self.request.get('cate1') if  self.request.get('cate1') is not None else u''
@@ -400,6 +413,7 @@ class product_list(ProductHandler):
 
 class product_view(ProductHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#product_title")
         self.record = db.get(self.request.get('key'))
         if self.record.images is not None:
             self.images = self.record.images.split(',')
@@ -408,6 +422,7 @@ class product_view(ProductHandler):
 class page_sitep(HomeHandler):
     def get(self, resource):
         self.record = DBPage.gql("WHERE name = '%s' " % resource).get()
+        self.image_page_title = DBTitle.get_by_name(resource)
         self.render("/page_frame.html")
 
 class page_style(BaseHandler):
@@ -454,18 +469,26 @@ class page_image(BaseHandler):
 
 class cart01(ProductHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#car_title")
         self.render("/cart01.html")
 
 class cart02(ProductHandler):
     def get(self, *args):
-        self.render("/cart02.html")
+        if self.is_login is True:
+            self.image_page_title = DBTitle.get_by_name("#car_title")
+            self.render("/cart02.html")
+        else:
+            self.image_page_title = DBTitle.get_by_name("#login_title")
+            self.render("/login.html")
 
 class cart03(ProductHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#car_title")
         self.render("/cart03.html")
 
 class cart04(ProductHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#car_title")
         try:
             self.record = db.get(self.session["last_order_key"])
         except:
@@ -479,6 +502,7 @@ class cart04(ProductHandler):
 
 class faq(FaqHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#faq_title")
         data_source = db.GqlQuery("SELECT * FROM DBFaqCategory WHERE is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc")
         self.sub_menu_list = data_source.fetch(99,0)
         for item in self.sub_menu_list:
@@ -493,6 +517,7 @@ class faq(FaqHandler):
 
 class newsletter(HomeHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#newsletter_title")
         if self.session.has_key("user_email") is True:
             self.user_email = self.session["user_email"]
         else:
@@ -531,27 +556,34 @@ class newsletter_json(HomeHandler):
 
 class order_list(HomeHandler):
     def get(self, *args):
+        self.image_page_title = DBTitle.get_by_name("#order_title")
         if self.is_login is True:
+            self.image_page_title = DBTitle.get_by_name("#order_title")
             if self.session.has_key("user_account") is True:
                 u = DBMember.gql("WHERE account = :1",self.session["user_account"]).get()
                 self.order_list = u.reference_orders
             self.render("/order_list.html")
         else:
+            self.image_page_title = DBTitle.get_by_name("#login_title")
             self.render("/login.html")
 
 class order_view(HomeHandler):
     def get(self, *args):
         if self.is_login is True:
+            self.image_page_title = DBTitle.get_by_name("#order_title")
             self.record = db.get(self.request.get('key'))
             self.render("/order_view.html")
         else:
+            self.image_page_title = DBTitle.get_by_name("#login_title")
             self.render("/login.html")
 
 class info(HomeHandler):
     def get(self, *args):
         if self.is_login is True:
+            self.image_page_title = DBTitle.get_by_name("#info_title")
             if self.session.has_key("user_account") is True:
                 self.user = DBMember.gql("WHERE account = :1",self.session["user_account"]).get()
             self.render("/info.html")
         else:
+            self.image_page_title = DBTitle.get_by_name("#login_title")
             self.render("/login.html")

@@ -1,15 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/templates/biofa/order_list.html" line="19" />
+    <bookmark url="file://$PROJECT_DIR$/templates/biofa/order_list.html" line="18" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2b6d883-48fb-44bc-b26a-54142357f3a4" name="Default" comment="" />
+    <list default="true" id="e2b6d883-48fb-44bc-b26a-54142357f3a4" name="Default" comment="更新 DBTitle">
+      <change type="DELETED" beforePath="D:\Dropbox\WebSite\gae-biofa\templates\biofa\base_about.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/about.html" afterPath="$PROJECT_DIR$/templates/biofa/about.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/cart01.html" afterPath="$PROJECT_DIR$/templates/biofa/cart01.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/cart02.html" afterPath="$PROJECT_DIR$/templates/biofa/cart02.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/cart03.html" afterPath="$PROJECT_DIR$/templates/biofa/cart03.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/cart04.html" afterPath="$PROJECT_DIR$/templates/biofa/cart04.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/contact.html" afterPath="$PROJECT_DIR$/templates/biofa/contact.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/faq.html" afterPath="$PROJECT_DIR$/templates/biofa/faq.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/biofa/home.py" afterPath="$PROJECT_DIR$/application/biofa/home.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/info.html" afterPath="$PROJECT_DIR$/templates/biofa/info.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/join.html" afterPath="$PROJECT_DIR$/templates/biofa/join.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/admin/ptitle/list.html" afterPath="$PROJECT_DIR$/templates/biofa/admin/ptitle/list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/login.html" afterPath="$PROJECT_DIR$/templates/biofa/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/logout.html" afterPath="$PROJECT_DIR$/templates/biofa/logout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/news_view.html" afterPath="$PROJECT_DIR$/templates/biofa/news_view.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/newsletter.html" afterPath="$PROJECT_DIR$/templates/biofa/newsletter.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/order_list.html" afterPath="$PROJECT_DIR$/templates/biofa/order_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/order_view.html" afterPath="$PROJECT_DIR$/templates/biofa/order_view.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/our_store.html" afterPath="$PROJECT_DIR$/templates/biofa/our_store.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/our_store_list.html" afterPath="$PROJECT_DIR$/templates/biofa/our_store_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/our_store_view.html" afterPath="$PROJECT_DIR$/templates/biofa/our_store_view.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/password.html" afterPath="$PROJECT_DIR$/templates/biofa/password.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/product_list.html" afterPath="$PROJECT_DIR$/templates/biofa/product_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/product_view.html" afterPath="$PROJECT_DIR$/templates/biofa/product_view.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/recruit_list.html" afterPath="$PROJECT_DIR$/templates/biofa/recruit_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/recruit_view.html" afterPath="$PROJECT_DIR$/templates/biofa/recruit_view.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="gae-start.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/edit.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361251117859" ignored="false" />
     <file path="/recruit_view.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1360277638030" ignored="false" />
-    <file path="/base.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361435215921" ignored="false" />
+    <file path="/base.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361517831875" ignored="false" />
     <file path="/product_view.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361175399859" ignored="false" />
     <file path="/cart02.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1360277279714" ignored="false" />
     <file path="/index.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361326769437" ignored="false" />
@@ -18,7 +47,7 @@
     <file path="/admin.0.1.2.js" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361413072015" ignored="false" />
     <file path="/admin.py" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1360301366459" ignored="false" />
     <file path="/a.js" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361245977218" ignored="false" />
-    <file path="/home.py" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361341043281" ignored="false" />
+    <file path="/home.py" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361520199875" ignored="false" />
     <file path="/__init__.py" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361435174000" ignored="false" />
     <file path="/fragment.py" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361073824138" ignored="false" />
     <file path="/user_menu.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361121661018" ignored="false" />
@@ -29,10 +58,10 @@
     <file path="/category_edit.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361148795906" ignored="false" />
     <file path="/list_new.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361161470031" ignored="false" />
     <file path="/order.py" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361165318609" ignored="false" />
-    <file path="/list.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361409775468" ignored="false" />
+    <file path="/list.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361518345843" ignored="false" />
     <file path="/list_give_up.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361165126531" ignored="false" />
-    <file path="/a.dummy" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361166535063" ignored="false" />
-    <file path="/database.py" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361246344062" ignored="false" />
+    <file path="/a.dummy" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361517868000" ignored="false" />
+    <file path="/database.py" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361518281125" ignored="false" />
     <file path="/report.py" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361169054938" ignored="false" />
     <file path="/create.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361338296562" ignored="false" />
     <file path="/list_done.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361169701531" ignored="false" />
@@ -43,7 +72,7 @@
     <file path="$PROJECT_DIR$/../../Share/林盈葶/梵月科技/bootstrap/p2.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361327474843" ignored="false" />
     <file path="/p2.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361327474843" ignored="false" />
     <file path="/faq.py" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361338138734" ignored="false" />
-    <file path="/news_list.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361340551687" ignored="false" />
+    <file path="/news_list.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361517016437" ignored="false" />
     <file path="/product_list.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361411485171" ignored="false" />
     <file path="/demo_standard.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361424051250" ignored="false" />
     <file path="/goods_view.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361434089140" ignored="false" />
@@ -51,6 +80,8 @@
     <file path="/style.css" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361433798718" ignored="false" />
     <file path="$PROJECT_DIR$/../../Share/林盈葶/梵月科技/test/js/jquery.jqzoom-core.js" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361510889062" ignored="false" />
     <file path="/README.md" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361514394453" ignored="false" />
+    <file path="/Dummy.txt" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361518636421" ignored="false" />
+    <file path="/base_about.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361519328265" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,19 +106,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="goods_view.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Share/林盈葶/梵月科技/test/goods_view.html">
+      <file leaf-file-name="base_member.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/biofa/base_member.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="141" column="30" selection-start="7176" selection-end="7176" vertical-scroll-proportion="-7.464286">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="2.0357144">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
+      <file leaf-file-name="base.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/biofa/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="24" selection-start="37" selection-end="37" vertical-scroll-proportion="0.050802138">
+            <state line="62" column="18" selection-start="2544" selection-end="2544" vertical-scroll-proportion="0.8599717">
               <folding />
             </state>
           </provider>
@@ -100,25 +131,35 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="SYNC_SETTING" value="DONT" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myStructureFilterPaths" />
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/biofa/news.py" />
-        <option value="$PROJECT_DIR$/application/biofa/faq.py" />
-        <option value="$PROJECT_DIR$/templates/biofa/news_list.html" />
-        <option value="$PROJECT_DIR$/application/biofa/home.py" />
-        <option value="$PROJECT_DIR$/templates/biofa/admin/faq/list.html" />
-        <option value="$PROJECT_DIR$/application/common/image.py" />
+        <option value="$PROJECT_DIR$/templates/biofa/info.html" />
+        <option value="$PROJECT_DIR$/templates/biofa/join.html" />
+        <option value="$PROJECT_DIR$/templates/biofa/login.html" />
+        <option value="$PROJECT_DIR$/templates/biofa/logout.html" />
+        <option value="$PROJECT_DIR$/templates/biofa/news_view.html" />
+        <option value="$PROJECT_DIR$/templates/biofa/newsletter.html" />
+        <option value="$PROJECT_DIR$/templates/biofa/order_list.html" />
+        <option value="$PROJECT_DIR$/templates/biofa/order_view.html" />
+        <option value="$PROJECT_DIR$/templates/biofa/our_store.html" />
+        <option value="$PROJECT_DIR$/templates/biofa/our_store_list.html" />
+        <option value="$PROJECT_DIR$/templates/biofa/our_store_view.html" />
+        <option value="$PROJECT_DIR$/templates/biofa/password.html" />
         <option value="$PROJECT_DIR$/templates/biofa/product_list.html" />
-        <option value="$PROJECT_DIR$/templates/biofa/index.html" />
-        <option value="$PROJECT_DIR$/templates/biofa/assets/gaesite/admin.0.1.2.js" />
-        <option value="$PROJECT_DIR$/templates/biofa/assets/gaesite/a.js" />
-        <option value="$PROJECT_DIR$/../../Share/網頁特效/jqzoom_ev-2.3/demos/demo_standard.html" />
-        <option value="$PROJECT_DIR$/../../Share/林盈葶/梵月科技/test/css/style.css" />
-        <option value="$PROJECT_DIR$/libs/gaesite/__init__.py" />
-        <option value="$PROJECT_DIR$/templates/biofa/base.html" />
-        <option value="$PROJECT_DIR$/../../Share/林盈葶/梵月科技/test/goods_view.html" />
-        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/templates/biofa/product_view.html" />
+        <option value="$PROJECT_DIR$/templates/biofa/recruit_list.html" />
+        <option value="$PROJECT_DIR$/templates/biofa/recruit_view.html" />
       </list>
     </option>
   </component>
@@ -156,7 +197,7 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -417,6 +458,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="ptitle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gae-start" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gae-biofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="biofa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="order" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -538,10 +605,11 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
-    <property name="options.lastSelected" value="settings.github" />
+    <property name="ChangesBrowser.SHOW_FLATTEN" value="true" />
+    <property name="options.lastSelected" value="vcs.Git" />
     <property name="recentsLimit" value="5" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Share/林盈葶/梵月科技/bootstrap" />
+    <property name="last_opened_file_path" value="C:/Program Files/Git/cmd/git.exe" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="GoToClass.includeJavaFiles" value="false" />
@@ -727,6 +795,11 @@
       <created>1355456615265</created>
       <updated>1355456615265</updated>
     </task>
+    <task id="LOCAL-00001" summary="更新 DBTitle">
+      <created>1361518486796</created>
+      <updated>1361518486796</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers>
       <GitHub shared="false">
         <commitMessageFormat>{id} {summary}</commitMessageFormat>
@@ -766,22 +839,23 @@
     <frame x="-4" y="-4" width="1448" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.29935485" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="1487" y="282" width="1203" height="548" />
       <window_info id="TODO" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15168943" sideWeight="0.5173913" order="6" side_tool="false" content_ui="tabs" x="542" y="47" width="356" height="776" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3483871" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="bottom" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.32903227" sideWeight="0.49561954" order="6" side_tool="true" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20402299" sideWeight="0.7612903" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.7684606" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19324712" sideWeight="0.65122265" order="0" side_tool="false" content_ui="combo" x="441" y="36" width="558" height="797" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19324712" sideWeight="0.6516129" order="0" side_tool="false" content_ui="combo" x="441" y="36" width="558" height="797" />
       <window_info id="Debug" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21336207" sideWeight="0.65122265" order="7" side_tool="false" content_ui="tabs" x="238" y="344" width="611" height="446" />
       <window_info id="Favorites" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23153943" sideWeight="0.32647464" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.25326088" sideWeight="0.5" order="7" side_tool="true" content_ui="combo" x="524" y="94" width="458" height="799" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14727011" sideWeight="0.8116129" order="8" side_tool="false" content_ui="tabs" x="308" y="460" width="623" height="558" />
-      <window_info id="Version Control" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4826087" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.25290322" sideWeight="0.5" order="7" side_tool="true" content_ui="combo" x="524" y="94" width="458" height="799" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29094827" sideWeight="0.8116129" order="8" side_tool="false" content_ui="tabs" x="308" y="460" width="623" height="558" />
+      <window_info id="Version Control" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30387932" sideWeight="0.70064515" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Assets" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32916147" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34877735" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24930556" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -826,7 +900,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新 DBTitle" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -839,6 +913,7 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="更新 DBTitle" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -853,88 +928,114 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/templates/biofa/order_view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="19" selection-start="52" selection-end="52" vertical-scroll-proportion="-0.6785714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/biofa/our_store.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="19" selection-start="45" selection-end="45" vertical-scroll-proportion="-0.6785714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/biofa/our_store_030.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/biofa/our_store_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="19" selection-start="45" selection-end="45" vertical-scroll-proportion="-0.6785714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/biofa/our_store_view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="19" selection-start="45" selection-end="45" vertical-scroll-proportion="-0.6785714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/biofa/page_frame.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/biofa/page_gen_image.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/biofa/page_image.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/biofa/password.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="19" selection-start="52" selection-end="52" vertical-scroll-proportion="-0.6785714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/biofa/product_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="90" selection-start="315" selection-end="315" vertical-scroll-proportion="0.20736699" />
+        <state line="1" column="19" selection-start="45" selection-end="45" vertical-scroll-proportion="-0.6785714">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/common/image.py">
+    <entry file="file://$PROJECT_DIR$/templates/biofa/product_view.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="23" selection-start="2338" selection-end="2338" vertical-scroll-proportion="0.65633076" />
+        <state line="1" column="19" selection-start="45" selection-end="45" vertical-scroll-proportion="-0.6785714">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/biofa/index.html">
+    <entry file="file://$PROJECT_DIR$/templates/biofa/recruit_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="10" selection-start="3004" selection-end="3004" vertical-scroll-proportion="0.8035471" />
+        <state line="1" column="19" selection-start="45" selection-end="45" vertical-scroll-proportion="-0.6785714">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/biofa/admin/google_pickup.html">
+    <entry file="file://$PROJECT_DIR$/templates/biofa/user_menu.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="6" selection-start="124" selection-end="124" vertical-scroll-proportion="-2.0357144" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/biofa/assets/gaesite/c.js.seed">
+    <entry file="file://$PROJECT_DIR$/templates/biofa/recruit_view.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="4" column="71" selection-start="282" selection-end="282" vertical-scroll-proportion="-2.7142856">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/biofa/assets/gaesite/admin.0.1.2.js">
+    <entry file="file://$PROJECT_DIR$/templates/biofa/base_member.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="552" column="45" selection-start="24285" selection-end="24285" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Share/網頁特效/jqzoom_ev-2.3/demos/demo_standard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="10" selection-start="2477" selection-end="2477" vertical-scroll-proportion="-19.142857" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Share/林盈葶/梵月科技/test/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="39" selection-start="9019" selection-end="9058" vertical-scroll-proportion="-15.607142" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Share/林盈葶/梵月科技/test/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="316" column="13" selection-start="4995" selection-end="4995" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/biofa/assets/gaesite/a.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="747" column="0" selection-start="35632" selection-end="35632" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/biofa/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="19" selection-start="433" selection-end="433" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/biofa/home.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="20" selection-start="2224" selection-end="2224" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/gaesite/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="234" column="19" selection-start="9231" selection-end="9237" vertical-scroll-proportion="0.0" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="2.0357144">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/biofa/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="31" selection-start="3177" selection-end="3177" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Share/林盈葶/梵月科技/test/goods_view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="30" selection-start="7176" selection-end="7176" vertical-scroll-proportion="-7.464286">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="24" selection-start="37" selection-end="37" vertical-scroll-proportion="0.050802138">
+        <state line="62" column="18" selection-start="2544" selection-end="2544" vertical-scroll-proportion="0.8599717">
           <folding />
         </state>
       </provider>
