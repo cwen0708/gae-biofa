@@ -50,6 +50,7 @@
     <file path="$PROJECT_DIR$/../../Share/林盈葶/梵月科技/test/css/jquery.jqzoom.css" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361433726328" ignored="false" />
     <file path="/style.css" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361433798718" ignored="false" />
     <file path="$PROJECT_DIR$/../../Share/林盈葶/梵月科技/test/js/jquery.jqzoom-core.js" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361510889062" ignored="false" />
+    <file path="/README.md" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361514394453" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,19 +75,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/biofa/base.html">
+      <file leaf-file-name="goods_view.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Share/林盈葶/梵月科技/test/goods_view.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="31" selection-start="3177" selection-end="3177" vertical-scroll-proportion="0.0">
+            <state line="141" column="30" selection-start="7176" selection-end="7176" vertical-scroll-proportion="-7.464286">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="goods_view.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../../Share/林盈葶/梵月科技/test/goods_view.html">
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="141" column="30" selection-start="7176" selection-end="7176" vertical-scroll-proportion="0.2956153">
+            <state line="2" column="24" selection-start="37" selection-end="37" vertical-scroll-proportion="0.050802138">
               <folding />
             </state>
           </provider>
@@ -102,7 +103,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/biofa/admin/faq/edit.html" />
         <option value="$PROJECT_DIR$/application/biofa/news.py" />
         <option value="$PROJECT_DIR$/application/biofa/faq.py" />
         <option value="$PROJECT_DIR$/templates/biofa/news_list.html" />
@@ -118,6 +118,7 @@
         <option value="$PROJECT_DIR$/libs/gaesite/__init__.py" />
         <option value="$PROJECT_DIR$/templates/biofa/base.html" />
         <option value="$PROJECT_DIR$/../../Share/林盈葶/梵月科技/test/goods_view.html" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -537,7 +538,7 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="options.lastSelected" value="settings.github" />
     <property name="recentsLimit" value="5" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Share/林盈葶/梵月科技/bootstrap" />
@@ -852,11 +853,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="14" selection-start="2643" selection-end="2643" vertical-scroll-proportion="0.024967149" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/biofa/product_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="90" selection-start="315" selection-end="315" vertical-scroll-proportion="0.20736699" />
@@ -931,7 +927,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../Share/林盈葶/梵月科技/test/goods_view.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="30" selection-start="7176" selection-end="7176" vertical-scroll-proportion="0.2956153">
+        <state line="141" column="30" selection-start="7176" selection-end="7176" vertical-scroll-proportion="-7.464286">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="24" selection-start="37" selection-end="37" vertical-scroll-proportion="0.050802138">
           <folding />
         </state>
       </provider>
