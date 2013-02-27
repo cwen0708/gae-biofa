@@ -262,6 +262,9 @@ jQuery(function () {
                         if ($(this).data("page-url") !== undefined) {
                             $.address.value($(this).data("page-url"));
                         }
+                        if ($(this).data("window-url") !== undefined) {
+                            window.open($(this).data("window-url"), $(this).data("window-name"));
+                        }
                         if ($(this).data("json-url") !== undefined) {
                             gs.interact.json($(this).data("json-url"));
                         }
@@ -728,7 +731,7 @@ jQuery(function () {
                 }(window))
             };
         }()),
-        version: "1.3.3"
+        version: "1.3.9"
     };
     gs.ui.insertPlugins('/templates/biofa/assets/FortAwesome/css/font-awesome.min.css', 'style');
     gs.ui.insertPlugins('/templates/biofa/assets/kindeditor-4.1.4/themes/default/default.css', 'style');

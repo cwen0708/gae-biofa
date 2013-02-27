@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="textBox">
-	<h1 class="newsTitle">{{ record.title }}</h1>
-	<div class="date">{{ record.create_date_f }}</div>
 	<div class="textEditor">
+        {{ record.title }} <br />
         {{ record.content }}
 	</div>
 </div>

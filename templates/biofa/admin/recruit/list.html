@@ -13,6 +13,7 @@
         <th style="width:30px">#</th>
         <th data-lang="title"></th>
         <th style="width:60px"><br /></th>
+        <th style="width:60px"><br /></th>
         <th style="width:100px"><br /></th>
         <th style="width:60px"><br /></th>
     </tr>
@@ -22,7 +23,9 @@
     <tr id="node_{{ item.sort }}" data-key="{{ item.str_key }}" {% if item.in_trash_can > 0 %} class="record_already_delete" {% endif %}>
         <td>{{ item.row_no }}</td>
         <td>{{ item.name }} 想應徵 {{ item.job }}</td>
+
         <td><button type="button" class="btn" data-lang="edit" data-page-url="/admin/recruit/edit.html?key={{ item.str_key }}"></button></td>
+        <td><button type="button" class="btn" data-lang="download" data-window-url="/admin/recruit/word.docx?key={{ item.str_key }}" data-window-name="word-{{ item.str_key }}"></button></td>
         <td>
             <div class="btn-group" data-toggle="buttons-radio">
                 <button class="btn btn-set-enable {% if item.is_enable == True %} active{% endif %}" data-lang="already_read" data-json-url="/admin/record/enable.json?key={{ item.str_key }}"></button>

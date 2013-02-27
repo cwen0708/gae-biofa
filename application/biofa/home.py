@@ -4,6 +4,7 @@ from libs.gaesite import BaseHandler, HomeHandler
 from application.database import *
 from google.appengine.ext import db
 
+
 class ProductHandler(HomeHandler):
     def init(self):
         self.image_menu_title = DBPImg.get_by_name("#side_menu_title_product")
@@ -26,6 +27,30 @@ class MemberHandler(HomeHandler):
             self.session["is_login"] = False
         else:
             self.is_login = self.session["is_login"]
+
+        if self.is_login:
+            data_source = db.GqlQuery("SELECT * FROM DBSideMenu WHERE category = 'member_login' ORDER BY sort desc")
+        else:
+            data_source = db.GqlQuery("SELECT * FROM DBSideMenu WHERE category = 'member' ORDER BY sort desc")
+        test = data_source.get()
+        if test is None:
+            DBSideMenu.create(u"newsletter.html", u"訂閱電子報", u"member")
+            DBSideMenu.create(u"order_list.html", u"查詢訂單", u"member")
+            DBSideMenu.create(u"cart01.html", u"購物車", u"member")
+            DBSideMenu.create(u"info.html", u"修改會員資料", u"member")
+            DBSideMenu.create(u"password.html", u"忘記密碼", u"member")
+            DBSideMenu.create(u"join.html", u"加入會員", u"member")
+
+            DBSideMenu.create(u"newsletter.html", u"訂閱電子報", u"member_login")
+            DBSideMenu.create(u"order_list.html", u"查詢訂單", u"member_login")
+            DBSideMenu.create(u"cart01.html", u"購物車", u"member_login")
+            DBSideMenu.create(u"info.html", u"修改會員資料", u"member_login")
+            if self.is_login:
+                data_source = db.GqlQuery("SELECT * FROM DBSideMenu WHERE category = :1 ORDER BY in_trash_can, sort desc", u"member_login")
+            else:
+                data_source = db.GqlQuery("SELECT * FROM DBSideMenu WHERE category = :1 ORDER BY in_trash_can, sort desc", u"member")
+        self.sub_menu_list = data_source.fetch(999,0)
+
 
 class NewsHandler(HomeHandler):
     def init(self):
@@ -193,9 +218,10 @@ class our_store_view(PartnersHandler):
         self.is_enable = self.record.is_enable
         self.render("/our_store_view.html")
 
-class login(HomeHandler):
+class login(MemberHandler):
     def get(self, *args):
         self.image_page_title = DBTitle.get_by_name("#login_title")
+        self.image_change_v_code = DBPImg.get_by_name("#change_v_code")
         self.text = DBPage.gql("WHERE name = 'login_text'").get()
         self.render("/login.html")
 
@@ -229,9 +255,10 @@ class login_json(HomeHandler):
                 return
         self.json({"info":u"帳號密碼有誤"})
 
-class password(HomeHandler):
+class password(MemberHandler):
     def get(self, *args):
         self.image_page_title = DBTitle.get_by_name("#password_title")
+        self.image_change_v_code = DBPImg.get_by_name("#change_v_code")
         self.render("/password.html")
 
 class password_json(HomeHandler):
@@ -278,7 +305,7 @@ class logout_json(HomeHandler):
         self.session["is_login"] = False
         self.json({"info":"done"})
 
-class join(HomeHandler):
+class join(MemberHandler):
     def get(self, *args):
         self.image_page_title = DBTitle.get_by_name("#login_title")
         self.record = DBPage.gql("WHERE name = '%s' " % 'terms').get()
@@ -349,6 +376,8 @@ class join_json(HomeHandler):
 class contact(ContactHandler):
     def get(self, *args):
         self.image_page_title = DBTitle.get_by_name("#contact_title")
+        self.image_change_v_code = DBPImg.get_by_name("#change_v_code")
+        self.text = DBPage.gql("WHERE name = 'contact_us_page'").get()
         self.render("/contact.html")
 
 class contact_json(HomeHandler):
@@ -389,7 +418,7 @@ class contact_json(HomeHandler):
         record.telephone = self.request.get('telephone') if self.request.get('telephone') is not None else u''
         record.email     =  self.request.get('email') if self.request.get('email') is not None else u''
         record.address   =  self.request.get('address') if self.request.get('address') is not None else u''
-        record.content    =  self.request.get('content') if self.request.get('content') is not None else u''
+        record.content   =  content
         record.save()
         self.json({"info": u'done'})
 
@@ -480,26 +509,28 @@ class page_image(BaseHandler):
             self.record.sort = time.time()
             self.record.save()
 
-class cart01(ProductHandler):
+class cart01(MemberHandler):
     def get(self, *args):
         self.image_page_title = DBTitle.get_by_name("#car_title")
         self.render("/cart01.html")
 
-class cart02(ProductHandler):
+class cart02(MemberHandler):
     def get(self, *args):
         if self.is_login is True:
             self.image_page_title = DBTitle.get_by_name("#car_title")
             self.render("/cart02.html")
         else:
             self.image_page_title = DBTitle.get_by_name("#login_title")
+            self.image_change_v_code = DBPImg.get_by_name("#change_v_code")
+            self.text = DBPage.gql("WHERE name = 'login_text'").get()
             self.render("/login.html")
 
-class cart03(ProductHandler):
+class cart03(MemberHandler):
     def get(self, *args):
         self.image_page_title = DBTitle.get_by_name("#car_title")
         self.render("/cart03.html")
 
-class cart04(ProductHandler):
+class cart04(MemberHandler):
     def get(self, *args):
         self.image_page_title = DBTitle.get_by_name("#car_title")
         try:
@@ -528,7 +559,7 @@ class faq(FaqHandler):
         self.page_all = Pagination.get_all_page(self.results, "show", self.page, self.size, cate)
         self.render("/faq.html")
 
-class newsletter(HomeHandler):
+class newsletter(MemberHandler):
     def get(self, *args):
         self.image_page_title = DBTitle.get_by_name("#newsletter_title")
         if self.session.has_key("user_email") is True:
@@ -567,9 +598,8 @@ class newsletter_json(HomeHandler):
         em.save()
         self.json({"info": u"done"})
 
-class order_list(HomeHandler):
+class order_list(MemberHandler):
     def get(self, *args):
-        self.image_page_title = DBTitle.get_by_name("#order_title")
         if self.is_login is True:
             self.image_page_title = DBTitle.get_by_name("#order_title")
             if self.session.has_key("user_account") is True:
@@ -578,9 +608,11 @@ class order_list(HomeHandler):
             self.render("/order_list.html")
         else:
             self.image_page_title = DBTitle.get_by_name("#login_title")
+            self.image_change_v_code = DBPImg.get_by_name("#change_v_code")
+            self.text = DBPage.gql("WHERE name = 'login_text'").get()
             self.render("/login.html")
 
-class order_view(HomeHandler):
+class order_view(MemberHandler):
     def get(self, *args):
         if self.is_login is True:
             self.image_page_title = DBTitle.get_by_name("#order_title")
@@ -588,9 +620,11 @@ class order_view(HomeHandler):
             self.render("/order_view.html")
         else:
             self.image_page_title = DBTitle.get_by_name("#login_title")
+            self.image_change_v_code = DBPImg.get_by_name("#change_v_code")
+            self.text = DBPage.gql("WHERE name = 'login_text'").get()
             self.render("/login.html")
 
-class info(HomeHandler):
+class info(MemberHandler):
     def get(self, *args):
         if self.is_login is True:
             self.image_page_title = DBTitle.get_by_name("#info_title")
@@ -599,4 +633,11 @@ class info(HomeHandler):
             self.render("/info.html")
         else:
             self.image_page_title = DBTitle.get_by_name("#login_title")
+            self.text = DBPage.gql("WHERE name = 'login_text'").get()
+            self.image_change_v_code = DBPImg.get_by_name("#change_v_code")
             self.render("/login.html")
+
+class change_v_code(HomeHandler):
+    def get(self, *args):
+        self.image_change_v_code = DBPImg.get_by_name("#change_v_code")
+        self.redirect()

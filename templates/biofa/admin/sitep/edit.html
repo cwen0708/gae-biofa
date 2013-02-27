@@ -27,14 +27,11 @@
         </div>
     </div>
     {% endif %}
-    <div class="row-fluid">
-        <div class="span12" id="url_ex"></div>
-    </div>
     <label class="control-label" for="inputContent" data-lang="field_content"></label>
     <textarea name="content" id="inputContent" class="span12 {% if record.name != "page_image" %}editor{% endif %}">{{ record.content }}</textarea>
 
     <div class="form-actions">
-        <div class="span9"></div>
+        <div class="span9" id="url_ex" style="color:#aaa;"></div>
         <button type="submit" class="btn btn-danger btn-large span3" data-lang="field_submit"></button>
     </div>
 </form>

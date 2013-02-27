@@ -1,5 +1,7 @@
-{% extends "base_member.html" %}
+{% extends "base.html" %}
 {% block content %}
+
+{% if order.total %}
 <div class="textBox recruit">
 	<div><img src="img/disstep01.gif" alt="" /></div>
     <table cellpadding="0" cellspacing="0" border="0" width="710" class="carTable">
@@ -32,4 +34,11 @@
     </table>
     <div class="btn03"><a href="product_list.html" title=""><img src="img/shop_out.gif" alt="" class="img_change"  /></a><a href="cart02.html" title=""><img src="img/nextstep_out.gif" alt="" class="img_change"  /></a></div>
 </div>
+{% else %}
+    <div class="textBox recruit">
+        <div class="car"> 目前您的購物清單裡沒有商品 <br />
+            <button onclick="location.href='product_list.html'">繼續購物</button>
+        </div>
+    </div>
+{% endif %}
 {% endblock %}

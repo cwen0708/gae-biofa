@@ -27,21 +27,33 @@
                 <label class="control-label" data-lang="field_product_category"></label>
                 <select name="category1" id="cate_1" class="span12">
                     {% for item in level_1_product %}
-                        <option value="{{ item.str_key }}">{{ item.title }}</option>
+                        {% if item.str_key == category_1 %}
+                            <option value="{{ item.str_key }}" selected="selected">{{ item.title }}</option>
+                        {% else %}
+                            <option value="{{ item.str_key }}">{{ item.title }}</option>
+                        {% endif %}
                     {% endfor %}
                 </select>
             </div>
             <div>
                 <select name="category2" class="span12">
                     {% for item in level_2_product %}
-                        <option value="{{ item.str_key }}">{{ item.title }}</option>
+                        {% if item.str_key == category_2 %}
+                            <option value="{{ item.str_key }}" selected="selected">{{ item.title }}</option>
+                        {% else %}
+                            <option value="{{ item.str_key }}">{{ item.title }}</option>
+                        {% endif %}
                     {% endfor %}
                 </select>
             </div>
             <div>
                 <select name="category3" class="span12">
                     {% for item in level_3_product %}
-                        <option value="{{ item.str_key }}">{{ item.title }}</option>
+                        {% if item.str_key == category_3 %}
+                            <option value="{{ item.str_key }}" selected="selected">{{ item.title }}</option>
+                        {% else %}
+                            <option value="{{ item.str_key }}">{{ item.title }}</option>
+                        {% endif %}
                     {% endfor %}
                 </select>
             </div>
@@ -109,7 +121,7 @@
     <div class="row-fluid">
         <div class="span12">
             <label class="control-label" for="inputContent2" data-lang="field_content"></label>
-            <textarea name="content" id="inputContent2" class="span12 editor"></textarea>
+            <textarea name="content" id="inputContent2" class="span12 editor">{{ record.content }}</textarea>
         </div>
     </div>
 

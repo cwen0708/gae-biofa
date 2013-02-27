@@ -60,6 +60,8 @@ gs.menu.list["/admin/page.html"] = [
     '<li class="menu"><a href="/admin/link/list.html"><span data-lang="link_list"></span></a></li>',
     '<li class="divider"></li>',
     '<li class="nav-header"><span data-lang="page_manage"></span></li>',
+
+    '<li class="menu"><a href="/admin/sitep/edit.html?name=contact_us_page"><span data-lang="contact_us_page"></span></a></li>',
     '<li class="menu"><a href="/admin/sitep/edit.html?name=cart_left_login"><span data-lang="page_shop_cart_left_login"></span></a></li>',
     '<li class="menu"><a href="/admin/sitep/edit.html?name=cart_left_logout"><span data-lang="page_shop_cart_left_logout"></span></a></li>',
     '<li class="menu"><a href="/admin/sitep/edit.html?name=login_text"><span data-lang="page_login_text"></span></a></li>',
@@ -205,19 +207,11 @@ gs.interact.afterLoad(function(){
     hook_editor();
     build_pager();
     $(".record_already_delete").each(function(){
-        var tds = $(this).find("td");
-        for(var i = 0;i<tds.length;i++)
-        {
-            var r = tds.eq(i);
-            if (r.data("recovery-string") == undefined)
-            {
-                r.data("recovery-string",r.html());
-                r.html("<br />");
-            }
+        try {
+            set_show_already_delete($(this).data("key"));
+        } catch(e) {
+
         }
-        tds.eq(0).html('#');
-        tds.eq(1).html('<spna data-lang="already_delete"></span>');
-        tds.eq(-1).html('<button type="button" class="btn" data-lang="recovery" data-json-url="/admin/record/recovery.json?key=' + tds.parent().data("key") + '"></button>');
     });
     gs.ui.refresh();
     if (gs.debug == true)
@@ -270,21 +264,7 @@ gs.interact.afterJson(function(data){
         });
     }
     if (data.action == "delete"){
-        $("tr").each(function(){
-            if ($(this).data("key") == data.record.toString()) {
-                var tds = $(this).find("td");
-                for(var i = 0;i<tds.length;i++)
-                {
-                    var r = tds.eq(i);
-                    r.data("recovery-string",r.html());
-                    r.html("<br />");
-                }
-                tds.eq(0).html('#');
-                tds.eq(1).html('<spna data-lang="already_delete"></span>');
-                tds.eq(-1).html('<button type="button" class="btn" data-lang="recovery" data-json-url="/admin/record/recovery.json?key=' + data.record +'"></button>');
-                gs.ui.refresh();
-            }
-        });
+        set_show_already_delete(data.record.toString());
     }
     if (data.action == "recovery"){
         $("tr").each(function(){
@@ -300,6 +280,9 @@ gs.interact.afterJson(function(data){
         });
     }
     if (data.action == "refresh"){
+        gs.interact.reload();
+    }
+    if (data.action == "real_delete"){
         gs.interact.reload();
     }
 });
@@ -329,6 +312,32 @@ gs.interact.afterSubmit(function(data){
         }
     });
 });
+
+function set_show_already_delete(key) {
+    $("tr").each(function(){
+        if ($(this).data("key") == key) {
+            var length = $(this).find("td").length - 2;
+            var tds = $(this).find("td");
+            for(var i = 0;i<tds.length;i++)
+            {
+                var r = tds.eq(i);
+                r.data("recovery-string",r.html());
+                r.html("<br />");
+            }
+            tds.eq(0).html('#');
+            var text_flag = true;
+            $(this).find("td").each(function(){
+                if ($(this).width() > 50 && text_flag == true){
+                    $(this).html('<spna data-lang="already_delete"></span>');
+                    text_flag = false;
+                }
+            });
+            tds.eq(-2).html('<button type="button" class="btn" data-lang="real_delete" data-json-url="/admin/record/real_delete.json?key=' + key +'"></button>');
+            tds.eq(-1).html('<button type="button" class="btn" data-lang="recovery" data-json-url="/admin/record/recovery.json?key=' + key +'"></button>');
+            gs.ui.refresh();
+        }
+    });
+}
 
 // 建立分頁
 var last_pager_c = 0;

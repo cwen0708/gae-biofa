@@ -115,15 +115,15 @@ class product_edit(AdministratorHandler):
         if len(key) > 0:
             self.record = db.get(key)
             try:
-                self.category_1 = db.get(self.record.category3)
+                self.category_1 = self.record.category1
             except:
                 self.category_1 = ""
             try:
-                self.category_2 = db.get(self.record.category2)
+                self.category_2 = self.record.category2
             except:
                 self.category_2 = ""
             try:
-                self.category_3 = db.get(self.record.category1)
+                self.category_3 = self.record.category3
             except:
                 self.category_3 = ""
             self.images = self.record.images.split(",")
@@ -132,25 +132,35 @@ class product_edit(AdministratorHandler):
     def post(self, *args):
         record = db.get(self.request.get('key'))
         if record is not None:
-            record.title         = self.request.get('title') if  self.request.get('title') is not None else u'未命名'
-            record.content      =  self.request.get('content') if self.request.get('content') is not None else u''
-            record.images      =  self.request.get('images') if self.request.get('images') is not None else u''
-            record.image      =  self.request.get('image') if self.request.get('image') is not None else u''
-            record.no      =  self.request.get('no') if self.request.get('no') is not None else u''
-            record.is_allowed_to_buy      =  self.request.get('is_allowed_to_buy') == "true"  if self.request.get('image') is not None else False
+            record.title = self.request.get('title') if  self.request.get('title') is not None else u'未命名'
+            record.content = self.request.get('content') if self.request.get('content') is not None else u''
+            record.images = self.request.get('images') if self.request.get('images') is not None else u''
+            record.image = self.request.get('image') if self.request.get('image') is not None else u''
+            record.no = self.request.get('no') if self.request.get('no') is not None else u''
+            record.is_allowed_to_buy = self.request.get('is_allowed_to_buy') == "true"  if self.request.get('image') is not None else False
             try:
-                record.price      =  float(self.request.get('price')) if self.request.get('image') is not None else 0.0
+                record.price = float(self.request.get('price')) if self.request.get('image') is not None else 0.0
             except:
                 self.json({"info": u'商品更新失敗',"content":u"價格並不是一個數字。"})
                 return
             try:
-                record.low      =  int(self.request.get('low')) if self.request.get('low') is not None else 0
+                record.low = int(self.request.get('low')) if self.request.get('low') is not None else 0
             except:
                 self.json({"info": u'商品更新失敗',"content":u"最低訂購量並不是一個數字。"})
                 return
-            record.efficacy      =  self.request.get('efficacy') if self.request.get('efficacy') is not None else u''
-            record.use_method      =  self.request.get('use_method') if self.request.get('use_method') is not None else u''
-            record.components      =  self.request.get('components') if self.request.get('components') is not None else u''
+            record.efficacy = self.request.get('efficacy') if self.request.get('efficacy') is not None else u''
+            record.use_method = self.request.get('use_method') if self.request.get('use_method') is not None else u''
+            record.components = self.request.get('components') if self.request.get('components') is not None else u''
+
+            Pagination.delete(record,record.is_enable, u"cate-" + record.category1)
+            Pagination.delete(record,record.is_enable, u"cate-" + record.category2)
+            Pagination.delete(record,record.is_enable, u"cate-" + record.category3)
+            record.category1 = self.request.get('category1') if  self.request.get('category1') is not None else u''
+            record.category2 = self.request.get('category2') if  self.request.get('category2') is not None else u''
+            record.category3 = self.request.get('category3') if  self.request.get('category3') is not None else u''
+            Pagination.add(record,record.is_enable, u"cate-" + record.category1)
+            Pagination.add(record,record.is_enable, u"cate-" + record.category2)
+            Pagination.add(record,record.is_enable, u"cate-" + record.category3)
             record.save()
             self.json({"info": u'商品已更新',"content":u"您已經成功的變更了此筆商品分類。"})
         else:

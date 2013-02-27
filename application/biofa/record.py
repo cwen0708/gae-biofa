@@ -36,6 +36,13 @@ class recovery(AdministratorHandler):
         else:
             self.json({"action":"recovery_error","record":key})
 
+class real_delete(AdministratorHandler):
+    def post(self, *args):
+        key = self.request.get('key') if  self.request.get('key') is not None else ''
+        if key != '':
+            db.delete(key)
+            self.json({"action":"real_delete","record":key})
+
 class delete(AdministratorHandler):
     def post(self, *args):
         key = self.request.get('key') if  self.request.get('key') is not None else ''

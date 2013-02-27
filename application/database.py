@@ -47,6 +47,22 @@ class DBBase(db.Model):
             self.str_key = str(self.key())
             self.put()
 
+class DBSideMenu(DBBase):
+    linkUrl = db.StringProperty()
+    title = db.StringProperty()
+    className = db.StringProperty()
+    category = db.StringProperty()
+
+    @staticmethod
+    def create(title, url, category, className = u"treeOne"):
+        record = DBSideMenu()
+        record.linkUrl = title
+        record.title = url
+        record.category = category
+        record.className = className
+        record.is_enable = True
+        record.save()
+
 class DBMember(DBBase):
     """ 會員 """
     account = db.StringProperty()
@@ -298,6 +314,7 @@ class DBRecruit(DBBase):
     job = db.StringProperty()
     name = db.StringProperty()
     image = db.StringProperty()
+    content = db.TextProperty()
     id = db.StringProperty()
 
     birthday = db.StringProperty()

@@ -179,7 +179,7 @@ $(function(){
             disabled: false
         });
     });
-    $("a.logout").click(function(){
+    $("a.logout").live("click", function(){
         json("/logout.json",null,function(){
             location.reload();
         },function(){
@@ -286,7 +286,11 @@ $(function(){
     }
     $("#btn_recruit_create").click(function() {
         json("/recruit_create.json", $("#recruit_form").serialize(), function(data) {
-            alert(data);
+            if (data.info.toString() == "done")
+            {
+                $("#form_area").slideUp();
+                $("#thx").slideDown();
+            }
         },  function(data) {
             alert(data);
         });

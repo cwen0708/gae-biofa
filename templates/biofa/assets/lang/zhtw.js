@@ -8,6 +8,7 @@ gs.lang.append('zhtw',[
     {key:"sell", label:"銷售"},
     {key:"item", label:"項目"},
     {key:"apply", label:"套用"},
+    {key:"download", label:"下載"},
     {key:"report", label:"報告"},
     {key:"setting", label:"設定"},
     {key:"page", label:"頁面"},
@@ -36,6 +37,8 @@ gs.lang.append('zhtw',[
     {key:"product_category_manage", label:"商品類別管理"},
 
     {key:"already_delete", label:"已被刪除"},
+    {key:"real_delete", label:"完全刪除"},
+
     {key:"already_recovery", label:"記錄已還原，請重新載入列表頁"},
     {key:"recovery", label:"還原"},
     {key:"btn_close", label:"關閉"},
@@ -93,6 +96,8 @@ gs.lang.append('zhtw',[
     {key:"sales_related_functions", label:"銷售相關"},
 
     {key:"contact_us", label:"聯絡我們"},
+    {key:"contact_us_page", label:"聯絡我們上方說明"},
+
     {key:"guestbook_list", label:"留言內容"},
     {key:"member", label:"會員"},
     {key:"member_list", label:"會員列表"},

@@ -288,3 +288,10 @@ indexes:
   - name: sort
     direction: desc
 
+
+- kind: DBSideMenu
+  properties:
+  - name: category
+  - name: sort
+    direction: desc
+

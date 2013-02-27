@@ -36,17 +36,16 @@ class recruit_create_json(HomeHandler):
         record.telephone  = self.request.get('telephone') if  self.request.get('telephone') is not None else u'聯絡電話未填寫'
         record.mobile = self.request.get('mobile') if  self.request.get('mobile') is not None else u'行動電話未填寫'
         record.email = self.request.get('email') if  self.request.get('email') is not None else u'電子郵件未填寫'
+        record.tool = self.request.get('tool') if self.request.get('tool') is not None else u'擅長工具未填寫'            #擅長工具
 
-        record.language = self.request.get('language') if  self.request.get('language') is not None else u'語文能力未填寫'        #語文能力
+        record.language = self.get_list('language-0')
+        record.language_1 = self.get_list('language-1')
+        record.language_2 = self.get_list('language-2')
+        record.language_3 = self.get_list('language-3')
+        record.language_4 = self.get_list('language-4')
 
-        record.language = self.request.get('language-0') if  self.request.get('language-0') is not None else u'語文能力未填寫'        #語文能力
-        record.language_1 = self.request.get('language-1') if  self.request.get('language-1') is not None else u'聽'        #語文能力
-        record.language_2 = self.request.get('language-2') if  self.request.get('language-2') is not None else u'說'        #語文能力
-        record.language_3 = self.request.get('language-3') if  self.request.get('language-3') is not None else u'讀'        #語文能力
-        record.language_4 = self.request.get('language-4') if  self.request.get('language-4') is not None else u'寫'        #語文能力
-        record.tool= self.request.get('tool') if  self.request.get('tool') is not None else u'擅長工具未填寫'            #擅長工具
-        record.transport= self.request.get('transport') if  self.request.get('transport') is not None else u'交通工具未填寫'       #交通工具
-        record.driving_license= self.request.get('driving_license') if  self.request.get('driving_license') is not None else u'駕駛執照未填寫' #駕駛執照
+        record.transport = self.get_list('transport')
+        record.driving_license = self.get_list('driving_license')
 
         record.title_name_1 = self.request.get('title_name_1') if  self.request.get('title_name_1') is not None else u'最近工作職務名稱未填寫'  #職務名稱
         record.title_name_2 = self.request.get('title_name_2') if  self.request.get('title_name_2') is not None else u'前一工作職務名稱未填寫'
@@ -61,7 +60,15 @@ class recruit_create_json(HomeHandler):
 
         record.save()
         Pagination.add(record,record.is_enable)
-        self.json({"info": u'求職履歷已新增',"content":u"您已經成功的新增了一筆求職履歷。"})
+        self.json({"info": u'done'})
+
+    def get_list(self, filedName):
+        returnValue = u""
+        for item in self.request.get_all(filedName):
+            returnValue = returnValue + item + u","
+        returnValue += u"]"
+        returnValue = returnValue.replace(u",]", u"")
+        return returnValue.replace(u"無", u"")
 
 class edit(AdministratorHandler):
     def get(self, *args):
@@ -76,11 +83,38 @@ class edit(AdministratorHandler):
             self.lang3 = self.record.language_3.split(u",")
             self.lang4 = self.record.language_4.split(u",")
             j = 0
+            self.lang = u""
             for i in self.lang0:
-                self.lang = u"" + self.lang0[j] +\
+                self.lang = self.lang + u"" + self.lang0[j] +\
                             u"　　<b>聽</b> " + self.lang1[j] +\
                             u"　　<b>說</b> " + self.lang2[j] +\
                             u"　　<b>讀</b> " + self.lang3[j] +\
-                            u"　　<b>寫</b> " + self.lang4[j] + u"<br />"
+                            u"　　<b>寫</b> " + self.lang4[j] + u"<br />　　　　　　 "
+                j += 1
+
+        self.render("/admin/recruit/edit.html")
+
+class word(AdministratorHandler):
+    def get(self, *args):
+        self.response.headers["Content-Type"] = "application/vnd.ms-word.document.12"
+        key = self.request.get('key') if  self.request.get('key') is not None else ''
+        if key != '':
+            record = db.get(key)
+            self.record = record
+            self.is_enable = self.record.is_enable
+            self.lang0 = self.record.language.split(u",")
+            self.lang1 = self.record.language_1.split(u",")
+            self.lang2 = self.record.language_2.split(u",")
+            self.lang3 = self.record.language_3.split(u",")
+            self.lang4 = self.record.language_4.split(u",")
+            j = 0
+            self.lang = u""
+            for i in self.lang0:
+                self.lang = self.lang + u"" + self.lang0[j] + \
+                            u"　　<b>聽</b> " + self.lang1[j] + \
+                            u"　　<b>說</b> " + self.lang2[j] + \
+                            u"　　<b>讀</b> " + self.lang3[j] + \
+                            u"　　<b>寫</b> " + self.lang4[j] + u"<br />　　　　　　 "
+                j += 1
 
         self.render("/admin/recruit/edit.html")
