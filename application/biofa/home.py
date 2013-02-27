@@ -150,6 +150,7 @@ class news_list(NewsHandler):
 class news_view(NewsHandler):
     def get(self, *args):
         self.image_page_title = DBTitle.get_by_name("#news_title")
+        self.image_go_back = DBPImg.get_by_name("#image_go_back")
         data_source = db.GqlQuery("SELECT * FROM DBNewsCategory WHERE is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc")
         self.sub_menu_list = data_source.fetch(99,0)
         for item in self.sub_menu_list:
@@ -210,6 +211,7 @@ class our_store_list(PartnersHandler):
 class our_store_view(PartnersHandler):
     def get(self, *args):
         self.image_page_title = DBTitle.get_by_name("#our_store_title")
+        self.image_go_back = DBPImg.get_by_name("#image_go_back")
         key = self.request.get('key') if  self.request.get('key') is not None else ''
         if key != '':
             record = db.get(key)
@@ -447,7 +449,7 @@ class product_list(ProductHandler):
 
 class product_view(ProductHandler):
     def get(self, *args):
-        self.image_product_back = DBPImg.get_by_name("#image_product_back")
+        self.image_go_back = DBPImg.get_by_name("#image_go_back")
         self.image_page_title = DBTitle.get_by_name("#product_title")
         self.record = db.get(self.request.get('key'))
         self.cate = ''
@@ -616,6 +618,7 @@ class order_view(MemberHandler):
     def get(self, *args):
         if self.is_login is True:
             self.image_page_title = DBTitle.get_by_name("#order_title")
+            self.image_go_back = DBPImg.get_by_name("#image_go_back")
             self.record = db.get(self.request.get('key'))
             self.render("/order_view.html")
         else:
