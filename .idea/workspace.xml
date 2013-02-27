@@ -4,43 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/templates/biofa/order_list.html" line="18" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2b6d883-48fb-44bc-b26a-54142357f3a4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vagrant.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Cwen.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Cwen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/biofa/__init__.py" afterPath="$PROJECT_DIR$/application/biofa/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/assets/gaesite/a.js" afterPath="$PROJECT_DIR$/templates/biofa/assets/gaesite/a.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/assets/gaesite/admin.0.1.2.js" afterPath="$PROJECT_DIR$/templates/biofa/assets/gaesite/admin.0.1.2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/base.html" afterPath="$PROJECT_DIR$/templates/biofa/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/cart01.html" afterPath="$PROJECT_DIR$/templates/biofa/cart01.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/cart02.html" afterPath="$PROJECT_DIR$/templates/biofa/cart02.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/cart03.html" afterPath="$PROJECT_DIR$/templates/biofa/cart03.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/cart04.html" afterPath="$PROJECT_DIR$/templates/biofa/cart04.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/js/common.js" afterPath="$PROJECT_DIR$/templates/biofa/js/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/contact.html" afterPath="$PROJECT_DIR$/templates/biofa/contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/database.py" afterPath="$PROJECT_DIR$/application/database.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/admin/recruit/edit.html" afterPath="$PROJECT_DIR$/templates/biofa/admin/recruit/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/admin/sitep/edit.html" afterPath="$PROJECT_DIR$/templates/biofa/admin/sitep/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/biofa/home.py" afterPath="$PROJECT_DIR$/application/biofa/home.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.yaml" afterPath="$PROJECT_DIR$/index.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/info.html" afterPath="$PROJECT_DIR$/templates/biofa/info.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/join.html" afterPath="$PROJECT_DIR$/templates/biofa/join.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/admin/recruit/list.html" afterPath="$PROJECT_DIR$/templates/biofa/admin/recruit/list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/login.html" afterPath="$PROJECT_DIR$/templates/biofa/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/logout.html" afterPath="$PROJECT_DIR$/templates/biofa/logout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/news_list.html" afterPath="$PROJECT_DIR$/templates/biofa/news_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/news_view.html" afterPath="$PROJECT_DIR$/templates/biofa/news_view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/newsletter.html" afterPath="$PROJECT_DIR$/templates/biofa/newsletter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/order_list.html" afterPath="$PROJECT_DIR$/templates/biofa/order_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/order_view.html" afterPath="$PROJECT_DIR$/templates/biofa/order_view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/password.html" afterPath="$PROJECT_DIR$/templates/biofa/password.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/biofa/product.py" afterPath="$PROJECT_DIR$/application/biofa/product.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/admin/product/product_edit.html" afterPath="$PROJECT_DIR$/templates/biofa/admin/product/product_edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/biofa/record.py" afterPath="$PROJECT_DIR$/application/biofa/record.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/biofa/recruit.py" afterPath="$PROJECT_DIR$/application/biofa/recruit.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/recruit_view.html" afterPath="$PROJECT_DIR$/templates/biofa/recruit_view.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/admin/contact/view.html" afterPath="$PROJECT_DIR$/templates/biofa/admin/contact/view.html" />
+    <list default="true" id="e2b6d883-48fb-44bc-b26a-54142357f3a4" name="Default" comment="忽略 pycharm 的專案管理檔案">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/biofa/assets/lang/zhtw.js" afterPath="$PROJECT_DIR$/templates/biofa/assets/lang/zhtw.js" />
     </list>
     <ignored path="gae-start.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,7 +22,7 @@
     <file path="/admin.py" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1360301366459" ignored="false" />
     <file path="/a.js" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361862381765" ignored="false" />
     <file path="/home.py" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361942408953" ignored="false" />
-    <file path="/__init__.py" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361861841390" ignored="false" />
+    <file path="/__init__.py" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361954306250" ignored="false" />
     <file path="/fragment.py" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361938591718" ignored="false" />
     <file path="/user_menu.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361121661018" ignored="false" />
     <file path="/common.js" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361843834640" ignored="false" />
@@ -86,7 +52,7 @@
     <file path="/goods_view.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361434089140" ignored="false" />
     <file path="$PROJECT_DIR$/../../Share/林盈葶/梵月科技/test/css/jquery.jqzoom.css" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361433726328" ignored="false" />
     <file path="/style.css" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361433798718" ignored="false" />
-    <file path="/Dummy.txt" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361933005812" ignored="false" />
+    <file path="/Dummy.txt" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361954291093" ignored="false" />
     <file path="/zhtw.js" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361841356843" ignored="false" />
     <file path="/record.py" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361841507687" ignored="false" />
     <file path="/view.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361842306437" ignored="false" />
@@ -95,6 +61,7 @@
     <file path="/cart01.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361870220468" ignored="false" />
     <file path="/order_list.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361870794906" ignored="false" />
     <file path="/news_view.html" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361933768796" ignored="false" />
+    <file path="/.gitignore" changelist="e2b6d883-48fb-44bc-b26a-54142357f3a4" time="1361954184546" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,21 +86,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="edit.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/biofa/admin/sitep/edit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="18" selection-start="645" selection-end="645" vertical-scroll-proportion="-4.678571">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="__init__.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/biofa/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="60" selection-start="2786" selection-end="2786" vertical-scroll-proportion="0.7379679">
+            <state line="17" column="41" selection-start="586" selection-end="586" vertical-scroll-proportion="0.4318182">
               <folding>
                 <element signature="e#47#155#0" expanded="true" />
               </folding>
@@ -149,6 +105,11 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="温啟良" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLogSettings">
@@ -159,7 +120,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/biofa/cart04.html" />
         <option value="$PROJECT_DIR$/templates/biofa/info.html" />
         <option value="$PROJECT_DIR$/templates/biofa/join.html" />
         <option value="$PROJECT_DIR$/templates/biofa/logout.html" />
@@ -175,6 +135,7 @@
         <option value="$PROJECT_DIR$/templates/biofa/password.html" />
         <option value="$PROJECT_DIR$/templates/biofa/admin/sitep/edit.html" />
         <option value="$PROJECT_DIR$/application/biofa/__init__.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -947,6 +908,11 @@
       <created>1355456615265</created>
       <updated>1355456615265</updated>
     </task>
+    <task id="LOCAL-00001" summary="改了啥，我也不太清楚">
+      <created>1361953995515</created>
+      <updated>1361953995515</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers>
       <GitHub shared="false">
         <commitMessageFormat>{id} {summary}</commitMessageFormat>
@@ -986,6 +952,7 @@
     <frame x="-4" y="-4" width="1448" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903227" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15168943" sideWeight="0.5173913" order="6" side_tool="false" content_ui="tabs" x="542" y="47" width="356" height="776" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4051613" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1046,7 +1013,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="改了啥，我也不太清楚" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1059,6 +1026,7 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="改了啥，我也不太清楚" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1073,13 +1041,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/biofa/join.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="12" selection-start="12" selection-end="12" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/biofa/logout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="12" selection-start="12" selection-end="12" vertical-scroll-proportion="0.0">
@@ -1191,9 +1152,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="270" selection-end="270" vertical-scroll-proportion="0.63502675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/biofa/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="60" selection-start="2786" selection-end="2786" vertical-scroll-proportion="0.7379679">
+        <state line="17" column="41" selection-start="586" selection-end="586" vertical-scroll-proportion="0.4318182">
           <folding>
             <element signature="e#47#155#0" expanded="true" />
           </folding>
