@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/templates/biofa/css/skins/tango/skin.css" />
     <link rel="stylesheet" type="text/css" href="/templates/biofa/assets/kindeditor-4.1.4/themes/default/default.css" />
     <link rel="stylesheet" type="text/css" href="site_style.css" />
+    <link rel="stylesheet" type="text/css" href="site_image.css" />
     <script src="/templates/biofa/js/jquery-1.8.2.min.js"></script>
     <script src="/templates/biofa/js/slides.min.jquery.js"></script>
     <script src="/templates/biofa/js/jquery.colorbox.js"></script>
@@ -14,15 +15,14 @@
     <script src="/templates/biofa/js/jquery.twaddress.js"></script>
     <script src="/templates/biofa/js/jquery-date-select.js"></script>
     <script src="/templates/biofa/js/common.js"></script>
-    <script type="text/javascript">{{ page_js.content }}</script>
 </head>
 <body>
 
 <!-- 頁首區開始 -->
 <div id="header" class="wrap">
-    <div class="shopping_cart">
-        <a href="cart01.html">{{ cart_count }}</a>
-    </div>
+    <a href="cart01.html">
+        <div class="shopping_cart"><span>{{ cart_count }}</span></div>
+    </a>
     <div class="user_menu">
         <a href="/">首頁</a><span></span>
         <a href="newsletter.html">訂閱電子報</a><span></span>
@@ -31,7 +31,7 @@
     </div>
     <div class="clear"></div>
     <div class="logo">
-        <a href="/"><img src="{{ logo.image }}" alt="logo" id="logo_img" /></a>
+        <a href="/"><img src="{{ logo }}" alt="logo" id="logo_img" /></a>
     </div>
     <div class="main_menu">
         {% for item in menu_list %}<a href="{{ item.url }}"><img src="{{ item.image }}" alt="{{ item.title }}"/></a>{% endfor %}
@@ -55,7 +55,7 @@
         <div class="social_menu">
             {{ menu_index.content }}
         </div>
-        <div class="title"><a href="news_list.html"><img src="{{ hot_news.image }}" alt="Hot News" id="hot_news" /></a></div>
+        <div class="title"><a href="news_list.html"><img src="{{ hot_news }}" alt="Hot News" id="hot_news" /></a></div>
         <ul>
             {% for item in news_list %}
             <li><a href="news_view.html?key={{ item.str_key }}"><span>{{ item.create_date_f }}</span><p>{{ item.title }}</p></a></li>
