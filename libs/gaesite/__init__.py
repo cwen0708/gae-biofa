@@ -224,6 +224,7 @@ class HomeHandler(BaseHandler):
 
     def dispatch(self):
         self.session_store = sessions.get_store(request=self.request)
+        self.sideMenuItem = ""
 
         data_source = db.GqlQuery("SELECT * FROM DBBanner WHERE is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc")
         self.banner_list = data_source.fetch(15,0)
@@ -236,7 +237,6 @@ class HomeHandler(BaseHandler):
         self.menu_in_page = DBPage.get_by_page_name("menuinpage")
         self.footer_1 = DBPage.get_by_page_name("footer")
         self.footer_2 = DBPage.get_by_page_name("footer_2")
-        self.page_js = DBPage.get_by_page_name("page_image")
 
         if self.session.has_key("is_login") is False:
             self.is_login = False
@@ -249,7 +249,6 @@ class HomeHandler(BaseHandler):
         else:
             self.user_name = self.session["user_name"]
         self.is_member_page = False
-
         self.order = DBOrder()
         self.order.status = 0
         self.order.count = 0
@@ -263,9 +262,9 @@ class HomeHandler(BaseHandler):
         self.order.save()
 
         self.session["order_str_key"] = self.order.str_key
-        self.init()
         self.size = Pagination.get_int_param(self, "size", 10)
         self.page = Pagination.get_int_param(self, "page", 1)
         self.page_now = self.page
+        self.init()
         super(BaseHandler, self).dispatch()
         self.session_store.save_sessions(self.response)

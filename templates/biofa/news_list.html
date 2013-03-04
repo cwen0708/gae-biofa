@@ -12,7 +12,5 @@
     </tr>
     {% endfor %}
 </table>
-<!-- page -->
-<div class="pager" align="center"><a href="#" title="上一頁"><img src="img/prev_out.gif" alt="上一頁" class="img_change prev" align="absmiddle" /></a><span class="current">1</span>‧<a href="#" title="2">2</a>‧<a href="#" title="3">3</a><a href="#" title="4">4</a>‧<a href="#" title="5">5</a><a href="#" title="下一頁"><img src="img/next_out.gif" alt="下一頁" class="img_change next" align="absmiddle" /></a></div>
-<!-- page end -->
+<div class="pager" align="center" data-page-all="{{ page_all }}" data-page-now="{{ page }}"></div>
 {% endblock %}

@@ -12,23 +12,23 @@
     <script src="/templates/biofa/js/jquery.jcarousel.min.js"></script>
     <script src="/templates/biofa/js/jquery.twaddress.js"></script>
     <script src="/templates/biofa/js/jquery-date-select.js"></script>
-    <script src="/templates/biofa/js/common.js"></script>
-    <script type="text/javascript">{{ page_js.content }}</script>
+    <script src="/templates/biofa/js/common.js?r=1"></script>
 </head>
 <body>
 
 <!-- 頁首區開始 -->
 <div id="header" class="wrap">
-    <div class="shopping_cart">
-        <a href="cart01.html">{{ cart_count }}</a>
-    </div>
+    <a href="cart01.html">
+        <div class="shopping_cart"><span>{{ cart_count }}</span></div>
+    </a>
     <div class="user_menu"></div>
     <div class="clear"></div>
     <div class="logo">
-        <a href="/"><img src="{{ logo.image }}" alt="logo" id="logo_img" /></a>
+        <a href="/"><img src="{{ logo }}" alt="logo" id="logo_img" /></a>
     </div>
     <div class="main_menu">
-        {% for item in menu_list %}<a href="{{ item.url }}"><img src="{{ item.image }}" alt="{{ item.title }}"/></a>{% endfor %}
+        {% for item in menu_list %}<a href="{{ item.url }}"><img src="{{ item.image }}" alt="{{ item.title }}"/></a>
+        {% endfor %}
     </div>
 </div>
 <!-- 頁首區結束 -->
@@ -37,28 +37,25 @@
 <!-- 本文區開始 -->
 <div id="container" class="wrap">
     <div class="side_menu">
-        <img src="{{ image_menu_title }}" alt="menu title" style="float:left;" />
+        <img src="{{ image_menu_title }}" alt="menu title" />
         <div class="leftMenu">
             {% for item in sub_menu_list  %}
                 <div class="lineD"></div>
                 <div class="{{ item.className }}">
                     <a href="{{ item.linkUrl }}" title="{{ item.title }}">{{ item.title }}</a>
-                </div>
-            {% endfor %}
+                </div>{% endfor %}
             <div class="lineD"></div>
         </div>
         <div class="fb">
             {{ menu_in_page.content }}
         </div>
-        <div class="btn-goto-top"><img src="{{ go_top.image }}" alt="" id="img-goto-top" /></div>
+        <div class="btn-goto-top"><img src="{{ go_top }}" alt="" id="img-goto-top" /></div>
     </div>
     <div class="content">
         <div class="side_show_small">
             <div id="slides">
-                <div class="slides_container">
-                    {% for item in banner_list %}
-                    <div><img src="{{ item.image }}" style="width: 750px;"></div>
-                    {% endfor %}
+                <div class="slides_container">{% for item in banner_list %}
+                    <div><img src="{{ item.image }}" style="width: 750px;"></div>{% endfor %}
                 </div>
             </div>
         </div>
@@ -98,5 +95,17 @@
 <!-- TODO: 12. (6)聯絡我們中的地圖連結、地址資訊、表單欄位前文字-->
 <!-- TODO: 12. (7)修改會員資料之頁面說明、各小圖示、表單欄位前文字-->
 <!-- TODO: 12. (8)查詢訂單之頁面說明、各小圖示、表單欄位前文字-->
+
+<script type="text/javascript">
+    $(function(){
+        var sideMenuItem = '{{ sideMenuItem }}';
+        $(".leftMenu a").each(function () {
+            if ($(this).attr("href").indexOf(sideMenuItem) > 0)
+            {
+                $(this).parent().addClass("menuActive");
+            }
+        });
+    });
+</script>
 </body>
 </html>

@@ -9,6 +9,10 @@ class ProductHandler(HomeHandler):
     def init(self):
         self.image_menu_title = DBPImg.get_by_name("#side_menu_title_product")
         data_source = db.GqlQuery("SELECT * FROM DBProductCategory WHERE is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc")
+
+        cate1 = self.request.get('cate1') if  self.request.get('cate1') is not None else u''
+        cate2 = self.request.get('cate2') if  self.request.get('cate2') is not None else u''
+        cate3 = self.request.get('cate3') if  self.request.get('cate3') is not None else u''
         self.sub_menu_list = data_source.fetch(999,0)
         for item in self.sub_menu_list:
             item.linkUrl = "/product_list.html?cate" + str(item.level) + "=" + item.str_key
@@ -107,9 +111,8 @@ class user_menu(MemberHandler):
 
 class us(HomeHandler):
     def get(self, *args):
-        self.image_page_title = DBTitle.get_by_name("#about_title")
         key = self.request.get('key') if  self.request.get('key') is not None else ''
-        record = None
+        self.image_page_title = DBTitle.get_by_name("#about_title")
         self.image_menu_title = DBPImg.get_by_name("#side_menu_title_about")
         self.page_title_image = DBTitle.get_by_name("#about_title")
         data_source = db.GqlQuery("SELECT * FROM DBAbout WHERE is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc")
@@ -123,6 +126,7 @@ class us(HomeHandler):
         else:
             record = db.GqlQuery("SELECT * FROM DBAbout WHERE is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc").get()
 
+        self.sideMenuItem = str(record.str_key)
         if record is not None:
             self.record = record
             self.str_key = str(record.key())
@@ -135,14 +139,16 @@ class news_list(NewsHandler):
         data_source = db.GqlQuery("SELECT * FROM DBNewsCategory WHERE is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc")
         self.sub_menu_list = data_source.fetch(99,0)
         for item in self.sub_menu_list:
+            if len(self.sideMenuItem) == 0:
+                self.sideMenuItem = str(item.str_key)
             item.className = "treeOne"
             item.linkUrl = "/news_list.html?cate=" + item.str_key
 
         cate = self.request.get('cate') if self.request.get('cate') is not None else ''
         if len(cate) > 0:
-            data_source = db.GqlQuery("SELECT * FROM DBNews WHERE category = :1 and is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc", cate)
-        else:
-            data_source = db.GqlQuery("SELECT * FROM DBNews WHERE is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc")
+            self.sideMenuItem = cate
+        data_source = db.GqlQuery("SELECT * FROM DBNews WHERE category = :1 and is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc", self.sideMenuItem)
+
         self.results = data_source.fetch(self.size, (self.page - 1) * self.size)
         self.page_all = Pagination.get_all_page(self.results, "show", self.page, self.size, cate)
         self.render("/news_list.html")
@@ -427,24 +433,33 @@ class contact_json(HomeHandler):
 class product_list(ProductHandler):
     def get(self, *args):
         self.image_page_title = DBTitle.get_by_name("#product_title")
-        size = Pagination.get_int_param(self,"size",10)
-        page = Pagination.get_int_param(self,"page",1)
         cate1 = self.request.get('cate1') if  self.request.get('cate1') is not None else u''
         cate2 = self.request.get('cate2') if  self.request.get('cate2') is not None else u''
         cate3 = self.request.get('cate3') if  self.request.get('cate3') is not None else u''
-        data_source = db.GqlQuery("SELECT * FROM DBProduct WHERE is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc")
 
-        self.cate = ''
+        self.sideMenuItem = ''
         if len(cate1) > 0:
             data_source = db.GqlQuery("SELECT * FROM DBProduct WHERE is_enable = True and in_trash_can < 0.0 and category1 = :1 ORDER BY in_trash_can, sort desc", cate1)
-            self.cate = cate1
+            self.sideMenuItem = cate1
         if len(cate2) > 0:
             data_source = db.GqlQuery("SELECT * FROM DBProduct WHERE is_enable = True and in_trash_can < 0.0 and category2 = :1 ORDER BY in_trash_can, sort desc", cate2)
-            self.cate = cate1
+            self.sideMenuItem = cate2
         if len(cate3) > 0:
             data_source = db.GqlQuery("SELECT * FROM DBProduct WHERE is_enable = True and in_trash_can < 0.0 and category3 = :1 ORDER BY in_trash_can, sort desc", cate3)
-            self.cate = cate1
-        self.results = data_source.fetch(size,(page -1)*size)
+            self.sideMenuItem = cate3
+        if self.sideMenuItem == '':
+            cate = db.GqlQuery("SELECT * FROM DBProductCategory WHERE is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc").get()
+            str_key = str(cate.str_key)
+            if cate.level == 1:
+                data_source = db.GqlQuery("SELECT * FROM DBProduct WHERE is_enable = True and in_trash_can < 0.0 and category1 = :1 ORDER BY in_trash_can, sort desc", str_key)
+            if cate.level == 2:
+                data_source = db.GqlQuery("SELECT * FROM DBProduct WHERE is_enable = True and in_trash_can < 0.0 and category2 = :1 ORDER BY in_trash_can, sort desc", str_key)
+            if cate.level == 3:
+                data_source = db.GqlQuery("SELECT * FROM DBProduct WHERE is_enable = True and in_trash_can < 0.0 and category3 = :1 ORDER BY in_trash_can, sort desc", str_key)
+            self.sideMenuItem = str_key
+
+        self.results = data_source.fetch(self.size, (self.page - 1) * self.size)
+        self.page_all = Pagination.get_all_page(self.results, "show", self.page, self.size, u"cate-" + self.sideMenuItem)
         self.render("/product_list.html")
 
 class product_view(ProductHandler):
@@ -466,21 +481,16 @@ class product_view(ProductHandler):
 class page_sitep(HomeHandler):
     def get(self, resource):
         self.record = DBPage.gql("WHERE name = '%s' " % resource).get()
-        self.image_page_title = DBTitle.get_by_name(resource)
+        self.image_page_title = DBTitle.get_by_name(u"#sitep_" + resource)
+        self.image_menu_title = DBPImg.get_by_name(u"#sitep_" + resource)
         self.render("/page_frame.html")
 
 class page_style(BaseHandler):
     def get(self, *args):
-        self.record = DBPage.gql("WHERE name = '%s' " % 'css').get()
-        self.response.headers['Content-Type'] = 'text/css'
-        self.render("/page_style.html")
-
-class page_image(BaseHandler):
-    def get(self, *args):
         try:
             sec = float(self.request.get('sec')) if  self.request.get('sec') is not None else 500
         except:
-            sec = 500
+            sec = 50000
         self.record = DBPage.gql("WHERE name = '%s' " % 'page_image').get()
         if self.record is None:
             name = "page_image"
@@ -490,22 +500,20 @@ class page_image(BaseHandler):
             self.record.title = name
             self.record.save()
         s = time.time()
+        self.response.headers['Content-Type'] = 'text/css'
         if (self.record.sort + sec ) > time.time() :
-            self.response.headers['Content-Type'] = 'application/x-javascript'
-            self.render("/page_image.html")
+            self.render("/page_style.html")
         else:
-            self.response.headers['Content-Type'] = 'application/x-javascript'
+            self.base_style = DBPage.gql("WHERE name = '%s' " % 'css').get()
             size = Pagination.get_int_param(self,"size",999)
             page = Pagination.get_int_param(self,"page",1)
-            data_source = db.GqlQuery("SELECT * FROM DBTitle ORDER BY sort desc")
-            self.db_title = data_source.fetch(size,(page -1)*size)
+            data_source = db.GqlQuery("SELECT * FROM DBBackground WHERE is_enable = True ORDER BY sort desc")
+            self.background = data_source.fetch(size,(page -1)*size)
 
-            data_source = db.GqlQuery("SELECT * FROM DBBackground ORDER BY sort desc")
-            self.db_background = data_source.fetch(size,(page -1)*size)
+            data_source = db.GqlQuery("SELECT * FROM DBCss WHERE is_enable = True ORDER BY sort desc")
+            self.style = data_source.fetch(size,(page -1)*size)
 
-            data_source = db.GqlQuery("SELECT * FROM DBPImg ORDER BY sort desc")
-            self.db_img = data_source.fetch(size,(page -1)*size)
-            self.render("/page_gen_image.html")
+            self.render("/page_style_gen.html")
 
             self.record.content = self.response_out_text
             self.record.sort = time.time()
@@ -552,11 +560,16 @@ class faq(FaqHandler):
         data_source = db.GqlQuery("SELECT * FROM DBFaqCategory WHERE is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc")
         self.sub_menu_list = data_source.fetch(99,0)
         for item in self.sub_menu_list:
+            if len(self.sideMenuItem) == 0:
+                self.sideMenuItem = str(item.str_key)
             item.className = "treeOne"
             item.linkUrl = "/faq.html?cate=" + item.str_key
 
         cate = self.request.get('cate') if self.request.get('cate') is not None else ''
-        data_source = db.GqlQuery("SELECT * FROM DBFaq WHERE is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc")
+        if len(cate) > 0:
+            self.sideMenuItem = str(cate)
+        data_source = db.GqlQuery("SELECT * FROM DBFaq WHERE category = :1 and is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc", self.sideMenuItem)
+
         self.results = data_source.fetch(self.size, (self.page - 1) * self.size)
         self.page_all = Pagination.get_all_page(self.results, "show", self.page, self.size, cate)
         self.render("/faq.html")

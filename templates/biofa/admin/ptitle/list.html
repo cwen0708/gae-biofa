@@ -3,7 +3,6 @@
 </script>
 <div class="list-top-bar span5 ">
     <button type="button" class="btn btn-danger btn-large" data-lang="ptitle_create_record" data-page-url="/admin/ptitle/create.html"></button>
-    <button type="button" class="btn btn-large reload_style_file" data-lang="apply"></button>
 </div>
 
 <div class="pagination pagination-small pagination-right span7 padding15" data-page-all="{{ page_all }}" data-page-now="{{ page_now }}"></div>
@@ -14,7 +13,6 @@
         <th style="width:30px">#</th>
         <th data-lang="title"></th>
         <th style="width:60px"><br /></th>
-        <th style="width:100px"><br /></th>
         <th style="width:60px"><br /></th>
     </tr>
     </thead>
@@ -24,12 +22,6 @@
         <td>{{ item.row_no }}</td>
         <td>{{ item.title }}</td>
         <td><button type="button" class="btn" data-lang="edit" data-page-url="/admin/ptitle/edit.html?key={{ item.str_key }}"></button></td>
-        <td>
-            <div class="btn-group" data-toggle="buttons-radio">
-                <button class="btn btn-set-enable {% if item.is_enable == True %} active{% endif %}" data-lang="show" data-json-url="/admin/record/enable.json?key={{ item.str_key }}"></button>
-                <button class="btn btn-set-disable {% if item.is_enable == False %} active{% endif %}" data-lang="hide" data-json-url="/admin/record/disable.json?key={{ item.str_key }}"></button>
-            </div>
-        </td>
         <td><button type="button" class="btn" data-lang="delete" data-json-url="/admin/record/delete.json?key={{ item.str_key }}"></button></td>
     </tr>
     {% endfor %}

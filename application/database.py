@@ -198,6 +198,13 @@ class DBBackground(DBBase):
     image = db.StringProperty()
     jq_selector = db.StringProperty()
 
+class DBCss(DBBase):
+    """ 修飾圖 """
+    title = db.StringProperty()
+    attr = db.StringProperty()
+    value = db.StringProperty()
+    selector = db.StringProperty()
+
 class DBMenu(DBBase):
     """ 主選單 """
     title = db.StringProperty()

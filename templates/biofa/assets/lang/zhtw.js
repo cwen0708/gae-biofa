@@ -35,6 +35,13 @@ gs.lang.append('zhtw',[
     {key:"menu_create_record", label:"新增選單"},
     {key:"link_create_record", label:"新增首頁連結項目"},
     {key:"product_category_manage", label:"商品類別管理"},
+    {key:"css_create_record", label:"新增 Css 樣式"},
+    {key:"css_edit_record", label:"編輯 Css 樣式"},
+
+    {key:"field_css_title", label:"Css 樣式名稱"},
+    {key:"field_css_selector", label:"選擇器(勿修改)"},
+    {key:"field_css_attr", label:"屬性(勿修改)"},
+    {key:"field_css_value", label:"內容值"},
 
     {key:"already_delete", label:"已被刪除"},
     {key:"real_delete", label:"完全刪除"},
@@ -73,6 +80,7 @@ gs.lang.append('zhtw',[
     {key:"report_transform_2", label:"還原為一般問題"},
     {key:"report_s1", label:"已回覆"},
     {key:"report_s2", label:"等待回覆"},
+    {key:"css_setting", label:"樣式設定"},
 
 
     {key:"freight", label:"運費"},

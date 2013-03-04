@@ -1,0 +1,9 @@
+{{ base_style.content }}
+{% for item in background %}
+{{ item.jq_selector }}{
+    background-image : url({{ item.image }}) !important;
+}{% endfor %}{% for item in style %}
+{{ item.selector }}{
+    {{ item.attr }} : {{ item.value }} !important;
+}{% endfor %}
+

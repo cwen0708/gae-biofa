@@ -3,7 +3,7 @@
 
 from application.common import  static_page, asserts_file, \
     image, verification_code, verification_page
-import home, admin, administrator, link, \
+import home, admin, administrator, link, pagecss, \
     news, record, about, jobs, foothold, report, \
     country, member, banner, contact, menu,\
     product, partners, background, pimg, sitep,\
@@ -17,7 +17,6 @@ app_routes = [
     (r'/user_menu.html', home.user_menu),
     (r'/news_list.html', home.news_list),
     (r'/news_view.html', home.news_view),
-    (r'/site_image.js', home.page_image),
     (r'/site_style.css', home.page_style),
     (r'/worker-css.js', admin.worker_css),
     (r'/page_(.*).html', home.page_sitep),
@@ -101,6 +100,10 @@ app_routes = [
     (r'/admin/background/list.html', background.list),
     (r'/admin/background/create.html', background.create),
     (r'/admin/background/edit.html', background.edit),
+    (r'/admin/pagecss/init.json', pagecss.init),
+    (r'/admin/pagecss/list.html', pagecss.list),
+    (r'/admin/pagecss/create.html', pagecss.create),
+    (r'/admin/pagecss/edit.html', pagecss.edit),
     (r'/admin/order/list_new.html', order.list_new),
     (r'/admin/order/list_give_up.html', order.list_give_up),
     (r'/admin/order/list.html', order.list),

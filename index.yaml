@@ -295,3 +295,26 @@ indexes:
   - name: sort
     direction: desc
 
+
+- kind: DBBackground
+  properties:
+  - name: is_enable
+  - name: sort
+    direction: desc
+
+
+- kind: DBFaq
+  properties:
+  - name: category
+  - name: is_enable
+  - name: in_trash_can
+  - name: sort
+    direction: desc
+
+
+- kind: DBCss
+  properties:
+  - name: is_enable
+  - name: sort
+    direction: desc
+

@@ -77,6 +77,7 @@ gs.menu.list["/admin/page.html"] = [
 gs.menu.list["/admin/theme.html"] = [
     '<li class="nav-header"><span data-lang="theme"></span></li>',
     '<li class="menu"><a href="/admin/sitep/edit.html?name=css"><span data-lang="style_base"></span></a></li>',
+    '<li class="menu"><a href="/admin/pagecss/list.html"><span data-lang="css_setting"></span></a></li>',
     '<li class="divider"></li>',
     '<li class="nav-header"><span data-lang="image_setting"></span></li>',
     '<li class="menu"><a href="/admin/ptitle/list.html"><span data-lang="ptitle_image_setting"></span></a></li>',
@@ -130,7 +131,7 @@ $(function(){
 
 gs.interact.afterLoad(function(){
     $(".reload_style_file").click(function(){
-        gs.ajax.get('/site_image.js?sec=1', null, function (data) {
+        gs.ajax.get('/site_style.css?sec=0', null, function (data) {
             art.dialog({
                 title: "已變更",
                 content: "新的圖片樣式已套用",

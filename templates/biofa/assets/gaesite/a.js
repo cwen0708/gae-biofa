@@ -731,7 +731,7 @@ jQuery(function () {
                 }(window))
             };
         }()),
-        version: "1.3.9"
+        version: "1.4.3"
     };
     gs.ui.insertPlugins('/templates/biofa/assets/FortAwesome/css/font-awesome.min.css', 'style');
     gs.ui.insertPlugins('/templates/biofa/assets/kindeditor-4.1.4/themes/default/default.css', 'style');
