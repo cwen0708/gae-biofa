@@ -58,6 +58,28 @@ class recruit_create_json(HomeHandler):
         record.years_3 = self.request.get('years_3') if  self.request.get('years_3') is not None else u'前二工作年資未填寫'
         record.content = self.request.get('content') if  self.request.get('content') is not None else u'自傳未填寫'
 
+        record.school_name_1 = self.request.get('school_name_1') if  self.request.get('school_name_1') is not None else u''
+        record.school_department_name_1 = self.request.get('school_department_name_1') if  self.request.get('school_department_name_1') is not None else u''
+        record.school_start_year_1 = self.request.get('school_start_year_1') if  self.request.get('school_start_year_1') is not None else u''              #年資
+        record.school_start_month_1 = self.request.get('school_start_month_1') if  self.request.get('school_start_month_1') is not None else u''
+        record.school_end_year_1 = self.request.get('school_end_year_1') if  self.request.get('school_end_year_1') is not None else u''
+        record.school_end_month_1 = self.request.get('school_end_month_1') if  self.request.get('school_end_month_1') is not None else u''
+
+        record.school_name_2 = self.request.get('school_name_2') if  self.request.get('school_name_2') is not None else u''
+        record.school_department_name_2 = self.request.get('school_department_name_2') if  self.request.get('school_department_name_2') is not None else u''
+        record.school_start_year_2 = self.request.get('school_start_year_2') if  self.request.get('school_start_year_2') is not None else u''              #年資
+        record.school_start_month_2 = self.request.get('school_start_month_2') if  self.request.get('school_start_month_2') is not None else u''
+        record.school_end_year_2 = self.request.get('school_end_year_2') if  self.request.get('school_end_year_2') is not None else u''
+        record.school_end_month_2 = self.request.get('school_end_month_2') if  self.request.get('school_end_month_2') is not None else u''
+
+        record.school_name_3 = self.request.get('school_name_3') if  self.request.get('school_name_3') is not None else u''
+        record.school_department_name_3 = self.request.get('school_department_name_3') if  self.request.get('school_department_name_3') is not None else u''
+        record.school_start_year_3 = self.request.get('school_start_year_3') if  self.request.get('school_start_year_3') is not None else u''              #年資
+        record.school_start_month_3 = self.request.get('school_start_month_3') if  self.request.get('school_start_month_3') is not None else u''
+        record.school_end_year_3 = self.request.get('school_end_year_3') if  self.request.get('school_end_year_3') is not None else u''
+        record.school_end_month_3 = self.request.get('school_end_month_3') if  self.request.get('school_end_month_3') is not None else u''
+
+    
         record.save()
         Pagination.add(record,record.is_enable)
         self.json({"info": u'done'})

@@ -1,67 +1,197 @@
 <script>
     gs.menu.load('/admin/interactive.html',"/admin/recruit/list.html");
 </script>
+<style>
+    table.recruit{
+        width:700px;
+    }
+    table.recruit td{
+        padding: 5px 5px 5px 25px;
+        margin: 3px;
+        border: solid 1px #fff;
+    }
+    table.recruit td.title,table.recruit td.bigtitle {
+        font-weight: 800;
+        font-size: 15px;
+        padding: 5px 5px 5px 15px;
+    }
+    h3.title{
+        background: #999;
+        color: #fff;
+        width:700px;
+        padding-left: 10px;
+    }
+    .gray{
+        background: #ddd;
+    }
+</style>
 <div style="display: none; margin-bottom: 25px" id="btn-print">
     <a class="btn btn-large" href="/admin/recruit/edit.html?key={{ record.str_key }}" target="_blank">列印</a>
 </div>
 <h3 class="page-title">{{ record.name }}的求職履歷</h3>
-<table style="width:700px;">
+<h3 class="title">基本資料</h3>
+<table class="recruit" cellpadding="0" cellspacing="0" border="0">
+    <tbody><tr>
+        <td width="85" class="gray title">應徵職務</td>
+        <td>{{ record.job }}</td>
+        <td colspan="2" rowspan="6">
+            <img src="http://www.14888.com.tw/{{ record.image }}" id="img_user" style="height:172px; border:dotted 1px #999; cursor: pointer;" class="job_image_upload">
+        </td>
+    </tr>
     <tr>
-        <td><img src="http://www.14888.com.tw/{{ record.image }}" style="height: 170px; border: solid 1px #ddd; padding: 2px;margin-right: 10px" height="170" /></td>
+        <td class="gray title">姓名</td>
+        <td>{{ record.name }}</td>
+    </tr>
+    <tr>
+        <td class="gray title">身份證字號</td>
+        <td>{{ record.id }}</td>
+    </tr>
+    <tr>
+        <td class="gray title">出生年月日</td>
+        <td>{{ record.birthday }}</td>
+    </tr>
+    <tr>
+        <td class="gray title">出生地</td>
+        <td>{{ record.birthplace }}</td>
+    </tr>
+    <tr>
+        <td class="gray title">國籍</td>
+        <td>{{ record.nationality }}</td>
+    </tr>
+    <tr>
+        <td class="gray title">姓別</td>
+        <td>{{ record.sex }}</td>
+        <td width="85" class="gray title">婚姻狀況</td>
+        <td width="204" class="w150">{{ record.marital_status }}</td>
+    </tr>
+    <tr>
+        <td class="gray title">身高</td>
+        <td>{{ record.height }} 公分</td>
+        <td class="gray title">體重</td>
+        <td>{{ record.weight }} 公斤</td>
+    </tr>
+    <tr>
+        <td class="gray title">永久地址</td>
+        <td class="w500" colspan="3">{{ record.permanent_address }}</td>
+    </tr>
+    <tr>
+        <td class="gray title">現居地址</td>
+        <td class="w500" colspan="3">{{ record.present_address }}</td>
+    </tr>
+    <tr>
+        <td class="gray title">聯絡電話</td>
+        <td class="w500" colspan="3">
+            日：&nbsp;{{ record.telephone }}
+            行動電話：&nbsp;{{ record.mobile }}
+        </td>
+    </tr>
+    <tr>
+        <td class="gray title">電子信箱</td>
+        <td class="w500" colspan="3">{{ record.email }}</td>
+    </tr>
+    </tbody></table>
+<div class="clear"></div>
+<h3 class="title">技能專長</h3>
+<table class="recruit">
+    <tbody><tr class="lang-clone-target">
+        <td class="gray bigtitle">語文能力</td>
+    </tr>
+    <tr>
+        <td>{{ lang }}</td>
+    </tr>
+    <tr>
+        <td class="gray bigtitle">擅長工具</td>
+    </tr>
+    <tr>
+        <td>{{ record.tool }}</td>
+    </tr>
+    <tr>
+        <td class="gray bigtitle">交通工具及駕駛執照</td>
+    </tr>
+    <tr>
         <td>
-            <b>應徵職務：</b>　{{ record.job }} <br />
-            <b>姓　　名：</b>　{{ record.name }} <br />
-            <b>身份證號：</b>　{{ record.id }} <br />
-            <b>出生日期：</b>　{{ record.birthday }} <br />
-            <b>出生地點：</b>　{{ record.birthplace }} <br />
-            <b>國　　籍：</b>　{{ record.nationality }} <br />
-            <b>姓　　別：</b>　{{ record.sex }} <br />
-            <b>婚姻狀況：</b>　{{ record.marital_status }} <br />
-        </td>
-        <td>
-            <b>身　　高：</b>　{{ record.height }} 公分 <br />
-            <b>體　　重：</b>　{{ record.weight }} 公斤 <br />
-            <b>永久地址：</b>　{{ record.permanent_address }} <br />
-            <b>現居地址：</b>　{{ record.present_address }} <br />
-            <b>聯絡電話：</b>　{{ record.telephone }} <br />
-            <b>行動電話：</b>　{{ record.mobile }} <br />
-            <b>電子郵件：</b>　{{ record.email }} <br />
+            <table style="width:50%;border: solid 0px #000;float:left;">
+                <tbody><tr class="traffic-clone-target-1">
+                    <td>{{ record.transport }}</td>
+                </tr>
+                </tbody></table>
+            <table style="width:48%;border: solid 0px #000;float:left;">
+                <tbody><tr class="traffic-clone-target-2">
+                    <td>{{ record.driving_license }}</td>
+                </tr>
+                </tbody></table>
         </td>
     </tr>
-    <tr>
-        <td><br />
-            <b>最近工作：</b>　{{ record.title_name_1 }} <br />
-            <b>前一工作：</b>　{{ record.title_name_2 }} <br />
-            <b>前二工作：</b>　{{ record.title_name_3 }} <br />
-        </td>
-        <td><br />
-            <b>任職期間為</b> {{ record.during_his_tenure_1 }} <br />
-            <b>任職期間為</b> {{ record.during_his_tenure_2 }} <br />
-            <b>任職期間為</b> {{ record.during_his_tenure_3 }} <br />
-        </td>
-        <td><br />
-            <b>共</b> {{ record.years_1 }} <br />
-            <b>共</b> {{ record.years_2 }} <br />
-            <b>共</b> {{ record.years_3 }} <br />
-        </td>
-    </tr>
-    <tr>
-        <td colspan="3"><br /><b>擅長工具：</b>　{{ record.tool }} <br /></td>
-    </tr>
-    <tr>
-        <td colspan="3"><br /><b>語言能力：</b>　{{ lang }} <br /></td>
-    </tr>
-    <tr>
-        <td colspan="3"><br /><b>自　　傳：</b>　{{ record.content }} <br /></td>
-    </tr>
-    <tr>
-        <td colspan="3"><br /><b>交通工具：</b>　{{ record.transport }} <br /></td>
-    </tr>
-    <tr>
-        <td colspan="3"><br /><b>駕駛執照：</b>　{{ record.driving_license }} <br /></td>
-    </tr>
+    </tbody></table>
+<div class="clear"></div>
 
+<h3 class="title">工作經歷 / 學歷</h3>
+<table class="recruit" cellspacing="0">
+    <tbody><tr>
+        <td class="gray title"><br></td>
+        <td class="gray title">公司名稱 / 職務名稱</td>
+        <td class="gray title">任職期間</td>
+        <td class="gray title">年資</td>
+    </tr>
+    <tr>
+        <td>最近工作</td>
+        <td>{{ record.title_name_1 }}</td>
+        <td>{{ record.during_his_tenure_1 }}</td>
+        <td>{{ record.years_1 }}</td>
+    </tr>
+    <tr>
+        <td>前一工作</td>
+        <td>{{ record.title_name_2 }}</td>
+        <td>{{ record.during_his_tenure_2 }}</td>
+        <td>{{ record.years_2 }}</td>
+    </tr>
+    <tr>
+        <td>前二工作</td>
+        <td>{{ record.title_name_3 }}</td>
+        <td>{{ record.during_his_tenure_3 }}</td>
+        <td>{{ record.years_3 }}</td>
+    </tr>
+    </tbody></table>
+
+<table class="recruit" cellspacing="0">
+    <tbody><tr>
+        <td class="gray title">學校名稱</td>
+        <td class="gray title">科系名稱</td>
+        <td class="gray title" colspan="3">就讀時間</td>
+    </tr>
+    <tr>
+        <td>{{ record.school_name_1 }}</td>
+        <td>{{ record.school_department_name_1 }}</td>
+        <td>{{ record.school_start_year_1 }} {{ record.school_start_month_1 }}</td>
+        <td> ~ </td>
+        <td>{{ record.school_end_year_1 }} {{ record.school_end_month_1 }}</td>
+    </tr>
+    <tr>
+        <td>{{ record.school_name_2 }}</td>
+        <td>{{ record.school_department_name_2 }}</td>
+        <td>{{ record.school_start_year_2 }} {{ record.school_start_month_2 }}</td>
+        <td> ~ </td>
+        <td>{{ record.school_end_year_2 }} {{ record.school_end_month_2 }}</td>
+    </tr>
+    <tr>
+        <td>{{ record.school_name_3 }}</td>
+        <td>{{ record.school_department_name_3 }}</td>
+        <td>{{ record.school_start_year_3 }} {{ record.school_start_month_3 }}</td>
+        <td> ~ </td>
+        <td>{{ record.school_end_year_3 }} {{ record.school_end_month_3 }}</td>
+    </tr>
+    </tbody>
 </table>
+
+<div class="clear"></div>
+<h3 class="title">自傳</h3>
+<table class="recruit">
+    <tbody><tr>
+        <td>{{ record.content }}</td>
+    </tr>
+    </tbody>
+</table>
+
 <script type="text/javascript">
     try{
         $("#btn-print").show();

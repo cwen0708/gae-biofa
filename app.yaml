@@ -39,6 +39,9 @@ handlers:
   static_files: templates/\1/\2/\3
   upload: templates/(.*)/(img|image|images|css|style|js|script|javascript|swf|flash|kindeditor|fancybox|assets)/(.*)
 
+- url: /plugins
+  static_dir: templates/plugins
+
 - url: /common
   static_dir: templates/common
 

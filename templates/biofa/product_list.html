@@ -5,7 +5,9 @@
     <table border="0" style="width:100%">
         <tr>
             <td class="image" rowspan="3"><a href="{{ item.image }}" class="colorbox"><img src="{{ item.image }}" alt="商品縮圖" width="150" /></a></td>
-            <td class="title"><a href="product_view.html?key={{ item.str_key }}">{{ item.title }}<img src="img/icon_detail.png" alt="查看產品" /></a></td>
+            <td class="title">
+                <a href="product_view.html?key={{ item.str_key }}"><span style="float:left;">{{ item.title }}</span><img src="{{ image_product_detail_icon }}" alt="查看產品" /></a>
+            </td>
             <td class="price">${{ item.price }}</td>
         </tr>
         <tr>

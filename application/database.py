@@ -359,6 +359,27 @@ class DBRecruit(DBBase):
     years_2 = db.StringProperty()
     years_3 = db.StringProperty()
 
+    school_name_1 = db.StringProperty()  #學校名稱
+    school_department_name_1 = db.StringProperty()  #科系名稱
+    school_start_year_1 = db.StringProperty()  #就讀時間開始
+    school_start_month_1 = db.StringProperty()  #就讀時間開始(月)
+    school_end_year_1 = db.StringProperty()  #就讀時間開始
+    school_end_month_1 = db.StringProperty()  #就讀時間開始(月)
+    
+    school_name_2 = db.StringProperty()  #學校名稱
+    school_department_name_2 = db.StringProperty()  #科系名稱
+    school_start_year_2 = db.StringProperty()  #就讀時間開始
+    school_start_month_2 = db.StringProperty()  #就讀時間開始(月)
+    school_end_year_2 = db.StringProperty()  #就讀時間開始
+    school_end_month_2 = db.StringProperty()  #就讀時間開始(月)
+    
+    school_name_3 = db.StringProperty()  #學校名稱
+    school_department_name_3 = db.StringProperty()  #科系名稱
+    school_start_year_3 = db.StringProperty()  #就讀時間開始
+    school_start_month_3 = db.StringProperty()  #就讀時間開始(月)
+    school_end_year_3 = db.StringProperty()  #就讀時間開始
+    school_end_month_3 = db.StringProperty()  #就讀時間開始(月)
+
 class DBAdministrator(DBBase):
     name = db.StringProperty()
     account = db.StringProperty()

@@ -462,7 +462,7 @@ function pickerImageCallback(data) {
         var doc2 = doc[google.picker.Document.THUMBNAILS];
         var thumbnail = doc2[0];
         url = thumbnail[google.picker.Thumbnail.URL];
-        url = url.replace('/s32-c/','/');
+        url = url.replace('/s32-c/','/w1000/');
         url = url.replace('https://','http://');
         console.log(url);
         var c = doc[google.picker.Document.URL];

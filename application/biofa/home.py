@@ -433,6 +433,7 @@ class contact_json(HomeHandler):
 class product_list(ProductHandler):
     def get(self, *args):
         self.image_page_title = DBTitle.get_by_name("#product_title")
+        self.image_product_detail_icon = DBPImg.get_by_name("#product_detail_icon")
         cate1 = self.request.get('cate1') if  self.request.get('cate1') is not None else u''
         cate2 = self.request.get('cate2') if  self.request.get('cate2') is not None else u''
         cate3 = self.request.get('cate3') if  self.request.get('cate3') is not None else u''
@@ -557,6 +558,8 @@ class cart04(MemberHandler):
 class faq(FaqHandler):
     def get(self, *args):
         self.image_page_title = DBTitle.get_by_name("#faq_title")
+        self.image_q = DBPImg.get_by_name("#faq_q")
+        self.image_a = DBPImg.get_by_name("#faq_a")
         data_source = db.GqlQuery("SELECT * FROM DBFaqCategory WHERE is_enable = True and in_trash_can < 0.0 ORDER BY in_trash_can, sort desc")
         self.sub_menu_list = data_source.fetch(99,0)
         for item in self.sub_menu_list:

@@ -50,6 +50,21 @@ $(function(){
         })
     }).first().click();
 
+    var today_d = new Date();
+    $(".school_year").each(function(){
+        for(var i = today_d.getFullYear(); i > 1945; i--)
+        {
+            var s = "西元 " + i.toString() + " 年";
+            $(this).append('<option value="' + s + '">' + s + '</option>');
+        }
+    });
+    $(".school_month").each(function(){
+        for(var i = 1; i <= 12; i++)
+        {
+            var s = "" + i.toString() + " 月";
+            $(this).append('<option value="' + s + '">' + s + '</option>');
+        }
+    });
 
     $(".writePayInfo").click(function(){
         $("#order_id").text($(this).data("order-id"));
